@@ -26,20 +26,18 @@ We are bridge between newbies on Internet and remote volunteers/who don’t have
 
 - By delivering Video series to schools in localised language and make teacher understand how to use it.
 
-- Video will be based on school syllabus. here<link> is list of topics on which we are making videos.
-
 - Intially Volunteer will visit school and give demo of some video :running:. They will explain to teachers that How can they use this video and learn by yourself as well to teach students. If they are interested then these videos will be handover to school faculties.:school:
+
+- Anyone can make this video in their local language and distribute it.
 
 
 ## Development
 
-We need poeple who are social activist, willing to give back something to society in any form. 
+We are looking for web developer. Where Content is already there. 
 
-We are looking for volunteers who has beginner level of skills in multimedia.
+We have videos ready in few local language. Make it in your language by following few steps. Currrently we are building [curriculam](curriculum.md) for it.
 
-We have videos ready in few local language. Make it in your language and deliever to local schools. Currrently we are building [curriculam](curriculum.md) for it, once resource get available it will publish with all materials.
-
-Be the part of change. Help us to improve education system. :clap:
+Be the part of change. Help us to create open education. :clap:
 
 ## Involve
 
