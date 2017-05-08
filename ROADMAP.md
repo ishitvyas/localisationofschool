@@ -10,25 +10,31 @@ Please check out our [contribution guidelines](CONTRIBUTING.md) and [code of con
   
   | First Header  | Second Header | Task    |  Estimated time of completion |
   | ------------- | ------------- |     --- | --|
-  | :rocket:  | Create Videos  |    0/6     |  30 May 2017|
-  | :rocket:  | Deliever Videos  |   0/5      |  20 June 2017|
-  | :rocket:  | Continous Development | 0/4   |  20 July 2017  |
+  | :rocket:  | Create Videos  |    0/4     |  12 May 2017|
+  | :rocket:  | Prototype of Website  |   0/4     |  4 June 2017|
+  | :rocket:  | Deliever Videos | 0/7   |  20 July 2017  |
 
 
 #### Create Videos
 
-- [ ] Prepare Syllabus - Select specific standard syllabus from government book.
-- [ ] Research if existing video available then check licencec - make it localised
-- [ ] If not above then theme of video. - Decide character in video which will be same in all video series
-- [ ] Decide Time of Video - Create time frame for video i.e not exceeding from 5 min and not less than 2 min.
-- [ ] Estimated time for creating video
+- [ ] Create Module-1 Curriculum
+- [ ] Format of Overall Curriculum
+- [ ] Make available video in at least 3 language - English, Hindi, Gujarati (Module 1)
+- [ ] Design Website Layout (Rough Layout on Page)
+
+#### Prototype of Website
+
+- [ ] Create Module-2 Curriculum
+- [ ] Make available video in at least 3 language - English, Hindi, Gujarati (Module 2)
+- [ ] Get at least 1 Contributor
+- [ ] Build Web site
 
 
 #### Deliever Videos
 
-yay! :tada: campaign timing :runner:
-
-- [ ] Target 3-4 schools - preferabally government
+- [ ] More function of website
+- [ ] Make it available in one more Language
+- [ ] Target 1 schools - preferabally government
 - [ ] Document what they know at first day of this campaign
 - [ ] Select one set of student who will same for next 3 weeks
 - [ ] Get response from school authority and students
