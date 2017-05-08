@@ -10,16 +10,16 @@ Please check out our [contribution guidelines](CONTRIBUTING.md) and [code of con
   
   | First Header  | Second Header | Task    |  Estimated time of completion |
   | ------------- | ------------- |     --- | --|
-  | :rocket:  | Create Videos  |    0/4     |  12 May 2017|
+  | :rocket:  | Create Videos  |    4/4     |  12 May 2017|
   | :rocket:  | Prototype of Website  |   0/4     |  4 June 2017|
   | :rocket:  | Deliever Videos | 0/7   |  20 July 2017  |
 
 
 #### Create Videos
 
-- [ ] Create Module-1 Curriculum
-- [ ] Format of Overall Curriculum
-- [ ] Make available video in at least 3 language - English, Hindi, Gujarati (Module 1)
+- [x] Create Module-1 Curriculum
+- [x] Format of Overall Curriculum
+- [x] Make available video in at least 3 language - English, Hindi, Gujarati (Module 1)
 - [ ] Design Website Layout (Rough Layout on Page)
 
 #### Prototype of Website
