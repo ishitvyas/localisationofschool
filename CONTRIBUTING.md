@@ -18,7 +18,16 @@ This project adheres to a [code of conduct](CODE_OF_CONDUCT.md). By participatin
 
 ## What we're working on
 
-We have animated videos in three language - English, Hindi and Tamil. Content of videos will be modulewise. If you want to make it in your language- Refer one vieo you understand(e.g English), Record Audio in your language and follow this guidelines<link> to apply it on vieo. Deliever this video in local schools when you are conducting web literacy event. Guide school teacher how they can use this while taking regular school lectures. Get in touch with them - solve their problems if any. Visit schools anytime and get feedback. Likewise we can maintain sustainable web literacy campaign.You can check few demo video from [here](https://www.youtube.com/playlist?list=PLu2d9jFcLV1G-t-9lXrBwxOSq_PHuo1RO&spfreload=10)
+We are currently working on and looking for contributors in following area.
+
+1. **Website Building**
+    We are planning to put this content in website for easily accessible.
+2. **Give voice to localise**
+  We have animated videos in three language - English, Hindi and Gujarati. Record Audio in your language, For making it follow this [guidelines](https://gitter.im/Open-Leadership-Localisation-of-School/Lobby).
+3. **Reach to the school**
+	Currently Module-1 is ready. Deliever these video in local schools when you are conducting web literacy event. Guide school teacher how they can use this while taking regular school lectures. Get in touch with them - solve their problems if any. Visit schools anytime and get feedback. Likewise we can maintain sustainable web literacy campaign.You can check few demo video from [here](https://www.youtube.com/playlist?list=PLu2d9jFcLV1G-t-9lXrBwxOSq_PHuo1RO&spfreload=10)
+
+Have Question? Join us [here](https://gitter.im/Open-Leadership-Localisation-of-School/Lobby)!
 
 Take a look at the issues in our [current milestone](https://github.com/drashti4/localisationofschool/milestones) or browse some [help wanted](https://github.com/drashti4/localisationofschool/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) to get started!
 
