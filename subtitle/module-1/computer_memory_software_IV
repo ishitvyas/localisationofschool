@@ -1,0 +1,221 @@
+215
+00:12:15,011 --> 00:12:20,075
+data just like your brain helps you in
+
+216
+00:12:18,032 --> 00:12:23,114
+keeping lots of important things in mind
+
+217
+00:12:20,075 --> 00:12:27,080
+so a computer store data in what is
+
+218
+00:12:24,014 --> 00:12:31,049
+called a computer memory a computer has
+
+219
+00:12:27,008 --> 00:12:35,081
+two types of memory primary or main
+
+220
+00:12:31,049 --> 00:12:39,092
+memory and secondary memory the main of
+
+
+221
+00:12:36,053 --> 00:12:43,084
+primary memory is<font color="#E5E5E5"> very fast it is called</font>
+
+222
+00:12:39,092 --> 00:12:47,117
+van which means random<font color="#E5E5E5"> access memory or</font>
+
+223
+00:12:43,084 --> 00:12:51,092
+Ram the speed of the<font color="#E5E5E5"> computer depends on</font>
+
+224
+00:12:48,017 --> 00:12:54,044
+the RAM data and instructions are stored
+
+225
+00:12:51,092 --> 00:12:56,111
+<font color="#E5E5E5">in the main memory from where it can be</font>
+
+226
+00:12:54,044 --> 00:13:01,046
+retrieved<font color="#E5E5E5"> from central processing unit</font>
+
+227
+00:12:57,011 --> 00:13:04,013
+or CPU for processing results<font color="#E5E5E5"> Ram is</font><font color="#CCCCCC"> the</font>
+
+228
+00:13:01,064 --> 00:13:06,128
+<font color="#E5E5E5">memory in which all the programs are</font>
+
+229
+00:13:04,013 --> 00:13:11,048
+stored the speed of<font color="#CCCCCC"> the computer depends</font>
+
+230
+00:13:07,028 --> 00:13:14,051
+on the RAM cache memory is a memory<font color="#E5E5E5"> that</font>
+
+231
+00:13:11,048 --> 00:13:16,139
+is<font color="#CCCCCC"> a part of</font><font color="#E5E5E5"> RAM and is very near to</font><font color="#CCCCCC"> the</font>
+
+232
+00:13:14,051 --> 00:13:20,105
+processor it is used to improve
+
+233
+00:13:17,039 --> 00:13:24,113
+processing speed the primary<font color="#CCCCCC"> memory is</font>
+
+234
+00:13:21,005 --> 00:13:29,012
+limited so to store unlimited data we
+
+235
+00:13:25,013 --> 00:13:32,036
+use secondary memory any data or program
+
+236
+00:13:29,012 --> 00:13:35,054
+that is kept in secondary memory has to
+
+237
+00:13:32,036 --> 00:13:37,121
+be copied by<font color="#E5E5E5"> DRAM because the computer</font>
+
+238
+00:13:35,054 --> 00:13:40,142
+cannot process data directly on
+
+239
+00:13:38,021 --> 00:13:44,065
+secondary memory these are<font color="#CCCCCC"> some of the</font>
+
+240
+00:13:41,042 --> 00:13:49,094
+devices which serve as secondary memory
+
+241
+00:13:44,065 --> 00:13:52,144
+pendrive hard disc and DVD so how does
+
+242
+00:13:49,094 --> 00:13:55,100
+the computer stores data in its memory
+
+243
+00:13:53,044 --> 00:14:01,091
+computer stores all information<font color="#CCCCCC"> in just</font>
+
+244
+00:13:56,054 --> 00:14:05,129
+<font color="#E5E5E5">two digits 0</font><font color="#CCCCCC"> & 1</font><font color="#E5E5E5"> a single binary digit</font>
+
+245
+00:14:01,091 --> 00:14:09,154
+that is a one or a zero is called a bit
+
+246
+00:14:06,029 --> 00:14:13,073
+a group of<font color="#CCCCCC"> eight bits is called a bite</font>
+
+247
+00:14:10,054 --> 00:14:18,067
+look at this table it shows the
+
+248
+00:14:13,073 --> 00:14:17,167
+relationship between bits and bytes
+
+249
+00:14:19,017 --> 00:14:24,021
+the instructions that<font color="#CCCCCC"> are used to</font>
+
+250
+00:14:21,959 --> 00:14:28,470
+control hardware and accomplish tasks
+
+251
+00:14:24,057 --> 00:14:30,506
+are called software software programs
+
+252
+00:14:28,047 --> 00:14:33,093
+are planned<font color="#E5E5E5"> step-by-step</font><font color="#CCCCCC"> set of</font>
+
+253
+00:14:31,019 --> 00:14:37,680
+instructions<font color="#E5E5E5"> that direct the computer</font>
+
+254
+00:14:33,093 --> 00:14:39,168
+what to do and how<font color="#CCCCCC"> to do there are</font><font color="#E5E5E5"> two</font>
+
+255
+00:14:37,068 --> 00:14:44,142
+<font color="#E5E5E5">types of software application software</font>
+
+256
+00:14:40,068 --> 00:14:47,537
+and<font color="#E5E5E5"> system software application software</font>
+
+257
+00:14:45,042 --> 00:14:50,099
+is a program that helps the user to
+
+258
+00:14:48,149 --> 00:14:54,510
+perform a specific job in a computer
+
+259
+00:14:50,099 --> 00:14:57,068
+microsoft<font color="#E5E5E5"> word and OpenOffice draw are</font>
+
+260
+00:14:54,051 --> 00:14:59,118
+examples of applications software the
+
+261
+00:14:57,959 --> 00:15:02,966
+programs<font color="#E5E5E5"> that are directly related to</font>
+
+262
+00:15:00,018 --> 00:15:06,617
+the computer hardware are called<font color="#E5E5E5"> system</font>
+
+263
+00:15:03,029 --> 00:15:09,110
+<font color="#E5E5E5">software to run a computer you need an</font>
+
+264
+00:15:06,779 --> 00:15:13,440
+operating system which is a system
+
+265
+00:15:09,839 --> 00:15:18,120
+software let's now take part in this fun
+
+266
+00:15:13,044 --> 00:15:20,633
+activity<font color="#CCCCCC"> Gaeta all of this is so</font>
+
+267
+00:15:18,012 --> 00:15:24,066
+<font color="#E5E5E5">interesting I have never used a computer</font>
+
+268
+00:15:21,029 --> 00:15:28,091
+before can you show me how to<font color="#E5E5E5"> set</font><font color="#CCCCCC"> up and</font>
+
+269
+00:15:24,066 --> 00:15:32,079
+work on a computer<font color="#E5E5E5"> definitely uncle I</font>
+
