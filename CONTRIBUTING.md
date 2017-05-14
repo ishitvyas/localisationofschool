@@ -21,7 +21,7 @@ This project adheres to a [code of conduct](CODE_OF_CONDUCT.md). By participatin
 We are currently working on and looking for contributors in following area.
 
 1. **Website Building**
-    We are planning to put this content in website for easily accessible.
+    We are planning to put this content in website for easily accessible. For more information check issue.
 2. **Give voice to localise**
   We have animated videos in three language - English, Hindi and Gujarati. Record Audio in your language, For making it follow this [guidelines](https://gitter.im/Open-Leadership-Localisation-of-School/Lobby).
 3. **Reach to the school**
