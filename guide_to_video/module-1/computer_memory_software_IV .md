@@ -8,4 +8,9 @@
 - Types of softwares - **Application software and System Software**.
 - Both type of software in detail with example.
 
+**Activity**
+<p>Techer can show different Type of seconday devices. Give detail like It;s company name, Cost of it, Memory of it.</p>
+<p>It will give idea about financial stage also.</p>
+<p>How to take care of harddrive, How to remove RAM</p>
+<p>As in video there are example for application and system software, Show it in individual computer</p>
 
