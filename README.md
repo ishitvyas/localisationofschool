@@ -24,9 +24,11 @@ Thank you for visiting our repo. :tada: This document will provide some infomati
 
 We are bridge between newbies on Internet and remote volunteers/who don’t have time to go and teach them periodically. :star2:
 
+- We are building a platform (Website) that we can load our localised web literacy  video series.
+
 - By delivering Video series to schools in localised language and make teacher understand how to use it. In a way we provide resources and make sure it is available whenever needed.
 
-- Intially Volunteer will visit school and give demo of some video :running:. They will explain to teachers that How can they use this video and learn by yourself as well to teach students. If they are interested then these videos will be handover to school faculties.:school:
+- Intially Volunteer will visit school and give demo of some video :running:. They will explain to teachers that How can they use this video and learn by yourself as well to teach students. If they are interested then these videos will be handover to school faculties.:school: *We will get periodically feedback from them, If they have doubt then can solve by sitting at home. This will be manual procedure handle by voluntters*
 
 - Anyone can make this video in their local language and distribute it.
 
@@ -35,7 +37,7 @@ We are bridge between newbies on Internet and remote volunteers/who don’t have
 
 We are looking for web developer. Where Content is already there. 
 
-We have videos ready in few local language. Make it in your language by following few steps. Currrently we are building [curriculum](curriculum.md) for it.
+We have videos ready in few local language. Make it in your language by following few steps. Currrently we are creating [guide] for using videos(guide_to_video/module-1) for it.Where after each video one assignment/activity will be given.
 
 Be the part of change. Help us to create open education. :clap:
 
