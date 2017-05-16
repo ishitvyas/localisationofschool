@@ -37,7 +37,7 @@ We are bridge between newbies on Internet and remote volunteers/who don’t have
 
 We are looking for web developer. Where Content is already there. 
 
-We have videos ready in few local language. Make it in your language by following few steps. Currrently we are creating [guide] for using videos(guide_to_video/module-1) for it.Where after each video one assignment/activity will be given.
+We have videos ready in few local language. Make it in your language by following few steps. Currrently we are creating [guide](guide_to_video/module-1) for using videos for it.Where after each video one assignment/activity will be given.
 
 Be the part of change. Help us to create open education. :clap:
 
