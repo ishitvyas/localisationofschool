@@ -7,20 +7,20 @@
 **Major function of Operating System**
 <p>control and coordinate operation of co. manages use of memory interaction, manipulate file</p>
 
-**classification of Operating System**
+**Classification of Operating System**
 
 **Command line user interface (CUI):** 
-<p> only by character, 
-<p>Apply command example cd,md,dir </p>
-<p>example of Operating System Disk OS</p>
+- only by character, 
+- Apply command example cd,md,dir
+-example of Operating System Disk OS
 
 **Graphical User Interface (GUI):** 
 <p>window xp,7,ubuntu</p>
 
-**proprietary and opensource**
-<p>understandng of both type</p>
-<p>proprietary licence, user not allows share and distribute, most common is Microsoft, Apple, IBM</p>
-<p>opensource Operating System are unix, linux,  solaris</p>
+**Proprietary and Opensource**
+- understandng of both type
+- proprietary licence, user not allows share and distribute, most common is Microsoft, Apple, IBM
+- opensource Operating System are unix, linux,  solaris
 
 **Detail about GUI**
 
