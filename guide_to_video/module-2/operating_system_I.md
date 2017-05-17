@@ -1,8 +1,7 @@
 **What is operating System & Why we need Operating System**
-
-<p>to work on program</p>
-<p>It helps to interact and act as Interface between user and computer</p>
-<p>It starts by itself</p>
+- To work on program
+- It helps to interact and act as Interface between user and computer
+- It starts by itself
 
 **Major function of Operating System**
 <p>control and coordinate operation of co. manages use of memory interaction, manipulate file</p>

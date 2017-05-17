@@ -4,6 +4,7 @@
 - How to us accessoriees
 - How to run paint?
  <p>dividied into 4 area, understainding of it.</p>
+
 - How to get Linux
 
 
