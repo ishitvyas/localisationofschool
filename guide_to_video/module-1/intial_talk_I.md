@@ -8,10 +8,10 @@
 
 **Overview about video:** In each video there will be three characters, one oldage man(Ramukaka), a kid (Rohan) and Teacher(Geeta). Where kid and oldage man asking question about computer and teacher will help them to guide.
 
-**Video1 – Introduction**
+**V1(Video1) – Introduction**
       A funfair held in village where there is small stall to promote web literacy.. Rohan asked why we need to use computer.  How will it useful in daytoday life. Geeta explain use of computer. Both ramukaka and rohan found that they dont need to visit railway station in city  for booking ticket they can do it from their home. Rohan asked exact defintion about computer.
 
-Activity
+**Activity**
 1. Ask students what they understand or predefined image for computer.
 2. Have they seen somebody uses that  what they were doing. Give explaination to them.
 3. Do you know which task we can perform except list given in video.
