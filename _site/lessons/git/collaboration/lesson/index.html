@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Collaborating on GitHub</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/git/collaboration/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Collaborating on GitHub</h1>
+
+        <hr>
+
+        <!-- change visible to true if you want it on the site -->
+<!-- remove any tags listed above that are not relevant -->
+
+<ul>
+  <li><strong>Authors</strong>: Serena Jeblee</li>
+  <li><strong>Research field</strong>: Computational Linguistics</li>
+  <li><strong>Lesson topic</strong>: Collaborating on GitHub</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/git/collaboration">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/git/collaboration</a></li>
+  <li><strong>Lesson video stream</strong>: <a href="https://www.youtube.com/watch?v=vrftiQcqIYM">https://www.youtube.com/watch?v=vrftiQcqIYM</a></li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+<ul>
+  <li>A brief review of basic git usage</li>
+  <li>Some helpful git commands</li>
+  <li>Help! I’ve made a mistake! (aka how to unstage changes and undo commits)</li>
+  <li>Merge conflicts</li>
+  <li>Branches</li>
+  <li>Forking and Pull Requests</li>
+</ul>
+
+<p>If we have time:</p>
+<ul>
+  <li>Stashing changes</li>
+  <li>Rebasing</li>
+</ul>
+
+<h2 id="whirlwind-overview-of-github">Whirlwind Overview of GitHub</h2>
+<ul>
+  <li>What is GitHub?</li>
+  <li>What is version control?
+    <ul>
+      <li>version control helps you collaborate on code especially when your changes might overlap</li>
+      <li>master repo vs local repos</li>
+      <li>master - shared version stored on GitHub or a server</li>
+      <li>local - your local copy that you can play with and make changes to, only seen by you until you push your changes</li>
+    </ul>
+  </li>
+  <li>How to contribute code
+    <div class="highlighter-rouge"><pre class="highlight"><code>git clone [repo-url]
+git pull # syncs latest version from the master repo to your local repo
+[edit the code]
+git add [file] # stages code for commit (git remove does not unstage, it stages a deletion, we'll get to unstaging in a bit)
+git commit # create a record of the changes you've made
+git push # sync your local changes to the master repo
+</code></pre>
+    </div>
+  </li>
+  <li>Fork and pull request if you can’t push directly</li>
+  <li>Some rules for good commits
+    <ul>
+      <li>commit should represent one change or a small set of related changes (like a bug fix or new feature)</li>
+      <li>all committed code should be functional and tested</li>
+      <li>make sure the commit message is descriptive</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="get-started">Get Started</h2>
+<ul>
+  <li>Create helloworld.sh
+    <div class="highlighter-rouge"><pre class="highlight"><code>echo "Fancy code will go here"
+echo "More fancy code"
+</code></pre>
+    </div>
+  </li>
+  <li>Run it and commit it</li>
+</ul>
+
+<h2 id="help-i-messed-up-and-now-nothing-works">Help! I messed up and now nothing works!</h2>
+<ul>
+  <li>Add junk code to hello.sh and run it</li>
+  <li>Undo the changes to a file
+    <div class="highlighter-rouge"><pre class="highlight"><code>git checkout -- [file]
+</code></pre>
+    </div>
+  </li>
+  <li>Unstage the changes, but keep them
+    <div class="highlighter-rouge"><pre class="highlight"><code>git reset --soft HEAD
+</code></pre>
+    </div>
+  </li>
+  <li>Undo the changes and go back x commits
+    <div class="highlighter-rouge"><pre class="highlight"><code>git reset --hard HEAD~x
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<h2 id="oops-i-didnt-mean-to-commit-that">Oops, I didn’t mean to commit that</h2>
+<ul>
+  <li>Add the junk code back and commit it</li>
+  <li>Undo a local commit
+    <div class="highlighter-rouge"><pre class="highlight"><code>git reset --soft HEAD~1 # keeps changes, but undoes the commit
+</code></pre>
+    </div>
+  </li>
+  <li>Pushed commits - do a revert commit
+    <div class="highlighter-rouge"><pre class="highlight"><code>git revert [commit-hash]
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<h2 id="the-dreaded-merge-conflict">The Dreaded Merge Conflict</h2>
+<ul>
+  <li>Clone a new copy of your repo</li>
+  <li>Change a line and commit it</li>
+  <li>Go back to your original repo</li>
+  <li>Change same line to “My version is better!”</li>
+  <li>Commit it
+    <div class="highlighter-rouge"><pre class="highlight"><code>git commit
+git pull
+</code></pre>
+    </div>
+  </li>
+  <li>Resolve the merge conflict, delete »&gt; «&lt; lines, add and commit</li>
+</ul>
+
+<h2 id="branches">Branches</h2>
+<ul>
+  <li>Branches allow you to have different commit histories in the same repo</li>
+  <li>Useful for feature work</li>
+  <li>For more info see: <a href="https://github.com/UofTCoders/studyGroup/blob/gh-pages/lessons/git/branches/lesson.md">https://github.com/UofTCoders/studyGroup/blob/gh-pages/lessons/git/branches/lesson.md</a></li>
+</ul>
+
+<h2 id="forking-and-pull-requests">Forking and Pull Requests</h2>
+<ul>
+  <li>Used when you don’t have direct push access to a repo</li>
+  <li>Fork: creates your own version of the repo that you can commit to</li>
+  <li>When you’re finished committing all of your changes, create a pull request</li>
+  <li>Pull Request: tells the main repo that you have some commits you would like to merge, and allows others to review them first</li>
+</ul>
+
+<h2 id="reviewing-code">Reviewing Code</h2>
+<ul>
+  <li>Look for:
+    <ul>
+      <li>errors (typos, potential infinite loops, concurrency issues, etc)</li>
+      <li>overly complicated code</li>
+      <li>unclear variable names</li>
+      <li>missing comments or documentation</li>
+    </ul>
+  </li>
+  <li>Provide constructive suggestions for how to fix it</li>
+</ul>
+
+<h2 id="updating-the-pull-request">Updating the Pull Request</h2>
+<ul>
+  <li>Try to address all comments, if you’re not going to change something, say why not</li>
+  <li>Make a new commit and push it to the branch your pull request is on</li>
+</ul>
+
+<h2 id="merging-the-pull-request">Merging the Pull Request</h2>
+<ul>
+  <li>Requires push access to the repo</li>
+  <li>If there are conflicts, you’ll have to check out the pull request and resolve them, otherwise you can merge online</li>
+  <li>For more info on how to merge a pull request, see <a href="https://help.github.com/articles/merging-a-pull-request/">https://help.github.com/articles/merging-a-pull-request/</a></li>
+</ul>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

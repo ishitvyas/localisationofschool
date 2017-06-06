@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RStudio Debugging</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/r/debugging/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">RStudio Debugging</h1>
+
+        <hr>
+
+        <ul>
+  <li><strong>Author</strong>: Thea Van Rossum</li>
+  <li><strong>Lesson Topic</strong>: RStudio Debugging</li>
+</ul>
+
+<h2 id="set-up">Set-up</h2>
+<ol>
+  <li>Open a new project in RStudio, save it somewhere</li>
+  <li>Download these two files: <a href="https://raw.githubusercontent.com/theavanrossum/debuggerRMarkdownLesson/master/printTriangle.R">printTriangle.R</a>, <a href="https://raw.githubusercontent.com/theavanrossum/debuggerRMarkdownLesson/master/crazify.R">crazify.R</a></li>
+  <li>Add these files to your project</li>
+</ol>
+
+<h2 id="pre-test">Pre-test</h2>
+<p>Let’s get a feel for the room. Who here:</p>
+<ul>
+  <li>knows what an IDE is?</li>
+  <li>has used RStudio before?</li>
+  <li>has used a debugger before?</li>
+  <li>has written an R function before?</li>
+  <li>who is here for debugging? (this will be the focus today!)</li>
+  <li>who is more interested in Rmarkdown or making packages? - maybe for a future lesson or quickly at the end</li>
+</ul>
+
+<h2 id="motivation">Motivation</h2>
+<p>RStudio is a kind of software that programmers call an “IDE”: integrated development environment. IDEs can (and do) exist for hundreds[1] of languages. The reason they’re so ubiquitous is that they make your life SO MUCH EASIER. That’s what they were designed to do: make coding easier. They do so with, typically, three main components: source code editor, build automation tools and a debugger. We’ll look at some of these features today.</p>
+
+<p>[1] Totally guessing here. But there are lots, at least dozens.</p>
+
+<h2 id="getting-oriented">Getting Oriented</h2>
+<p>Say hello to RStudio.
+Four main panels:</p>
+<ul>
+  <li>Top left: Script viewer - this is the best place to write your code</li>
+  <li>Bottom left: Console - this is where R is actually running, it’s a dangerous place to write your code</li>
+  <li>Top right: Variable/history displayer</li>
+  <li>Bottom right: Files/plots/packages/help displayer</li>
+</ul>
+
+<p>Note that you can move these windows around, if you like.</p>
+
+<h2 id="the-debugger">The Debugger</h2>
+<p>Let’s not waste any time and push right into the good stuff.</p>
+
+<h3 id="dealing-with-unexpected-results">Dealing with unexpected results</h3>
+
+<ol>
+  <li>open a the printTriangle.R script</li>
+  <li>click “source” in the top right</li>
+</ol>
+
+<p>Read the description of what this method should do and look at the output. Does the output look right? Nope.</p>
+
+<p>(Side note: yes this uses loops, and yes loops are a no-no in R. But they’re great for watching a debugger work so just relax go with it, ok? ok.)</p>
+
+<p>There aren’t any errors… so we just did something wrong. We could put in a bunch of print statements but let’s try something less painful: the debugger!</p>
+
+<h4 id="breakpoints">Breakpoints</h4>
+<p>The first thing we need to do is add a “breakpoint”. A breakpoint tells R to pause (“break”) while it’s running and open up a hatch for us to crawl inside the machine amongst the cogs to look around.</p>
+
+<p>We add a breakpoint by clicking next to the left of the line number. Then let’s press “source” again.</p>
+
+<p>(Thea will now describe the changes in the IDE that happen when you enter debugger mode. Including: describe control buttons, click through next to see what’s going on)</p>
+
+<p>Aha - we can see what’s going wrong here: stars is growing, not being reset with every loop. An easy fix.</p>
+
+<h3 id="dealing-with-errors">Dealing with errors</h3>
+
+<ol>
+  <li>open a the crazify.R script</li>
+  <li>click “source” in the top right</li>
+</ol>
+
+<p>Oh no, a wild error has appeared!
+Luckily, R gives us a great description of what went wrong and why:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Error in strsplit(word, "") : non-character argument 
+</code></pre>
+</div>
+
+<p>Hm. Or not.
+Let’s see what “Show Traceback” gives us.</p>
+
+<h3 id="stack">Stack</h3>
+<p>The “traceback” shows us the series of commands (aka “stack”) that led to the error.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> Error in strsplit(word, "") : non-character argument 
+7 strsplit(word, "") at crazify.R#3
+6 reverseLetters(vec[i]) at crazify.R#19
+5 crazify("here i am") at crazify.R#24
+4 eval(expr, envir, enclos) 
+3 eval(ei, envir) 
+2 withVisible(eval(ei, envir)) 
+1 source("C:/Users/tvanrossum/Dropbox/ScientificProgrammingStudyGroupSFU/debuggerRMarkdownLesson/crazify.R", 
+    echo = TRUE) 
+</code></pre>
+</div>
+
+<p>Ok, so now we know where the script when wrong but the cause is still not clear. Let’s see what RStudio’s debugger can do for us.</p>
+
+<h3 id="breakpoints-1">Breakpoints</h3>
+<p>Let’s add a “breakpoint” where the error occurred, at line 3. Or we can click “Rerun with Debug”, which will rerun the last command and break when it encounters an error.</p>
+
+<p>Now we’re in debug mode again. Check out the “Traceback” window on the right – this shows us where we are and allows us to jump to different parts of the code. Let’s jump up a level and look around.</p>
+
+<p>Ok, everything looks fine there, let’s get back down to where the error occured.</p>
+
+<p>The “word” entry in the “values” pane isn’t very useful. But we can use the console to get a better look. (Fun note - we can also use the console to change values mid-execution!)</p>
+
+<p>Let’s type in “word” in the console to see what’s going on.</p>
+
+<p>Aha. word is a list here, not a vector. I forgot to call unlist on the results of strsplit (line 17). Easy to fix.</p>
+
+<p>And let’s not forget to remove our breakpoint.</p>
+
+<h1 id="challenge">Challenge</h1>
+
+<p>Try calling confuseTheCustomers() on the myMenu object in crazify.R:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>confuseTheCustomers(myMenu) 
+</code></pre>
+</div>
+
+<p>It fails! Try using the debugger to fix it.</p>
+
+<p>##Other ways to debug
+You can also call the debug() function on a function (like: debug(crazify)) and you can stick the browser() command into a function – like a breakpoint.</p>
+
+<p>Check out https://vimeo.com/99375765 for more</p>
+
+<h1 id="if-time-remains">If time remains…</h1>
+
+<p>Vote: who wants to:</p>
+
+<ol>
+  <li>Work on some of your own code and force yourself to use the debugger when you hit any issues.</li>
+  <li>Look at how to create a package in RStudio</li>
+  <li>Get a breif intro to using RMarkdown</li>
+</ol>
+
+<p>Answers:</p>
+<blockquote>
+  <p>Triangle: stars&lt;-“” should be in the i loop || Crazify:
+(1) missing unlist from strsplit in crazify function
+(2) missing stringsasfactors = F in definition of myMenu
+(3) need to use sapply instead of trying to call: crazify(menu$Descriptions)</p>
+</blockquote>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

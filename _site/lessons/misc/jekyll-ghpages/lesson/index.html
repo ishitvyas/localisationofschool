@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Web design with Jekyll/GitHub Pages</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/misc/jekyll-ghpages/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Web design with Jekyll/GitHub Pages</h1>
+
+        <hr>
+
+        <ul>
+  <li><strong>Authors</strong>: Dawn Walker <a href="https://github.com/dcwalk">@dcwalk</a></li>
+  <li><strong>Research field</strong>: Information Studies (Information System Design)</li>
+  <li><strong>Lesson topic</strong>: Introduction to using GitHub Pages and Jekyll for website design</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/misc/jekyll-ghpages">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/misc/jekyll-ghpages</a></li>
+  <li><strong>Lesson video stream</strong>: <a href="https://www.youtube.com/watch?v=oCCwtyH3SL4">https://www.youtube.com/watch?v=oCCwtyH3SL4</a></li>
+</ul>
+
+<h2 id="preface">Preface</h2>
+
+<p>This is a basic introduction to using GitHub Pages and Jekyll to host a web page. GitHub Pages are a feature of GitHub that allows users to host websites for individuals, projects, or organizations right from their repositories! The engine GitHub uses to accomplish this is Jekyll, a <a href="https://jekyllrb.com/">“simple, static, blog-aware, site generator”</a>, but it also supports regular HTML content.</p>
+
+<p>In this code-along we’ll cover what GitHub Pages are, why you might want to use them, and how to do so both online and locally with some jekyll basics!</p>
+
+<h3 id="pre-requisites">Pre-requisites</h3>
+
+<ul>
+  <li>GitHub account (if you don’t already have one go to <a href="https://github.com/join">github.com/join</a>)</li>
+  <li>git installed, and configured on your machine (<a href="https://git-scm.com/downloads">git-scm.com</a>)</li>
+  <li>comfort with material covered in UofT Coders lessons <strong><a href="https://uoftcoders.github.io/studyGroup/lessons/git/intro/lesson/">(Brief) Introduction to Git + GitHub</a></strong>, <strong><a href="https://uoftcoders.github.io/studyGroup/lessons/git/advanced/lesson/">An Intermediate Look at Git + GitHub</a></strong>, and <strong><a href="https://uoftcoders.github.io/studyGroup/lessons/git/branches/lesson/">Using Branches in Git</a></strong></li>
+</ul>
+
+<h3 id="bluebird-conditions-aka-would-be-great-to-have">Bluebird Conditions (AKA would be great to have!)</h3>
+
+<ul>
+  <li>jekyll and its requirements installed on your machine (<a href="https://jekyllrb.com/docs/installation/">jekyllrb.com/docs/installation</a>)
+    <ul>
+      <li>ruby (<a href="https://www.ruby-lang.org/en/documentation/installation/">ruby-lang.org/en/documentation/installation</a>)</li>
+      <li>rubygems (<a href="https://rubygems.org/pages/download">rubygems.org/pages/download</a>)</li>
+    </ul>
+  </li>
+  <li>some familiarity with <strong><a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/">markdown</a></strong> and <strong><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Introduction">HTML</a></strong></li>
+</ul>
+
+<div class="alert alert-dismissible alert-info">
+  <i class="fa fa-info-circle"></i>&nbsp;&nbsp;&nbsp;<strong>Running Jekyll on Windows</strong><br />Unfortunately Windows is not officially supported, however there are instructions for <a href="https://jekyllrb.com/docs/windows/#installation" target="_blank"><!--_ -->Jekyll on Windows</a>, but it might be finicky.
+</div>
+
+<h2 id="lesson-overview">Lesson Overview</h2>
+
+<p>The lesson will cover:</p>
+
+<ul>
+  <li>What GitHub Pages are, why you might want to use them</li>
+  <li>Creating a GitHub Pages site
+    <ul>
+      <li>Online: using the Automatic Page Generator</li>
+      <li>Locally: using Git and Jekyll</li>
+    </ul>
+  </li>
+  <li>Jekyll Basics</li>
+</ul>
+
+<h2 id="why-and-what-are-github-pages">Why (and What) are GitHub Pages</h2>
+
+<p>Github Pages are a feature of GitHub that allows users to host static websites for individuals, projects, or organizations from a repository</p>
+
+<h4 id="static-vs-dynamic-websites">Static vs. Dynamic Websites</h4>
+
+<ul>
+  <li><strong>Dynamic</strong> ones have pages that are generated in real-time</li>
+  <li>
+    <p><strong>Static</strong> ones have pages that are converted (or written directly) as static HTML.</p>
+  </li>
+  <li>Does this mean it is also <em>static vs. ‘interactive’</em>? No, doesn’t have to be the case!</li>
+</ul>
+
+<h4 id="reasons-to-use">Reasons to Use</h4>
+
+<ul>
+  <li>Free!</li>
+  <li>Static sites are more secure(ish*)</li>
+  <li>Manage all the different content for your project(s) in the same place</li>
+  <li>… others?</li>
+</ul>
+
+<h4 id="examples">Examples</h4>
+
+<ul>
+  <li><strong>Github Developer</strong> <a href="https://developer.github.com/">developer.github.com</a>  <a href="https://github.com/github/developer.github.com"><code class="highlighter-rouge">github.com/github/developer.github.com</code></a></li>
+  <li><strong>Open Knowledge Foundation: Open Data Handbook</strong> <a href="http://opendatahandbook.org/guide/en/">opendatahandbook.org/guide</a>  <a href="https://github.com/okfn/opendatahandbook"><code class="highlighter-rouge">github.com/okfn/opendatahandbook</code></a></li>
+  <li><strong>2048</strong> <a href="https://gabrielecirulli.github.io/2048/">gabrielecirulli.github.io/2048/</a> <a href="https://github.com/gabrielecirulli/2048/"><code class="highlighter-rouge">github.com/gabrielecirulli/2048/</code></a></li>
+</ul>
+
+<h4 id="naming-conventions">Naming Conventions</h4>
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th align="left">Type of GitHub Pages site</th>
+      <th align="left">Pages default domain &amp; host location on GitHub</th>
+      <th align="left">Publishing branch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">User Pages site</td>
+      <td align="left"><code>username.github.io</code></td>
+      <td align="left">master</td>
+    </tr>
+    <tr>
+      <td align="left">Organization Pages site</td>
+      <td align="left"><code>orgname.github.io</code></td>
+      <td align="left">master</td>
+    </tr>
+    <tr>
+      <td align="left">Project Pages site owned by a <strong>user account</strong></td>
+      <td align="left"><code>username.github.io/projectname</code></td>
+      <td align="left">gh-pages</td>
+    </tr>
+    <tr>
+      <td align="left">Project Pages site owned by an <strong>organization</strong></td>
+      <td align="left"><code>orgname.github.io/projectname</code></td>
+      <td align="left">gh-pages</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="online-editing-automatic-page-generator">Online Editing: Automatic Page Generator</h2>
+
+<ol>
+  <li>Create a new repository (<a href="https://github.com/new">github.com/new</a>)
+    <ul>
+      <li>There are 4 types of GitHub Pages site (in the table above and on <strong><a href="https://help.github.com/articles/user-organization-and-project-pages/">GitHub</a></strong>)</li>
+      <li><strong>following naming conventions is really important!</strong> <code class="highlighter-rouge">.github.io</code> for user and organizations</li>
+    </ul>
+  </li>
+  <li>Navigate to <strong>Settings</strong> and click <strong>Automatic Page Generator</strong><br />
+Or just go to generated_pages url for your repository:<br />
+<code class="highlighter-rouge">https://github.com/&lt;username&gt;/&lt;repository&gt;/generated_pages/new</code>
+    <ul>
+      <li>Make some edits to the content</li>
+      <li>Select a theme/layout</li>
+      <li>Publish!</li>
+    </ul>
+  </li>
+  <li>We have a website!<br />
+<code class="highlighter-rouge">&lt;username/orgname&gt;.github.io/&lt;projectname&gt;/</code>
+    <ul>
+      <li>Let’s check it out</li>
+    </ul>
+  </li>
+  <li>Make an update</li>
+  <li>Check out the commit history</li>
+</ol>
+
+<h2 id="working-locally-git-and-jekyll">Working Locally: Git and Jekyll</h2>
+
+<ol>
+  <li>
+    <p>First, we need to make sure we have everything installed</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> $ git --version
+ git version X.X.X
+ $ jekyll -v
+ jekyll X.X.X
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>We’ll have to create (or choose) a repo for a project</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> $ git init first-website
+ Initialized empty Git repository in &lt;path/to/current/directory&gt;/first-website/.git/
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<p><em>Note: There are a few extra steps if you want a project page for an existing repository! Please see: <a href="https://help.github.com/articles/creating-project-pages-manually/">help.github.com/articles/creating-project-pages-manually</a></em></p>
+
+<h4 id="jekyll-basics">Jekyll Basics</h4>
+
+<p>Jekyll is a package (ruby gem) that makes a <code class="highlighter-rouge">jekyll</code> executable available from your command line.</p>
+
+<p>There aren’t too many commands you need to get going: <code class="highlighter-rouge">jekyll new</code> and <code class="highlighter-rouge">jekyll serve</code> <br />
+and another one: <code class="highlighter-rouge">jekyll build</code> but <code class="highlighter-rouge">serve</code> calls build, so the command is not often needed</p>
+
+<p>let’s test them out:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ jekyll new first-website
+New jekyll site installed in &lt;path/to/current/directory&gt;/first-website.
+</code></pre>
+</div>
+
+<p>So we have a project, let’s check out what’s there!</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ cd first-website
+$ ls -lFA
+$ git status
+</code></pre>
+</div>
+
+<p>Lots of files. Before we dig in let’s try to get our website built</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ jekyll serve
+... &lt;lots of details including file paths&gt;
+Server address: http://127.0.0.1:4000/
+Server running... press ctrl-c to stop.
+</code></pre>
+</div>
+
+<p>…and check it out in the browser.</p>
+
+<p>Why don’t we try to make some changes and see how it looks?
+Let’s edit <code class="highlighter-rouge">index.html</code>, see how it updates in the browser automatically</p>
+
+<p>If we want to make more substantial edits to the site name, our contact details we’ll have to modify <code class="highlighter-rouge">_config.yml</code>, but it won’t update in the browser until we re-serve the page</p>
+
+<h4 id="anatomy-of-a-jekyll-project">Anatomy of a Jekyll Project</h4>
+
+<p>Before doing more let’s take a look at all those files and folders in our directory again. <a href="https://jekyllrb.com/docs/structure/">Jekyll</a> docs and the <code class="highlighter-rouge">tree</code> command can do a better job than me…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ ls -lFA
+$ tree
+</code></pre>
+</div>
+
+<p>A clumsy equation for jekyll: <br />
+<code class="highlighter-rouge">_*</code> files and folders * <code class="highlighter-rouge">*.html/markdown/md/textile</code> = your static site (in <code class="highlighter-rouge">_site</code>)</p>
+
+<h4 id="front-matter--liquid-tags">Front matter &amp; Liquid Tags</h4>
+
+<p>In order for those <code class="highlighter-rouge">*.html/markdown/md/textile</code> files to be transformed into working static pages, jekyll makes use of:</p>
+
+<p><strong>YAML Front Matter</strong> (<strike>Yet Another Markup Language</strike> YAML Ain’t Markup Language), once again I’ll lean on <a href="https://jekyllrb.com/docs/frontmatter/">jekyll</a> docs</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ cat about.md
+---
+layout: page
+title: About
+permalink: /about/
+---
+...
+</code></pre>
+</div>
+
+<p>and <strong><a href="https://shopify.github.io/liquid/">Liquid</a> Filters and Tags</strong> (A templating Language for handling dynamic content), thrice those handy <a href="https://jekyllrb.com/docs/templates/">jekyll</a> docs</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ cat about.md
+---
+...
+{% include icon-github.html username="jglovier" %}
+...
+</code></pre>
+</div>
+
+<p>I hope that is enough to start, there are lots more fiddly bits, but the docs and additional resources (below), as well as google, have lots to offer!</p>
+
+<h4 id="making-your-site-live">Making your site live</h4>
+
+<p><code class="highlighter-rouge">&lt;movie training montage&gt;</code></p>
+
+<p>Okay, we’ve got a great site, spent some time on the content and now we want everyone on the internet to see it too.</p>
+
+<p>Before we get this up on GitHub we should make sure that the repo is set up to not commit the static version of the site. GitHub does not need it to host your site, as they use jekyll to generate sites on their end too:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git status
+...
+.gitignore
+...
+$ &lt;cat/touch&gt; .gitignore
+</code></pre>
+</div>
+
+<p>Github helpfully publishes all sorts of template .gitignores, the <a href="https://github.com/github/gitignore/blob/master/Jekyll.gitignore">jekyll</a> one only has three items…</p>
+
+<p>While on GitHub let’s set up our repo, remember the naming conventions above: <code class="highlighter-rouge">&lt;username/orgname&gt;.github.io/&lt;projectname&gt;/</code></p>
+
+<p>now, to commit our changes…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git checkout -b gh-pages
+$ git add .
+$ git commit -m '&lt;some meaningful commit message&gt;'
+</code></pre>
+</div>
+
+<p>and push them to GitHub…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git remote add origin &lt;repo address&gt;
+$ git push --set-upstream origin gh-pages
+</code></pre>
+</div>
+
+<p>success! (hopefully…?)</p>
+
+<h4 id="using-themes">Using Themes</h4>
+
+<p>Many times you won’t want to build up your site from scratch, instead you’ll continue the lofty tradition of standing on the shoulders of giants and use a pre-made <strong>theme</strong>:</p>
+
+<p><a href="http://jekyllthemes.org/">jekyllthemes.org</a></p>
+
+<p>If you are feeling overwhelmed <span class="label label-warning">so many</span> I selected a couple:</p>
+
+<ul>
+  <li><a href="http://jekyllthemes.org/themes/twenty/">jekyllthemes.org/themes/twenty/</a></li>
+  <li><a href="http://jekyllthemes.org/themes/read-only/">jekyllthemes.org/themes/read-only/</a></li>
+  <li><a href="http://jekyllthemes.org/themes/end2end/">jekyllthemes.org/themes/end2end/</a></li>
+</ul>
+
+<h4 id="and-more">And more…</h4>
+
+<ul>
+  <li><a href="https://help.github.com/articles/custom-domain-redirects-for-github-pages-sites/">Custom Domains (help.github.com on CNAME records)</a></li>
+  <li>Securing your Site with SSL! <a href="https://github.com/isaacs/github/issues/156">Not easy unfortunately (github/issues)</a></li>
+  <li>… others?</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://pages.github.com/">GitHub Pages</a>
+    <ul>
+      <li><a href="https://help.github.com/articles/creating-pages-with-the-automatic-generator/">Creating Pages with the automatic generator</a></li>
+      <li><a href="https://help.github.com/articles/creating-project-pages-manually/">Creating Project Pages manually</a></li>
+    </ul>
+  </li>
+  <li><a href="https://jekyllrb.com/docs/installation/">Jekyll</a></li>
+  <li><a href="https://shopify.github.io/liquid/">Liquid</a></li>
+  <li><a href="http://jekyllthemes.org/">jekyllthemes.org</a></li>
+  <li>Icon Font Kit <a href="https://fortawesome.github.io/Font-Awesome/">Font Awesome</a></li>
+  <li>Popular Framework <a href="https://getbootstrap.com/">Bootstrap</a></li>
+  <li><a href="https://www.gitbook.com/">GitBook</a>, open source book format using Git and Markdown</li>
+  <li><a href="https://www.staticgen.com/">StaticGen</a>, ranking of Open-Source Static Site Generators (there are <span class="label label-warning">so many</span> )</li>
+</ul>
+
+<h3 id="glossary">Glossary</h3>
+
+<ul>
+  <li>a <strong>dynamic</strong> website “contains web pages… that are generated in real-time. These pages include Web scripting code, such as PHP…” (from <a href="https://techterms.com/">techterms</a>)</li>
+  <li><strong>“static site generator”</strong> tools that help with the creation of static websites by converting input (usually written in a markup language like <strong>markdown</strong>) into static HTML through the use of templates.</li>
+  <li>a <strong>static</strong> website “contains web pages with fixed content. Each page… displays the same information to every visitor” (from <a href="https://techterms.com/">techterms</a>)</li>
+</ul>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

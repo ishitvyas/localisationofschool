@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Code Review Overview</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/misc/code-review/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Code Review Overview</h1>
+
+        <hr>
+
+        <h2 id="why-do-code-review">Why Do Code Review?</h2>
+
+<p>Code review is the process of having your code read by you or more often a third party in order to:</p>
+<ul>
+  <li>catch bugs</li>
+  <li>making sure it is clear to someone who might take up the project after you</li>
+  <li>ensure efficiency/simplicity</li>
+  <li>that all cases have been considered and appropriately addressed</li>
+  <li>many other reasons!</li>
+</ul>
+
+<p>Not only do we want to catch any bugs in code, but code review aims to make sure that there is a standard set of rules for code that you want to uphold within a lab, or collaborative group, allowing for consistent and higher quality code.</p>
+
+<p>Ideally you would want there to be good communication about what the standards are, and whether they are being met throughout the entire process from conception of the idea to the finished code. This involves sitting down and thinking carefully about the design of the project, and defining the standards of the code along with frequent code review as it is being written. However we will focus on the latter, code review, which many studies have found to be the most effective way to find bugs (see <a href="https://dl.acm.org/citation.cfm?id=314753">here</a> and <a href="https://dl.acm.org/citation.cfm?id=2486882">here</a> for examples).</p>
+
+<h2 id="tips-on-conducting-code-review">Tips on Conducting Code Review</h2>
+
+<ul>
+  <li>Review code frequently and early on. This way you don’t have to sit through huge chunks of code, and that way the code is still fresh in your mind.</li>
+  <li>Review no more than 300-500 lines of code per hour, any more and you risk not taking the time to understand each line because you feel rushed to finish.</li>
+  <li>Focus on the right things such as clarity and function. Differences in formatting and style should be addressed but leave that to linters and other tools designed to look for those types of mistakes.</li>
+  <li>Use checklists if this will be a regular thing in your lab or group (which it should be!) that everyone refers to as they write the code and should be somewhat specific for your purposes, however many general items will be common to most lists. This might include:
+    <ul>
+      <li>are functions broken down into the simplest components as possible?</li>
+      <li>is the code efficient? is there a faster way to go about computing something?</li>
+      <li>is the current documentation (docstrings, comments) clear? If you did not have the writer explain it to you, would you understand?</li>
+      <li>are there edge cases that haven’t been considered? You can discuss how to address these cases if they exist.</li>
+      <li>Is the code repetitive? If so, perhaps break it down to a function that can be reused.</li>
+      <li>Does the file structure, naming conventions match with the predetermined standards?</li>
+      <li>See <a href="https://blog.fogcreek.com/effective-code-reviews-9-tips-from-a-converted-skeptic/">here</a> for a more in depth example or the resources section for elaboration on those listed here.</li>
+    </ul>
+  </li>
+  <li>Make sure that everyone is clear on what the final goal of the code is so feedback can attest to these goals as well instead of only addressing superficial bugs</li>
+  <li>The process is not truly complete until the comments and suggestions made have all been addressed either by fixing the bugs (or restructuring the code if need be) and confirming that changes are sufficient to meet the standards agreed upon. This can take time and doesn’t have to occur in just one sitting, but will save time in the long run!</li>
+</ul>
+
+<h2 id="ways-to-code-review">Ways to Code Review</h2>
+
+<ul>
+  <li>Review your code yourself using your own checklist based off a general checklist including  common mistakes optimized for your project</li>
+  <li>Review code with one, or if possible, many people at once as you walk through the code and give context while they make suggestions and context</li>
+  <li>Another way to conduct code review includes distributing the code and having many people go over it on their own time or during a designated time, and then you go over the comments afterwards, making sure there is a process in place to then confirm fixes have been made</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+<p>https://mozillascience.github.io/codeReview/intro.html (and other links therein)<br />
+https://blog.fogcreek.com/effective-code-reviews-9-tips-from-a-converted-skeptic/</p>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

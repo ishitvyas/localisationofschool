@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Creating Packages in Python</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/python/packages/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Creating Packages in Python</h1>
+
+        <hr>
+
+        <ul>
+  <li><strong>Presenter</strong>: John Ladan</li>
+  <li><strong>Sources</strong>: <a href="https://github.com/BillMills/pythonPackageLesson"><em>Bill Mills</em></a>, Elise Olson, <a href="https://the-hitchhikers-guide-to-packaging.readthedocs.org/en/latest/quickstart.html">The Hitchhiker’s Guide to Packaging</a></li>
+  <li><strong>Research Field</strong>: any</li>
+  <li><strong>Topic</strong>: A quick introduction to creating packages in Python</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/packages">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/packages</a></li>
+</ul>
+
+<h2 id="why-are-we-doing-this">Why are we doing this?</h2>
+
+<p>One of the most powerful things about coding for the sciences is that it costs
+nothing to re-use code we’ve written in the past, allowing us to build on
+past work rather than starting over every project or paper.</p>
+
+<p>However, one practice we see again and again is copying and pasting code from one project into another. Sometimes it will just be a function, other times (<em>cough</em>MATLAB<em>cough</em>) it’s files.</p>
+
+<p>Assembling
+code in packages makes it really easy to re-use old code: all the scripts and functions end up in a central location and can be called and imported from anywhere on the computer -
+just like the famous packages <code class="highlighter-rouge">numpy</code> or <code class="highlighter-rouge">matplotlib</code>.</p>
+
+<h2 id="setting-up">Setting up</h2>
+
+<p>In this tutorial, we’ll walk through the creation of a simple package from some code that’s just lying around. You can view and clone the <a href="https://github.com/jladan/package_demo">demo package</a>. For an unpackaged state, checkout the <code class="highlighter-rouge">unpackaged</code> tag.</p>
+
+<h2 id="1-the-basics">1. The basics</h2>
+
+<p>The most basic directory structure for a Python package looks like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>project
+|
+|__ setup.py
+|
+|__ myPackage
+     |
+     |_  somePython.py
+     |_  __init__.py
+</code></pre>
+</div>
+
+<p>But at the moment, we’ve just got some flat files.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>project
+|
+|__ norms.py
+|__ metrics.py
+</code></pre>
+</div>
+
+<p>So, the first step is to move files around. First comes the hardest part: choosing a package name. I’ll call mine <code class="highlighter-rouge">measure</code>. Create a directory with that name, and move the python files in there.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>project
+|
+|__ measure
+     |__ norms.py
+     |__ metrics.py
+</code></pre>
+</div>
+
+<p>There is one more crucial file: <code class="highlighter-rouge">__init__.py</code> lets the Python interpreter know that there are importable modules in this directory. This is the script that gets run when you execute <code class="highlighter-rouge">import measure</code>. For more about what you can do with modules, you can see the (Python docs)[https://docs.python.org/3/tutorial/modules.html]. After adding <code class="highlighter-rouge">__init__.py</code>, the project directory should be</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>project
+|
+|__ measure
+     |__ __init__.py
+     |__ norms.py
+     |__ metrics.py
+</code></pre>
+</div>
+
+<h2 id="2-setuppy">2. setup.py</h2>
+
+<p>At this point, the library can be imported if we’re in the same directory, but it isn’t a package. To let setuptools and <code class="highlighter-rouge">pip</code> know how to handle it, we need to add the <code class="highlighter-rouge">setup.py</code> file.</p>
+
+<p>A very basic version of <code class="highlighter-rouge">setup.py</code> is</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>from setuptools import setup
+
+setup(
+    # Whatever arguments you need/want
+)
+</code></pre>
+</div>
+
+<p>If you were to run that file, you’d get a whole bunch of warnings, and nothing would actually get packaged. As a bare minimum, here is our <code class="highlighter-rouge">setup.py</code> for it to work.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>from setuptools import setup
+
+setup(
+    # Needed to silence warnings (and to be a worthwhile package)
+    name='Measurements',
+    url='https://github.com/jladan/package_demo',
+    author='John Ladan',
+    author_email='jladan@uwaterloo.ca',
+    # Needed to actually package something
+    packages=['measure'],
+    # Needed for dependencies
+    install_requires=['numpy'],
+    # *strongly* suggested for sharing
+    version='0.1',
+    # The license can be anything you like
+    license='MIT',
+    description='An example of a python package from pre-existing code',
+    # We will also need a readme eventually (there will be a warning)
+    # long_description=open('README.txt').read(),
+)
+</code></pre>
+</div>
+
+<h2 id="3-installing">3. Installing?</h2>
+
+<p>Technically, you can install the module by running <code class="highlighter-rouge">python setup.py install</code>, however it’s much more convenient to wrap it all up and distribute online.</p>
+
+<h3 id="using-git">Using git</h3>
+
+<p>This is my preferred way of sharing/storing/installing packages. Simply create a git repo of the project directory, and put it somewhere. Then, use <code class="highlighter-rouge">pip</code> to install it from that repo directly</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pip install git+https://github.com/jladan/package_demo.git#egg=measurements
+</code></pre>
+</div>
+
+<p>An advantage of this is that you can also install to particular branches, tags, and commits. A common practice is add a tag for the version release <code class="highlighter-rouge">git tag v0.1</code>. Users of the library can then lock into that particular version,</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pip install git+https://github.com/jladan/package_demo.git@v0.1#egg=measurements
+</code></pre>
+</div>
+
+<h3 id="distributing-via-pypi">Distributing via PyPI</h3>
+
+<p>In my opinion, distributing on PyPI is more complicated than with git, and not much more useful.</p>
+
+<p>You’ll have to maintain the
+package in two places if you intend on collaborating on development on GitHub
+and distributing through PyPI.</p>
+
+<p>So why distribute on PyPI? If you’re proud of your software and want others to use it, this is the best place. It’s more visible, easier for your users, and more tightly controlled. The stricter version control (not just whatever commit to whatever repo like git) makes the software more robust and easier to support as a developing team.</p>
+
+<p>For those interested, to upload to PyPI, you’ll need</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>python setup.py sdist
+</code></pre>
+</div>
+
+<p>This creates a <code class="highlighter-rouge">dist</code> directory and adds an archive file (a.k.a. a distribution) of your package.</p>
+
+<p>To get set up on PyPI for the first time with a
+new package, <a href="https://pypi.python.org/pypi">make a new account on PyPI</a> (or for trying it out, the <a href="https://testpypi.python.org/pypi">testing PyPI site</a>), and
+then back in your <code class="highlighter-rouge">package</code> directory do</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>python setup.py register
+</code></pre>
+</div>
+
+<p>to claim your package name - they must be unique. Then, upload your package; you’ll do this every time you want to release a new version of your code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>python setup.py sdist upload
+</code></pre>
+</div>
+
+<p>Now, you and anyone else in the world can install your package using the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pip install your-package-name
+</code></pre>
+</div>
+
+<h2 id="4-document">4. Document!</h2>
+
+<p>We’ve already begun the documentation by adding a short description, author/maintainer name, and version… but there’s a lot more to add. At a minimum, a <code class="highlighter-rouge">README</code> file should be included, but so should a license text, changes between versions, and actual software documentation.</p>
+
+<h3 id="readme">README</h3>
+
+<p>A readme file summarizes the software. For Python packages, this can named <code class="highlighter-rouge">README</code>, <code class="highlighter-rouge">README.rst</code>, or <code class="highlighter-rouge">README.txt</code>. The recommendation is to use [reST]
+(http://docutils.sourceforge.net/rst.html), as this is the standard on PyPI</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>===================
+Measurements Module
+===================
+
+**A demo for how to create a python package from existing code**
+
+The actual software provides L1, L2, Supremum, and Hamming metrics and norms for numpy arrays.
+</code></pre>
+</div>
+
+<h3 id="long-description">Long Description</h3>
+
+<p>Now is a good time to uncomment that <code class="highlighter-rouge">long_description</code> argument in <code class="highlighter-rouge">setup.py</code>.</p>
+
+<h3 id="license">License</h3>
+
+<p>The typical thing is to put the license you choose in <code class="highlighter-rouge">LICENSE.txt</code>. There are a few choices for licenses, I usually end up using MIT or simple BSD. If you’re using github, you can add most standard open source licenses through the website.</p>
+
+<p><strong>a demo of adding the license file here</strong></p>
+
+<h3 id="changes">Changes</h3>
+
+<p>Changes between versions are usually tracked in <code class="highlighter-rouge">CHANGES.txt</code>. This is more of a concern if you’re planning to distribute the software.</p>
+
+<h2 id="5-other-things-to-think-of">5. Other things to think of</h2>
+
+<p>A good package should also include full documentation and testing. I won’t cover this here, but unit tests can be performed with the <a href="https://docs.python.org/3.5/library/unittest.html"><code class="highlighter-rouge">unittest</code></a> library, with the tests stored in the directory <code class="highlighter-rouge">tests</code>. Many people use <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a> for documentation, and that can be stored in the <code class="highlighter-rouge">doc</code> directory.</p>
+
+<p>There’s a further step required for distributing. If you want to include these files in the distribution (the archive file in <code class="highlighter-rouge">dist</code>), you’ll need a <code class="highlighter-rouge">MANIFEST.in</code> file.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># MANIFEST.in
+
+include *.txt
+recursive-include docs *.rst
+</code></pre>
+</div>
+
+<h3 id="scripts">Scripts</h3>
+
+<p>Suppose you want to include a script that can be executed from the command line. Create a directory <code class="highlighter-rouge">scripts</code>, and put it there. Next, add the <code class="highlighter-rouge">scripts</code> argument to <code class="highlighter-rouge">setup.py</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>setup(
+    #...
+    scripts = ['scripts/hello.py']
+    # ...
+)
+</code></pre>
+</div>
+
+<h2 id="6-where-to-go-from-here">6. Where to go from here?</h2>
+
+<p>So, at this point, we’ve got a pretty good project skeleton, and most of the basics are covered. Your package should look something like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>project
+|
+|__ setup.py
+|__ MANIFEST.in
+|
+|__ measure
+|    |__ __init__.py
+|    |__ norms.py
+|    |__ metrics.py
+|
+|__ tests
+|    |__ test_suite.py
+|
+|__ doc
+|    |__ docs.rst
+|
+|__ scripts
+|    |__ hello.py
+|
+|__ README.txt
+|__ CHANGES.txt
+|__ LICENSE.txt
+</code></pre>
+</div>
+
+<p>If you have software that covers all these points, then congratulations! You’re well on your way to a well-maintained software package.</p>
+
+<h3 id="so-where-do-i-actually-go">So where do I actually go?</h3>
+
+<p>To get a detailed look at packaging, check out the official <a href="https://docs.python.org/3.5/distributing/index.html">Python docs</a>; they’re complete, accessible, and generally more up to date.</p>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

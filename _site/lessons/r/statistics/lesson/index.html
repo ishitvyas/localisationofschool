@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Intro to Stats</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/r/statistics/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Intro to Stats</h1>
+
+        <hr>
+
+        <h2 id="introduction-to-basic-stats-in-r">Introduction to Basic Stats in R</h2>
+
+<ul>
+  <li><strong>Authors</strong>: Lindsay Coome</li>
+  <li><strong>Research field</strong>: Behavioural neuroendocrinology</li>
+  <li><strong>Lesson topic</strong>: Basic Stats using R</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/r/statistics">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/r/statistics</a></li>
+</ul>
+
+<h3 id="code-from-session">Code from session</h3>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Independent-Samples T-test
+#Create variables
+</span><span class="n">Women</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">99</span><span class="p">,</span><span class="w"> </span><span class="m">85</span><span class="p">,</span><span class="w"> </span><span class="m">78</span><span class="p">,</span><span class="w"> </span><span class="m">93</span><span class="p">,</span><span class="w"> </span><span class="m">95</span><span class="p">,</span><span class="w"> </span><span class="m">87</span><span class="p">)</span><span class="w">
+</span><span class="n">Men</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">72</span><span class="p">,</span><span class="w"> </span><span class="m">75</span><span class="p">,</span><span class="w"> </span><span class="m">70</span><span class="p">,</span><span class="w"> </span><span class="m">68</span><span class="p">,</span><span class="w"> </span><span class="m">70</span><span class="p">,</span><span class="w"> </span><span class="m">80</span><span class="p">)</span><span class="w">
+</span><span class="c1">#T-test to see if men and women's scores significantly differ
+</span><span class="n">t.test</span><span class="p">(</span><span class="n">Women</span><span class="p">,</span><span class="n">Men</span><span class="p">,</span><span class="n">alternative</span><span class="o">=</span><span class="s2">"two.sided"</span><span class="p">)</span><span class="w"> 
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## 
+## 	Welch Two Sample t-test
+## 
+## data:  Women and Men
+## t = 4.7332, df = 7.9586, p-value = 0.001498
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##   8.71012 25.28988
+## sample estimates:
+## mean of x mean of y 
+##      89.5      72.5
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#One-sample t-test to see if women scored significantly lower than 95% on the test
+</span><span class="n">t.test</span><span class="p">(</span><span class="n">Women</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"less"</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">95</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## 
+## 	One Sample t-test
+## 
+## data:  Women
+## t = -1.7644, df = 5, p-value = 0.06897
+## alternative hypothesis: true mean is less than 95
+## 95 percent confidence interval:
+##      -Inf 95.78122
+## sample estimates:
+## mean of x 
+##      89.5
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#One-way analysis of variance
+#Read sample pain score data into R
+</span><span class="n">pain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w">
+</span><span class="n">gender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">)</span><span class="w">
+</span><span class="c1">#Code the data according to which drug is associated with the score
+</span><span class="n">drug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="m">9</span><span class="p">),</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="s2">"B"</span><span class="p">,</span><span class="m">9</span><span class="p">),</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="s2">"C"</span><span class="p">,</span><span class="m">9</span><span class="p">))</span><span class="w">
+</span><span class="c1">#Create data frame with pain scores, coded by which drug the patient took
+</span><span class="n">migraine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">pain</span><span class="p">,</span><span class="n">drug</span><span class="p">)</span><span class="w">
+</span><span class="c1">#Look at our data frame
+</span><span class="n">migraine</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##    pain drug
+## 1     4    A
+## 2     5    A
+## 3     4    A
+## 4     3    A
+## 5     2    A
+## 6     4    A
+## 7     3    A
+## 8     4    A
+## 9     4    A
+## 10    6    B
+## 11    8    B
+## 12    4    B
+## 13    5    B
+## 14    4    B
+## 15    6    B
+## 16    5    B
+## 17    8    B
+## 18    6    B
+## 19    6    C
+## 20    7    C
+## 21    6    C
+## 22    6    C
+## 23    7    C
+## 24    5    C
+## 25    6    C
+## 26    5    C
+## 27    5    C
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Run a one-way ANOVA
+</span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aov</span><span class="p">(</span><span class="n">pain</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">drug</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">=</span><span class="n">migraine</span><span class="p">)</span><span class="w">
+</span><span class="n">summary</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## drug         2  28.22  14.111   11.91 0.000256 ***
+## Residuals   24  28.44   1.185                     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Post hoc analysis using Tukey's HSD
+</span><span class="n">TukeyHSD</span><span class="p">(</span><span class="n">results</span><span class="p">,</span><span class="w"> </span><span class="n">conf.level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.95</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = pain ~ drug, data = migraine)
+## 
+## $drug
+##          diff        lwr      upr     p adj
+## B-A 2.1111111  0.8295028 3.392719 0.0011107
+## C-A 2.2222222  0.9406139 3.503831 0.0006453
+## C-B 0.1111111 -1.1704972 1.392719 0.9745173
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Add column full of gender info to migraine dataset
+</span><span class="n">migraine</span><span class="o">$</span><span class="n">gender</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">)</span><span class="w">
+</span><span class="n">migraine</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##    pain drug gender
+## 1     4    A      F
+## 2     5    A      F
+## 3     4    A      F
+## 4     3    A      M
+## 5     2    A      M
+## 6     4    A      M
+## 7     3    A      M
+## 8     4    A      F
+## 9     4    A      F
+## 10    6    B      M
+## 11    8    B      M
+## 12    4    B      F
+## 13    5    B      F
+## 14    4    B      F
+## 15    6    B      M
+## 16    5    B      F
+## 17    8    B      M
+## 18    6    B      M
+## 19    6    C      M
+## 20    7    C      F
+## 21    6    C      F
+## 22    6    C      F
+## 23    7    C      F
+## 24    5    C      M
+## 25    6    C      F
+## 26    5    C      M
+## 27    5    C      M
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Run two-way ANOVA using gender and drug as factors
+</span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aov</span><span class="p">(</span><span class="n">pain</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">drug</span><span class="o">*</span><span class="n">gender</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">=</span><span class="n">migraine</span><span class="p">)</span><span class="w">
+</span><span class="n">summary</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## drug         2 28.222  14.111  28.088 1.16e-06 ***
+## gender       1  0.002   0.002   0.004    0.952    
+## drug:gender  2 17.893   8.946  17.808 3.00e-05 ***
+## Residuals   21 10.550   0.502                     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Post hoc analysis on two-way ANOVA
+</span><span class="n">TukeyHSD</span><span class="p">(</span><span class="n">results</span><span class="p">,</span><span class="w"> </span><span class="n">conf.level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.95</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = pain ~ drug * gender, data = migraine)
+## 
+## $drug
+##          diff       lwr       upr     p adj
+## B-A 2.1111111  1.268923 2.9532993 0.0000084
+## C-A 2.2222222  1.380034 3.0644104 0.0000040
+## C-B 0.1111111 -0.731077 0.9532993 0.9410333
+## 
+## $gender
+##            diff        lwr       upr     p adj
+## M-F -0.01648352 -0.5842182 0.5512512 0.9524246
+## 
+## $`drug:gender`
+##          diff        lwr         upr     p adj
+## B:F-A:F  0.30 -1.1875023  1.78750227 0.9873049
+## C:F-A:F  2.20  0.7975694  3.60243059 0.0009237
+## A:M-A:F -1.20 -2.6875023  0.28750227 0.1619424
+## B:M-A:F  2.60  1.1975694  4.00243059 0.0001207
+## C:M-A:F  1.05 -0.4375023  2.53750227 0.2752703
+## C:F-B:F  1.90  0.4124977  3.38750227 0.0074874
+## A:M-B:F -1.50 -3.0679651  0.06796506 0.0660199
+## B:M-B:F  2.30  0.8124977  3.78750227 0.0010862
+## C:M-B:F  0.75 -0.8179651  2.31796506 0.6700989
+## A:M-C:F -3.40 -4.8875023 -1.91249773 0.0000064
+## B:M-C:F  0.40 -1.0024306  1.80243059 0.9441652
+## C:M-C:F -1.15 -2.6375023  0.33750227 0.1947322
+## B:M-A:M  3.80  2.3124977  5.28750227 0.0000011
+## C:M-A:M  2.25  0.6820349  3.81796506 0.0024216
+## C:M-B:M -1.55 -3.0375023 -0.06249773 0.0379545
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Plot the interaction for our two-way ANOVA
+</span><span class="n">interaction.plot</span><span class="p">(</span><span class="n">drug</span><span class="p">,</span><span class="w"> </span><span class="n">gender</span><span class="p">,</span><span class="w"> </span><span class="n">pain</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="../figure/unnamed-chunk-1-1.png" alt="center" /></p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Create bachelor dataset for correlation demo
+</span><span class="n">weeks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span><span class="w">
+</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">24</span><span class="p">,</span><span class="m">23</span><span class="p">,</span><span class="m">25</span><span class="p">,</span><span class="m">24</span><span class="p">,</span><span class="m">23</span><span class="p">,</span><span class="m">22</span><span class="p">,</span><span class="m">27</span><span class="p">,</span><span class="m">28</span><span class="p">,</span><span class="m">23</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">27</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">24</span><span class="p">,</span><span class="m">27</span><span class="p">,</span><span class="m">29</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">27</span><span class="p">,</span><span class="m">29</span><span class="p">,</span><span class="m">25</span><span class="p">,</span><span class="m">34</span><span class="p">,</span><span class="m">27</span><span class="p">,</span><span class="m">22</span><span class="p">,</span><span class="m">25</span><span class="p">,</span><span class="m">28</span><span class="p">,</span><span class="m">28</span><span class="p">,</span><span class="m">23</span><span class="p">)</span><span class="w">
+</span><span class="n">bachelor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">weeks</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w">
+</span><span class="n">bachelor</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>##    weeks age
+## 1      8  24
+## 2      7  23
+## 3      6  25
+## 4      5  24
+## 5      4  23
+## 6      4  22
+## 7      3  27
+## 8      3  28
+## 9      3  23
+## 10     2  30
+## 11     2  27
+## 12     2  30
+## 13     1  24
+## 14     1  27
+## 15     1  29
+## 16     1  30
+## 17     1  27
+## 18     1  29
+## 19     1  25
+## 20     1  34
+## 21     1  27
+## 22     1  22
+## 23     1  25
+## 24     1  28
+## 25     1  28
+## 26     1  23
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Run test of correlation on bachelor data - default method is Pearson correlation
+</span><span class="n">cor.test</span><span class="p">(</span><span class="n">bachelor</span><span class="o">$</span><span class="n">weeks</span><span class="p">,</span><span class="w"> </span><span class="n">bachelor</span><span class="o">$</span><span class="n">age</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## 
+## 	Pearson's product-moment correlation
+## 
+## data:  bachelor$weeks and bachelor$age
+## t = -2.3978, df = 24, p-value = 0.02463
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.70663528 -0.06298623
+## sample estimates:
+##        cor 
+## -0.4396126
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">plot</span><span class="p">(</span><span class="n">bachelor</span><span class="o">$</span><span class="n">weeks</span><span class="p">,</span><span class="w"> </span><span class="n">bachelor</span><span class="o">$</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="o">=</span><span class="s2">"Weeks Before Dumping"</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="o">=</span><span class="s2">"Age of Contestant"</span><span class="p">)</span><span class="w"> 
+</span></code></pre>
+</div>
+
+<p><img src="../figure/unnamed-chunk-1-2.png" alt="center" /></p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Supplemental: Another kind of post hoc test (pairwise t-tests with a bonferroni correction) on the migraine dataset
+</span><span class="n">pairwise.t.test</span><span class="p">(</span><span class="n">pain</span><span class="p">,</span><span class="w"> </span><span class="n">drug</span><span class="p">,</span><span class="w"> </span><span class="n">p.adjust</span><span class="o">=</span><span class="s2">"bonferroni"</span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## 
+## 	Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  pain and drug 
+## 
+##   A       B      
+## B 0.00119 -      
+## C 0.00068 1.00000
+## 
+## P value adjustment method: bonferroni
+</code></pre>
+</div>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="c1">#Supplemental: Another way to do a t-test on the migraine dataset
+</span><span class="n">with</span><span class="p">(</span><span class="n">migraine</span><span class="p">,</span><span class="w"> </span><span class="n">t.test</span><span class="p">(</span><span class="n">pain</span><span class="p">[</span><span class="n">drug</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"A"</span><span class="p">],</span><span class="w"> </span><span class="n">pain</span><span class="p">[</span><span class="n">drug</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"B"</span><span class="p">]))</span><span class="w">
+</span></code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>## 
+## 	Welch Two Sample t-test
+## 
+## data:  pain[drug == "A"] and pain[drug == "B"]
+## t = -3.6909, df = 12.896, p-value = 0.002751
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -3.3478073 -0.8744149
+## sample estimates:
+## mean of x mean of y 
+##  3.666667  5.777778
+</code></pre>
+</div>
+
+<h1 id="python-ized-version-courtesy-of-qulogic">Python-ized version (courtesy of <a href="https://github.com/QuLogic">@QuLogic</a>)</h1>
+
+<script src="https://gist.github.com/QuLogic/4477f0e884ebd29ffe80.js"></script>
+
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

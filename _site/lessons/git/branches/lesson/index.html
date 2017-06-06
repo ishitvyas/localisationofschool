@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Using branches in Git</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/git/branches/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Using branches in Git</h1>
+
+        <hr>
+
+        <h1 id="why-and-how-branches-are-used-in-git">Why and how branches are used in Git</h1>
+
+<ul>
+  <li><strong>Authors</strong>: Luke Johnston</li>
+  <li><strong>Research field</strong>: Nutritional and diabetes epidemiology</li>
+  <li><strong>Lesson topic</strong>: Git branches</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/git/branches">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/git/branches</a></li>
+  <li><strong>Lesson video stream</strong>: <a href="https://www.youtube.com/watch?v=FwxbMxXHb0c">https://www.youtube.com/watch?v=FwxbMxXHb0c</a></li>
+</ul>
+
+<h2 id="preface">Preface:</h2>
+
+<p>Version control systems like Git help manage changes to files. Sometimes, you’ll
+want (or need) to make some ‘feature’ or ‘patches’ to a collaborative research
+project. Or maybe you want to make some experimental changes to your code, but
+don’t want to touch your main code. This, and more, is where branches come into
+play.</p>
+
+<p>In this code-along we’ll go over what branches are, and how and why you would use
+them.</p>
+
+<h3 id="pre-requisites">Pre-requisites:</h3>
+
+<ul>
+  <li>Obviously, have <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git installed</a></li>
+  <li>Make sure to <a href="http://codeasmanuscript.org/lessons/git/cheatsheet/">configure your git</a></li>
+</ul>
+
+<h2 id="what-are-git-branches">What are Git branches</h2>
+
+<p>In very simple terms, git branches are individual projects within a git
+repository. Different branches within a repository can have completely different
+files and folders, or it could have everything the same except for some lines of
+code in a file.</p>
+
+<p>Let’s use a few real world examples (at least that I’ve used before, others may
+have used them differently):</p>
+
+<ul>
+  <li>Pretend you submitted a research article to a journal and they want you to
+revise it based on some reviewers comments. There are several ways to deal with
+the comments, so instead of changing your main manuscript, you create a
+<code class="highlighter-rouge">revision</code> branch in your manuscript git repository. In that branch you make the
+changes to your manuscript in response to the reviewers. Once you are satisfied,
+you merge the branch into the <code class="highlighter-rouge">master</code> branch and resubmit the article.</li>
+  <li>Imagine you have a dataset that multiple people work off of but that is also
+often updated with more data. You think you found a problem with the dataset,
+but aren’t sure. So you create a new branch <code class="highlighter-rouge">fixing</code> to fix the problems without
+messing with the master dataset. After you confirm the problem is real and that
+you have the solution, you submit a pull request of the <code class="highlighter-rouge">fixing</code> branch to be
+merged with the <code class="highlighter-rouge">master</code> branch.</li>
+  <li>What is often the case in software development, a bug or missing feature in
+the software gets identified. Because the software is already in production use
+(fairly stable, other people rely on it, etc), you can’t just make changes to
+the main software code. So a <code class="highlighter-rouge">hotfix</code> or <code class="highlighter-rouge">feature</code> branch is created to address
+these problems, which will eventually get merged in with the <code class="highlighter-rouge">master</code> branch for
+the next version of the software. This ensures that other people’s code isn’t
+broken everytime a bug gets fixed.</li>
+</ul>
+
+<p>There are many uses of branches in Git. The nice (and very powerful) thing about
+Git is the fact that branches are very cheap compared to other version control
+systems. By cheap, I mean they don’t take up much disk space, it’s
+computationally easy to move between branches, and it’s (relatively) easy to
+merge branches together. This is because of how Git represents branches, since
+they are simply <em>pointers</em> or an individual commit. <em>That’s it.</em> Just a
+pointer… Git commit history is a 
+<a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">directed acyclic graph</a>, 
+which means that every single commit always has a ‘parent’ commit (the
+previous commit in the history, or multiple parents when a merge happens), and
+any individual commit can have multiple ‘children’. This history can be traced
+back through the ‘lineage’ or ‘ancestry’. The branch just gives a name to each
+‘lineage’ when a commit has multiple children.</p>
+
+<p>When you merge two branches together, the commit histories get merged together
+as well. Which means that all the changes you made in each branch gets combined
+back into a single lineage, rather than two. This makes it easier to work
+collaboratively on a project, since each individual could work on their own
+branches, without dealing with the messiness that could come from working all on
+one branch.</p>
+
+<h2 id="commands-used-with-branches">Commands used with branches</h2>
+
+<p>Branches are best understood visually. So let’s first start with using 
+<a href="https://onlywei.github.io/explain-git-with-d3/">this website</a> to see what the 
+<code class="highlighter-rouge">branch</code>, <code class="highlighter-rouge">checkout</code>, and <code class="highlighter-rouge">merge</code> commands are doing.</p>
+
+<p>After we’ve tried that, let’s do it locally (on your own computer). Here is a
+sequence of commands to try out:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd ~/Desktop
+mkdir git-branches
+cd git-branches
+git init # start a repo
+git add .
+git commit -m "First commit" # make the first commit
+git branch testBranch # create branch
+git checkout testBranch # move to branch
+## can also do git checkout -b testBranch
+echo "Some text" &gt; file.txt 
+git add file.txt
+git commit -m "Added a file with text"
+git checkout master
+echo "Text in another file" &gt; new-file.txt
+git add new-file.txt
+git commit -m "Added another file"
+git log --graph --oneline --decorate --all
+# This command is long, so shorten it using aliases
+git config --global alias.lg 'log --graph --oneline --decorate --all'
+git merge testBranch
+git lg
+git branch -d testBranch # delete the branch
+</code></pre>
+</div>
+
+<h2 id="using-branches-for-pull-requests">Using branches for pull requests</h2>
+
+<p>I mentioned this already, but branches are best used when doing a 
+<a href="https://help.github.com/articles/using-pull-requests/">pull request</a>
+(unless the pull request is very small or few people work on the repository).</p>
+
+<p>The steps to take would be:</p>
+
+<ol>
+  <li>Fork a repository on GitHub</li>
+  <li>Clone it onto your computer</li>
+  <li>Make a branch and move to it: <code class="highlighter-rouge">git checkout -b fixingBranch</code></li>
+  <li>Make changes to the files</li>
+  <li>Commit the changes to the history</li>
+  <li>Push the branch up to your forked version: <code class="highlighter-rouge">git push origin fixingBranch</code></li>
+  <li>On GitHub, submit a Pull Request of your <code class="highlighter-rouge">fixingBranch</code></li>
+  <li>Once the pull request is merged, 
+<a href="https://github.com/blog/1377-create-and-delete-branches">delete</a> 
+the <code class="highlighter-rouge">fixingBranch</code> on your forked repo on GitHub and on your computer 
+(<code class="highlighter-rouge">git checkout master &amp;&amp; git pull upstream master &amp;&amp; git branch -d fixingBranch</code>)</li>
+</ol>
+
+<h1 id="resources">Resources:</h1>
+
+<p>If you have any questions, often one of the best places to start is either<br />
+<a href="https://stackoverflow.com/questions/tagged/git">StackOverflow</a> or Google (which
+more likely links to StackOverflow).</p>
+
+<h2 id="glossary">Glossary:</h2>
+
+<ul>
+  <li><code class="highlighter-rouge">cd</code> - change directory</li>
+  <li>directory - the same thing as a folder</li>
+  <li><code class="highlighter-rouge">mkdir</code> - make a directory</li>
+  <li><code class="highlighter-rouge">echo</code> - print a message to the screen or to a file if <code class="highlighter-rouge">&gt;</code> (redirect) is
+present.</li>
+  <li><code class="highlighter-rouge">git init</code> - start or initialize a git repository</li>
+  <li><code class="highlighter-rouge">git add</code> - put a file into the staging area, so that git starts
+tracking it</li>
+  <li><code class="highlighter-rouge">git commit</code> - send files in the staging/index area into the history
+(the git repository)</li>
+  <li><code class="highlighter-rouge">git log --graph --oneline --decorate --all</code> - view the commit history in the
+git repository and the branches, with each commit as one line.</li>
+  <li><code class="highlighter-rouge">git branch</code> - An individual line of commit history that contains files that may
+differ from other branches.</li>
+  <li><code class="highlighter-rouge">git checkout</code> - A way to move across the git commits and branches.</li>
+  <li><code class="highlighter-rouge">git merge</code> - Combine a branch into the current checked out branch (i.e. the
+branch you are on).</li>
+</ul>
+
+<h2 id="links">Links:</h2>
+
+<ul>
+  <li><a href="https://pcottle.github.io/learnGitBranching/">Interactive, visual tutorial on branching</a></li>
+  <li><a href="https://www.atlassian.com/git/tutorials/using-branches/git-branch">Brief explanation of branching</a></li>
+</ul>
+
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

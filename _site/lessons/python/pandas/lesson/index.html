@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Intro to Pandas DataFrames</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/python/pandas/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Intro to Pandas DataFrames</h1>
+
+        <hr>
+
+        <ul>
+  <li><strong>Authors</strong>: Dano Morrison</li>
+  <li><strong>Research field</strong>: Neuroscience</li>
+  <li><strong>Lesson topic</strong>: Usage of Pandas DataFrames for data analysis</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/pandas">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/pandas</a></li>
+</ul>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>DataFrames are a lovely way to store data. They’re essentially matrices that can store almost any type of data and are a great option for handling data where you want to keep track of rows and columns with labels. The Pandas library also comes with a handy host of functions that allow you to work with your DataFrames in very smart ways (eg. means, split-apply-combine).</p>
+
+<p>The Pandas website has a lot of <a href="http://pandas.pydata.org/pandas-docs/version/0.15.2/10min.html#min">great documentation</a> to help you get started. However, even after reading the official tutorials, I was stumped on some problems using DataFrames. This lesson is based directly off of how I solved those problems, so hopefully some will find it helpful.</p>
+
+<h1 id="creating-dataframes">Creating DataFrames</h1>
+
+<p>You can instantiate DataFrames without any data or with data from any number of sources</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import pandas as pd
+import numpy as np
+
+blank = pd.DataFrame()
+
+blank
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>movies = pd.DataFrame(np.zeros((4,4)), index=['Forrest Gump', 'Scanners', '2010: Odyssey Two', 'Fern Gully'], columns = ['Date Released', 'Box Office Gross', 'IMDB Score', 'Tomatometer'])
+
+movies
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>zeros = pd.DataFrame(np.zeros((3,5)))
+
+zeros
+</code></pre>
+</div>
+
+<p>Got a csv file you want to read? No problem!</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>probedata = pd.read_csv('12probe20cm.csv')
+
+probedata[1:4]
+</code></pre>
+</div>
+
+<h1 id="slicing-dataframes">Slicing DataFrames</h1>
+<p>You can slice DataFrames just like an array, and can also include some more advanced criteria</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>movies['Date Released'] = ['1994','1981','1984','1992']
+movies['Box Office Gross'] = [50,12,8,16]
+movies['IMDB Score'] = [8.8,6.8,6.8,6.4]
+movies['Tomatometer'] = [.72,.80,.66,.71]
+
+movies[1:2]
+
+#OR
+
+movies.iloc[1:2]
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>movies[['IMDB Score','Tomatometer']]
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>movies[movies['IMDB Score']&lt;(movies['Tomatometer']*10)]
+</code></pre>
+</div>
+
+<h1 id="adding-new-elements">Adding new elements</h1>
+
+<p>Columns and rows can be added easily (relatively)</p>
+
+<p>Columns can be added by setting a new column to another DataFrame. Just make sure that the indices are compatible!</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>favlist = pd.DataFrame([True,True,True,True],index=movies.index)
+
+movies['Childhood Top 10?'] = favlist
+
+movies
+</code></pre>
+</div>
+
+<p>Rows can be added by using the append function on a DataFrame, taking an appropriately index and columned DataFrame that will be added on the end of the first DataFrame.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>wildwildwest = pd.DataFrame(index=['Wild Wild West'], columns=movies.columns)
+
+wildwildwest.iloc[0] = ['1999', 2, 4.8,.17,False]
+
+movies.append(wildwildwest)
+</code></pre>
+</div>
+
+<p>The concat function is also very useful. It can handle DataFrames with different indices and/or columns. There are multiple ways to joining the indices and columns however you would like</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pd.concat([movies,movies])
+</code></pre>
+</div>
+
+<h1 id="the-amazing-groupby">The Amazing GroupBy</h1>
+
+<p>Pandas.GroupBy is a great function that allows you to process your data in many different ways without having to get fancy or write any loops.</p>
+
+<p>Essentially, it carries out three different steps:</p>
+
+<ul>
+  <li><em>Splitting</em>: the data into different groups [eg. treatment condition]</li>
+  <li><em>Applying</em>: some function to your data [eg. mean]</li>
+  <li><em>Combining</em>: the results back into another DataFrame</li>
+</ul>
+
+<p>In my work, this function was extremely useful when I wanted to obtain the mean <em>time spent in target zone</em> for each of my treatment groups</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>probedata
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grouped = probedata.groupby(['Group']).mean()
+
+grouped
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import matplotlib.pylab as plt
+import seaborn as sns
+
+sns.set_context("talk")
+grouped[['Zone 1 %','Target Zone %','Zone 3 %','Zone 4 %']].plot(kind='bar')
+plt.title('Time spent in Zone')
+plt.ylabel('Time (sec)')
+plt.xlabel('Zone')
+locs, labels = plt.xticks()
+plt.setp(labels,rotation=0)
+plt.show()
+</code></pre>
+</div>
+
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

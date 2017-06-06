@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Introduction to Databases and SQL</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/misc/sql-intro/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Introduction to Databases and SQL</h1>
+
+        <hr>
+
+        <ul>
+  <li><strong>Authors</strong>: Ian Dennis Miller</li>
+  <li><strong>Research field</strong>: Social Psychology - Social Complexity</li>
+  <li><strong>Lesson topic</strong>: Databases and SQL</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/misc/sql-intro">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/misc/sql-intro</a></li>
+</ul>
+
+<h2 id="presentation">Presentation</h2>
+
+<p><a href="https://iandennismiller.github.io/databases-sql">https://iandennismiller.github.io/databases-sql</a></p>
+
+<ul>
+  <li>covers data, databases, and sql</li>
+  <li>contains javascript for some exercises</li>
+</ul>
+
+<h2 id="notebooks">Notebooks</h2>
+
+<p>The following Jupyter notebooks contain a R and Python examples:</p>
+
+<ul>
+  <li><a href="../r-sql.ipynb">r-sql.ipynb</a></li>
+  <li><a href="../python-sql.ipynb">python-sql.ipynb</a></li>
+</ul>
+
+<p>These can be run locally:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>make r-notebook
+make python-notebook
+</code></pre>
+</div>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>To follow along with the lesson, you will need a several R and Python libraries.  If you don’t have R, Python, and sqlite3, see <a href="#basic-system-requirements">Basic System Requirements</a>.  For Python, consider creating a virtualenv for your workspace.</p>
+
+<p>Now you are ready to install the required R and Python libraries.  Inspect and run the following files:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pip install -r requirements/requirements.txt
+R --no-save &lt; requirements/requirements.R
+</code></pre>
+</div>
+
+<p>You can also automatically install requirements on Mac and Linux:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>make requirements
+</code></pre>
+</div>
+
+<h2 id="basic-system-requirements">Basic System Requirements</h2>
+
+<p>This lesson makes use of the following:</p>
+
+<ul>
+  <li>Python (Jupyter)</li>
+  <li>R (IRkernel for Jupyter)</li>
+  <li>sqlite3</li>
+</ul>
+
+<h3 id="mac">Mac</h3>
+
+<p>MacOS already has Python and probably sqlite3 as well.  You need R.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>brew install R
+</code></pre>
+</div>
+
+<h3 id="linux">Linux</h3>
+
+<p>You need R.  Try <code class="highlighter-rouge">apt</code>, <code class="highlighter-rouge">yum</code>, or whatever:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install r-base
+yum install R
+</code></pre>
+</div>
+
+<p>You may need to install sqlite3.  You can test by running:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>which sqlite3
+</code></pre>
+</div>
+
+<p>If it returns nothing, then it is not currently installed.  Try <code class="highlighter-rouge">apt</code>, <code class="highlighter-rouge">yum</code>, or whatever:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install sqlite3 libsqlite3-dev
+yum install sqlite sqlite-devel
+</code></pre>
+</div>
+
+<h3 id="windows">Windows</h3>
+
+<p>You need Python, R, sqlite3, and maybe other things like a C compiler.  These links will get you started:</p>
+
+<ul>
+  <li>https://cran.r-project.org/bin/windows/base/</li>
+  <li>https://www.rstudio.com/products/rstudio/download/</li>
+  <li>https://www.python.org/downloads/windows/</li>
+  <li>https://sqlite.org/download.html</li>
+</ul>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>
