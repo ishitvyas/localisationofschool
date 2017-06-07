@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Debugging in Python</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/python/debugging/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Debugging in Python</h1>
+
+        <hr>
+
+        <ul>
+  <li><strong>Author</strong>: John Ladan</li>
+  <li><strong>Lesson topic</strong>: Introduction to Debugging in Python</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/debugging">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/debugging</a></li>
+  <li><strong>Lesson video stream</strong>: <a href="https://www.youtube.com/watch?v=E6UfaNyLdps">https://www.youtube.com/watch?v=E6UfaNyLdps</a></li>
+</ul>
+
+<h2 id="preface">Preface:</h2>
+
+<p>Debugging is really an art form. In this tutorial, we’ll cover some concepts and tools you can use for debugging, but the skills need time to develop.</p>
+
+<p>The tutorial breaks debugging into three basic steps: testing code, finding bugs, and fixing them. Testing is a large topic on its own – there’s even a <a href="http://pythontesting.net/start-here/">blog/podcast about it</a>. We’ll only cover some basics and the <a href="https://docs.python.org/3.5/library/unittest.html"><code class="highlighter-rouge">unittest</code></a> framework, so you may want to check out that blog to learn more.</p>
+
+<p>The bulk of this tutorial is about finding bugs. The only tools required are Python (<code class="highlighter-rouge">pdb</code> is included) and a text editor. However, I will give a demo using <a href="https://github.com/spyder-ide/spyder">Spyder</a> to show how an IDE can help. Many other IDEs have the same (or more) features, but Spyder was convenient for me and is FOSS (free as in beer and speech).</p>
+
+<p>Fixing bugs is very code specific, thus not covered in detail.</p>
+
+<p>Sources: <a href="https://en.wikipedia.org/wiki/Debugging">wikipedia</a>, <a href="http://pythontesting.net/">Python Testing</a>, <a href="https://pythonconquerstheuniverse.wordpress.com/category/python-debugger/">Python Conquers The Universe (Debugging in Python)</a>, <a href="https://docs.python.org/3.5/index.html">Python Documentation</a></p>
+
+<h2 id="outline">Outline:</h2>
+
+<ul>
+  <li>What is debugging?</li>
+  <li>Hunting for bugs (testing)
+    <ul>
+      <li>interactive testing</li>
+      <li>unit tests</li>
+    </ul>
+  </li>
+  <li>Finding bugs (search)
+    <ul>
+      <li>stack traces</li>
+      <li>print statements everywhere!</li>
+      <li>using <code class="highlighter-rouge">pdb</code></li>
+      <li>long-term debugging (user warnings)</li>
+      <li>reporting (to OS projects)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="what-is-debugging">What is debugging?</h2>
+
+<p>Quoting Wikipedia, “Debugging is the process of finding and resolving of defects that prevent correct operation of computer software or a system.”
+In reality, it is a very large topic with many different methodologies and steps. We’re going to focus on finding bugs, and talk a little about prevention.</p>
+
+<p>There are two forms of finding bugs: discovering their existence (testing), and searching for the cause in the code (finding). The debugging cycle typically goes</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>test -&gt; find -&gt; fix -&gt; test -&gt; ...
+</code></pre>
+</div>
+
+<h2 id="testing">Testing</h2>
+
+<p>There’s a whole range of things that fall under testing, from running the program and seeing if it gives you the output you want to a full suite of unit tests run every time you commit your changes. In Python, the most common form of testing is through <em>interactive debugging</em> using the REPL.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Demonstrate here
+</code></pre>
+</div>
+
+<p>The REPL has been a major feature of interpreted languages like Python for good reason: quick and dirty testing.</p>
+<ul>
+  <li>Don’t know how a library function behaves? Test it in the REPL.</li>
+  <li>Unsure of your syntax? Check it in the REPL.</li>
+  <li>Not sure how to tackle a problem? Try it step by step with some test data in the REPL.</li>
+</ul>
+
+<p>Where this form of testing falls through is consistency and automation. Every time the developer makes a change, she has to remember what to test and type it into the command line. Even with tab completion, or copy and paste, this is repetitive and tests will be missed.</p>
+
+<p>That’s where unit tests come in. Unit tests are the smallest testable parts of a program. That smallness of them makes them easier to automate, and also (as we’ll see) easier to debug. Python includes a module <a href="https://docs.python.org/3.5/library/unittest.html"><code class="highlighter-rouge">unittest</code></a> that can handle this work flow.</p>
+
+<p>As an example, let’s make a function that will split a list in the middle. It will take a list of arbitrary length, and return a tuple containing (first half, middle element, last half). We’ll follow a Test Driven Design (TDD) style, and create the tests first. This clearly defines the behaviour.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import unittest
+
+class TestSplitter(unittest.TestCase):
+
+    def test_simple_case(self):
+        self.assertTupleEqual(splitter([1, 2, 3]), ([1], 2, [3]))
+
+    # TODO: More tests (hint: length of list)
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+</div>
+
+<p>A good testing suite should include a few examples of normal/expected input as well as any edge cases you can think of. Let’s fill in more tests now.</p>
+
+<p>Now, run the suite (which will get us into debugging/finding mode)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>python test_splitter.py
+# or
+python -m unittest
+# or
+python -m unittest -v test_splitter
+</code></pre>
+</div>
+
+<p>(The <code class="highlighter-rouge">unittest</code> module has <em>test discovery</em> that will search for tests in the current directory using some rules.)</p>
+
+<p>First, we’ll suppress the errors by actually defining the function. Next, we’ll come up with a solution (and hopefully make a few mistakes along the way.</p>
+
+<h2 id="finding-bugs">Finding bugs</h2>
+
+<p>After discovering that a bug exists, the next challenge is finding where the bug is in code. We’ve already seen how unit testing can help narrow it down to a function, but what if that function is more complicated, or we get an error, or the bug came up in use and not in testing?</p>
+
+<p>There are a few tools for this.</p>
+
+<p>Fist, stack traces. These are the messages the Python interpreter gives when there’s an uncaught exception. At first, they may seem cryptic, but it’s pretty straight-forward. From bottom to top, the trace prints:</p>
+
+<ul>
+  <li>the error type and message (e.g. SyntaxError, IndexError, …)</li>
+  <li>[the line in which the error happened]</li>
+  <li>the function in which the error happened, along with the filename and line number</li>
+  <li>The filename, line number, and function that called the function with the error (and all the way up the stack)</li>
+</ul>
+
+<p>We’ll see an example of this with a partially working <code class="highlighter-rouge">splitter</code> function.</p>
+
+<h3 id="print-debugging">Print debugging</h3>
+<p>Sometimes the stack trace isn’t enough, like when a function returns the wrong value, or you’re not sure if a loop is behaving properly. The quick fall-back for this is to insert print statements wherever you’re unsure of the value.</p>
+
+<p>Let’s do a little debugging of a broken average-taking function.</p>
+
+<h3 id="using-pdb">Using <code class="highlighter-rouge">pdb</code></h3>
+
+<p>This is the more sophisticated way. You may have noticed that one annoyance with <code class="highlighter-rouge">print</code> is that you need to quit and restart python whenever the function definition is changed. Using <code class="highlighter-rouge">pdb</code>, the execution is interrupted, and we can check the values of variables whenever we like.</p>
+
+<p>To use <code class="highlighter-rouge">pdb</code>, you first need to import it, and add the line <code class="highlighter-rouge">pdb.set_trace()</code> where you’d like to start doing introspection. e.g.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import pdb
+
+def average(xs):
+    pdb.set_trace()
+    length = len(xs)
+    acc = 0
+    for i in range(1, length):
+        acc = acc + xs[i]
+    return acc/length
+</code></pre>
+</div>
+
+<p>Next, when the execution is interrupted, use the commands</p>
+
+<ul>
+  <li><code class="highlighter-rouge">p &lt;variable&gt;</code> for printing the value of a variable</li>
+  <li><code class="highlighter-rouge">n</code> to execute the next line</li>
+  <li><code class="highlighter-rouge">s</code> to step into a function call</li>
+  <li><code class="highlighter-rouge">c</code> to continue execution</li>
+  <li><code class="highlighter-rouge">!&lt;code&gt;</code> to run any line of python (including changing values)</li>
+</ul>
+
+<p>Lets repeat the demo for <code class="highlighter-rouge">average()</code> using the debugger in Spyder (which just runs <code class="highlighter-rouge">pdb</code> for us).</p>
+
+<p>Note: sometimes print debugging is still useful, like in a loop if you don’t want to stop every iteration, but want to see the values as they come up.</p>
+
+<h3 id="helping-the-user">Helping the user</h3>
+
+<p>There are a couple other problems with using <code class="highlighter-rouge">print()</code> for debugging:</p>
+
+<ul>
+  <li>you may forget to remove a print statement</li>
+  <li>it messes up unit tests</li>
+  <li>it corrupts the useful output to the user with debugging output</li>
+</ul>
+
+<p>For these reasons, it’s better to use the <a href="https://docs.python.org/3/howto/logging.html#logging-basic-tutorial"><code class="highlighter-rouge">logging</code></a> module.</p>
+
+<p>Using <code class="highlighter-rouge">logging.debug()</code> instead of <code class="highlighter-rouge">print()</code> lets you output the debugging statements to a file, instead of <code class="highlighter-rouge">stdout</code>. An example from the python docs,</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import logging
+logging.basicConfig(filename='example.log',level=logging.DEBUG)
+logging.debug('This message should go to the log file')
+logging.info('So should this')
+logging.warning('And this, too')
+</code></pre>
+</div>
+
+<p>Creating logs this way will also automatically format the messages (which you can customize). This is a good way to provide debugging data to your users, like warnings that their data is in the wrong format or that another function is better.</p>
+
+<h3 id="a-brief-mention-of-reporting-bugs">A brief mention of reporting bugs</h3>
+
+<p>It should also be mentioned that users can report bugs to developers. Each project likely has its own bug tracking system, but GitHub and other hosts provide issue trackers. It’s a good idea to let users report bugs, and to report bugs in other projects that you use.</p>
+
+<p>With more practice in fixing bugs, you’ll also have a better idea of what should be included in a bug report.</p>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

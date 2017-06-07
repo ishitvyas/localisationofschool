@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Introduction to Digital Devices</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/python/biopython/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Introduction to Digital Devices</h1>
+
+        <hr>
+
+        <ul>
+  <li><strong>Author</strong>: Madeleine Bonsma</li>
+  <li><strong>Research field</strong>: Microbial ecology - prokaryote-phage interactions</li>
+  <li><strong>Lesson topic</strong>: Biopython - examples</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/biopython">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/biopython</a></li>
+</ul>
+
+<h2 id="intro">Intro</h2>
+
+<p>Biopython is a package designed for working with genetic sequence data in Python.</p>
+
+<p>THE MOST HELPFUL resource for Biopython: http://biopython.org/DIST/docs/tutorial/Tutorial.html</p>
+
+<h2 id="some-biopython-features">Some Biopython features</h2>
+
+<ul>
+  <li>The Seq object:
+```
+from Bio.Seq import Seq # sequence tools to do stuff like reverse complement
+from Bio.Alphabet import generic_dna # more sequence tools</li>
+</ul>
+
+<p>my_DNA = “GTTTTTGTACTCTCAAGATTTAAGTAACTGTACAAC”
+my_DNA = Seq(my_DNA,generic_dna) # convert string to Seq object
+my_DNA_reverse_complement = str(my_DNA.reverse_complement()) # reverse complement</p>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/wW5k1ZezDhQ" frameborder="0" allowfullscreen=""></iframe>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+There are also options for searching, transcription, and translation.
+
+  * parsing BLAST output: 
+
+This is an example function that extracts pretty much everything from the blast records object. To see all options, use `dir(NCBIXML.parse)`, or check the help: `help(NCBIXML.parse)`
+
+</code></pre>
+</div>
+<p>def parse_blast(resultfile):
+    from Bio.Blast import NCBIXML
+    result_handle = open(resultfile)
+    blast_records = NCBIXML.parse(result_handle)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>count = 0
+for blast_record in blast_records:
+    print "printing header stuff"
+    print "blast_record.query", blast_record.query
+    print "blast_record.query_letters", blast_record.query_letters
+    print "printing descriptions"        
+    print "printing descriptions"
+    for description in blast_record.descriptions:
+        print "description.title", description.title
+        print "description.score", description.score #I think this is the best score
+        print "description.e", description.e #I think this is the best e-value
+        print "num_alignments", description.num_alignments #number of alignments per query
+    print "printing alignments"
+    for alignment in blast_record.alignments:
+        print "alignment.title", alignment.title
+        print "alignment.length", alignment.length
+        print "printing hsps"
+        for hsp in alignment.hsps: #Multiple hits means multiple hsps 
+            print "hsp.align_length", hsp.align_length
+    
+            print "hsp.score", hsp.score
+            print "hsp.bits", hsp.bits
+            print "hsp.expect", hsp.expect
+            print "hsp.num_alignments", hsp.num_alignments
+            print "hsp.identities", hsp.identities
+            print "hsp.positives", hsp.positives
+            print "hsp.gaps", hsp.gaps
+            print "hsp.strand", hsp.strand
+            print "hsp.frame", hsp.frame
+            print "hsp.query", hsp.query
+            print "hsp.query_start", hsp.query_start
+            print "hsp.query_end", hsp.query_end
+            print "hsp.match", hsp.match
+            print "hsp.sbjct", hsp.sbjct
+            print "hsp.sbjct_start", hsp.sbjct_start
+            print "hsp.sbjct_end", hsp.sbjct_end
+    print "-----------------------------------"      
+
+result_handle.close()
+return
+</code></pre>
+</div>
+
+<p>fn = “data/BLAST_output.xml”</p>
+<h1 id="heres-what-the-output-looks-like-httpsgithubcommbonsmastudygroupblobgh-pageslessonsbiopythonexample_datablast_outputxml">Here’s what the output looks like: https://github.com/mbonsma/studyGroup/blob/gh-pages/lessons/Biopython/example_data/BLAST_output.xml</h1>
+
+<p>parse_blast(fn)</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+  * Running BLAST locally (on your machine as opposed to over the web)
+
+Note: this won't work unless you install [blast+](https://www.ncbi.nlm.nih.gov/guide/howto/run-blast-local/) and then add the blast+ directory to your PATH.
+
+</code></pre>
+</div>
+<p>from Bio.Blast.Applications import NcbiblastnCommandline
+#help(NcbiblastnCommandline)
+import os</p>
+
+<p>my_query = “data/spacers.fasta”</p>
+
+<p>database = “DB_June29”</p>
+
+<p>outfile = “data/BLAST_output.xml”</p>
+
+<h1 id="these-parameters-should-be-changed-to-meet-your-needs">these parameters should be changed to meet your needs</h1>
+<p>blastn_obj = NcbiblastnCommandline(query=my_query, db=database, evalue=1, num_alignments = 100, dust = “no”, task = “blastn”,reward = 1, penalty = -3, outfmt=5, out = outfile)</p>
+
+<p>stdout, stderr = blastn_obj()
+```</p>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

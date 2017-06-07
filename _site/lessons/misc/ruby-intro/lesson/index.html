@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Introduction to Ruby</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/misc/ruby-intro/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Introduction to Ruby</h1>
+
+        <hr>
+
+        <ul>
+  <li><strong>Authors</strong>: Jenna Blumenthal</li>
+  <li><strong>Research field</strong>: Mechanical &amp; Industrial Engineering</li>
+  <li><strong>Lesson topic</strong>: Introduction to Ruby</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/jennaleeb/ruby_workshop">https://github.com/jennaleeb/ruby_workshop</a></li>
+</ul>
+
+<p>This is a very basic introduction to Ruby directed for those without much programming experience. It will cover using the terminal and interative ruby shell (IRB), data types, objects/classes, methods, conditional logic, and running a program from a file in the terminal.</p>
+
+<h2 id="content-source">Content source:</h2>
+<p>Based on the <a href="https://github.com/ladieslearningcode/Ruby"><strong>workshop</strong></a> developed by <a href="https://twitter.com/dess_e">Dessy Deskalov</a> for <a href="http://ladieslearningcode.com/">Ladies Learning Code</a></p>
+
+<h2 id="agenda">Agenda</h2>
+
+<ul>
+  <li>What is Ruby?</li>
+  <li>Working in the Terminal</li>
+  <li>Data Types</li>
+  <li>Methods</li>
+  <li>Objects and Classes</li>
+  <li>Writing/running a program</li>
+  <li>Control Flow</li>
+</ul>
+
+<h1 id="what-is-ruby">What is Ruby?</h1>
+
+<h2 id="ruby-is-a-programming-language">Ruby is a programming language</h2>
+
+<p>Why do people love Ruby?</p>
+
+<ul>
+  <li>Easy to learn (compared to C, C++, Java)</li>
+  <li>Forgiving syntax</li>
+  <li>Large and supportive online community</li>
+</ul>
+
+<p>Created in 1993 by Yukihiro Matsumoto, from Japan.</p>
+
+<blockquote>
+  <p>“I hope to see Ruby help every programmer in the world to be productive, and to enjoy programming, and to be happy. That is the primary purpose of the Ruby language.”</p>
+</blockquote>
+
+<h2 id="ruby-in-the-command-line">Ruby in the Command Line</h2>
+
+<p>The IRB (“Interactive Ruby Shell”) is an interactive command-line interpreter that can be used to test code quickly.</p>
+
+<h3 id="os-x">OS X</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Applications -&gt; Utilities -&gt; Terminal
+</code></pre>
+</div>
+
+<h3 id="windows">Windows</h3>
+
+<p>(C:\windows\system32\cmd.exe)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Start -&gt; All Programs -&gt; Accessories -&gt; Command Prompt
+</code></pre>
+</div>
+
+<h2 id="using-irb-interactive-ruby">Using IRB (Interactive Ruby)</h2>
+
+<p>Type IRB into the console</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>irb
+</code></pre>
+</div>
+
+<p>Then you’ll see somthing like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ruby-1.9.2-p290 :001 &gt;
+</code></pre>
+</div>
+
+<h2 id="what-can-ruby-do">What can Ruby do?</h2>
+
+<p>Try typing:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>irb(main):001:0&gt;puts "Hello World"
+    Hello World
+    =&gt; nil
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">puts</code> is the basic command to print something out in Ruby.
+<code class="highlighter-rouge">=&gt; nill</code> is the result of the expression.</p>
+
+<p>Math:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; 1 + 1
+=&gt; 2
+
+&gt; 462 * 86
+=&gt; 39732
+</code></pre>
+</div>
+
+<h1 id="data-types">Data Types</h1>
+
+<h2 id="data-types-1">Data Types</h2>
+
+<p>Numbers without decimals are called <code class="highlighter-rouge">INTEGERS</code>. We just did some math with some integers.</p>
+
+<p>Letters, words, and sentences are called <code class="highlighter-rouge">STRINGS</code>. We tell Ruby that we are intending to use a string by wrapping it in quotes.</p>
+
+<p>Some other data types in Ruby:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">binary</code></li>
+  <li><code class="highlighter-rouge">boolean</code></li>
+  <li><code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">decimal</code></li>
+  <li>…</li>
+</ul>
+
+<h1 id="variables">Variables</h1>
+
+<h2 id="how-do-variables-work">How do Variables Work?</h2>
+
+<p>What if we want to remember the result of some of this math? Assign the result to a variable.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>irb(main):007:0&gt; a = 3 ** 2 
+=&gt; 9 
+irb(main):007:0&gt; b = 4 ** 2
+=&gt; 16
+irb(main):007:0&gt; Math.sqrt(a+b)
+=&gt; 5.0
+</code></pre>
+</div>
+
+<p>We can also assign a String to a variable</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>irb(main):007:0&gt; my_name = "John Doe" 
+ =&gt; "John Doe" 
+</code></pre>
+</div>
+
+<p>Telling Ruby the <code class="highlighter-rouge">variable</code> <strong>my_name</strong> points to the <code class="highlighter-rouge">string</code> “<strong>John Doe</strong>”.</p>
+
+<h1 id="objects">Objects</h1>
+
+<h2 id="objects-objects-everywhere">Objects, Objects, Everywhere!</h2>
+
+<p>Everything in Ruby is an <code class="highlighter-rouge">Object</code>.</p>
+
+<p>Great, but what is an object?</p>
+
+<p>An <code class="highlighter-rouge">OBJECT</code> is an <code class="highlighter-rouge">INSTANCE</code> of a <code class="highlighter-rouge">CLASS</code>.</p>
+
+<h3 id="a-what-is-a-what-of-a-what">A what is a what of a what?</h3>
+
+<p><img src="https://i.imgur.com/U1PHT7H.gif" class="delayed" /></p>
+
+<h2 id="classes">Classes</h2>
+
+<p>Before she can do something with an object, Ruby needs to know what kind of <code class="highlighter-rouge">object</code> she’s dealing with.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>irb(main):007:0&gt; 1+1 
+=&gt; 2 
+irb(main):007:0&gt; "1" + "1" 
+=&gt; "11"
+</code></pre>
+</div>
+
+<h3 id="so-how-do-classes-help">So how do classes help?</h3>
+
+<p><code class="highlighter-rouge">Classes</code> define <code class="highlighter-rouge">objects</code> and what can be done with them.</p>
+
+<p>The <strong>Integer</strong> <code class="highlighter-rouge">class</code> will have different instructions for “+” than the <strong>String</strong> <code class="highlighter-rouge">class</code>.</p>
+
+<p><code class="highlighter-rouge">Objects</code> have an <strong>IS A</strong> relationship with their <code class="highlighter-rouge">classes</code>.</p>
+
+<h2 id="methods">Methods</h2>
+
+<p>The <strong>actions</strong> you can perform on an <code class="highlighter-rouge">object</code> are called <code class="highlighter-rouge">methods</code>.</p>
+
+<p>Every <code class="highlighter-rouge">object</code> that IS A <code class="highlighter-rouge">class</code> can perform the methods defined by that class.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>irb(main):010:0&gt; def hi 
+irb(main):011:1&gt;   puts "Hello World!" 
+irb(main):012:1&gt; end 
+=&gt; :hi
+</code></pre>
+</div>
+
+<h2 id="integer-methods">Integer Methods</h2>
+
+<p>The <code class="highlighter-rouge">Integer class</code> has instructions for the methods <strong>next</strong>, <strong>odd?</strong>, and <strong>even?</strong>.</p>
+
+<p>You can call <strong>next</strong>, <strong>odd?</strong>, and <strong>even?</strong> on ALL Objects that are <code class="highlighter-rouge">Integers</code></p>
+
+<h2 id="string-methods">String Methods</h2>
+
+<p>The <code class="highlighter-rouge">String class</code> has instructions for the methods <strong>capitalize</strong>, <strong>upcase</strong>, and <strong>reverse</strong>.</p>
+
+<p>You can call <strong>capitalize</strong>, <strong>upcase</strong>, and <strong>reverse</strong> on ALL <code class="highlighter-rouge">Objects</code> that are <code class="highlighter-rouge">Strings</code>.</p>
+
+<h2 id="playing-with-integers">Playing with Integers</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; 99.zero?
+=&gt; false
+
+&gt; 99.odd?
+=&gt; true
+
+&gt; 99.even?
+=&gt; false
+</code></pre>
+</div>
+
+<h2 id="another-example">Another example</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; title = "Peter Rabbit"
+&gt; title.reverse
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>What am I supposed to do with this object?</td>
+      <td><code class="highlighter-rouge">reverse</code></td>
+    </tr>
+    <tr>
+      <td>Do I know how to do that action on this object?</td>
+      <td>Yes! The <code class="highlighter-rouge">String</code> class defines a method <strong>reverse</strong> and returns the string in reverse order.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>=&gt;"tibbaR reteP"
+</code></pre>
+</div>
+
+<h2 id="fun-with-strings">Fun with strings</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; "universityoftoronto".capitalize
+=&gt; "Universityoftoronto"
+
+&gt; "universityoftoronto".upcase
+=&gt; "UNIVERSITYOFTORONTO"
+
+&gt; "UNIVERSITYOFTORONTO".downcase
+=&gt; "universityoftoronto"
+
+&gt; "universityoftoronto".reverse
+=&gt; "otnorotfoytisrevinu"
+</code></pre>
+</div>
+
+<h2 id="method-errors">Method Errors</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; myNumber = 123
+&gt; myNumber.reverse
+</code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>What am I supposed to do with this object?</td>
+      <td><code class="highlighter-rouge">reverse</code></td>
+    </tr>
+    <tr>
+      <td>Do I know how to do that action on this object?</td>
+      <td>No. The <strong>Integer</strong> class does not define a method <strong>reverse</strong>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>=&gt; NoMethodError: undefined method `reverse' for 123:Fixnum
+    from (irb):1
+    from :0
+</code></pre>
+</div>
+
+<h2 id="methods-and-objects-and-classes-oh-my">Methods and Objects and Classes, Oh My!</h2>
+
+<p>How can I find the class of my object?</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; mysteryObject = "What am I?"
+&gt; mysteryObject.class
+=&gt; String
+</code></pre>
+</div>
+
+<p>How do I know what methods I can call on my object?</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; mysteryObject.methods
+=&gt; ["upcase!", "zip", "pretty_print_cycle"....]
+</code></pre>
+</div>
+
+<p>How do I know what those methods do?</p>
+
+<p>Look them up <a href="https://ruby-doc.org/"><strong>here</strong></a></p>
+
+<h2 id="built-in-classes">Built-in Classes</h2>
+
+<p>Ruby comes with many built-in classes that we can use.</p>
+
+<p><code class="highlighter-rouge">String</code>, <code class="highlighter-rouge">Integer</code>, <code class="highlighter-rouge">File</code>, <code class="highlighter-rouge">Hash</code>, <code class="highlighter-rouge">Array</code>…</p>
+
+<p>You can read about all the built-in objects <a href="https://ruby-doc.org/core/"><strong>here</strong></a></p>
+
+<h2 id="custom-classes">Custom Classes</h2>
+
+<p>What if we want to define our own class?</p>
+
+<p>Let’s return to the <code class="highlighter-rouge">method</code> <strong>hi</strong> we wrote (and improve it)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>irb(main):010:0&gt; def hi(name) 
+irb(main):011:1&gt;   puts "Hello #{name}!" 
+irb(main):012:1&gt; end 
+=&gt; :hi
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">method</code> <strong>hi</strong> takes the <strong>name</strong> as a <code class="highlighter-rouge">parameter</code>.</p>
+
+<p><code class="highlighter-rouge">#{name}</code> is Ruby’s way of inserting something into a string</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>irb(main):024:0&gt; class Greeter
+irb(main):025:1&gt;   def initialize(name)
+irb(main):026:2&gt;     @name = name
+irb(main):027:2&gt;   end
+
+irb(main):028:1&gt;   def say_hi
+irb(main):029:2&gt;     puts "Hi #{@name}!"
+irb(main):030:2&gt;   end
+irb(main):034:1&gt; end
+=&gt; nil
+</code></pre>
+</div>
+
+<p>The new keyword here is <code class="highlighter-rouge">class</code>. This defines a new class called Greeter and a bunch of methods for that class. Also notice <code class="highlighter-rouge">@name</code>. This is an instance variable, and is available to all the methods of the class. As you can see it’s used by <code class="highlighter-rouge">say_hi</code>.</p>
+
+<h2 id="custom-classes-1">Custom Classes</h2>
+
+<p>Lets create a <strong>Greeter</strong> object and use it:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>irb(main):035:0&gt; greeter = Greeter.new("Pat")
+=&gt; #
+irb(main):036:0&gt; greeter.say_hi
+Hi Pat!
+=&gt; nil
+</code></pre>
+</div>
+
+<p>The method <code class="highlighter-rouge">new</code> is a unique type of method, which is predefined in the Ruby library. The new method belongs to the class methods. The <code class="highlighter-rouge">initialize</code> method is a special type of method, which will be executed when the <code class="highlighter-rouge">new</code> method of the class is called with parameters.</p>
+
+<h2 id="custom-classes-exercise">Custom Classes: Exercise</h2>
+
+<p>Let’s make a class <code class="highlighter-rouge">Calculator</code> that has the methods <code class="highlighter-rouge">add</code> and <code class="highlighter-rouge">subtract</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>irb(main):035:0&gt; my_calculator = Calculator.new
+=&gt; # 
+irb(main):036:0&gt; my_calculator.add(5,2)
+7
+=&gt; nil
+irb(main):036:0&gt; my_calculator.subtract(5,2)
+3
+=&gt; nil
+</code></pre>
+</div>
+
+<h2 id="custom-classes-solution">Custom Classes: Solution</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>irb(main):024:0&gt; class Calculator
+
+irb(main):025:1&gt;   def add(x,y)
+irb(main):026:2&gt;     puts x + y
+irb(main):027:2&gt;   end
+
+irb(main):028:1&gt;   def subtract(x,y)
+irb(main):029:2&gt;     puts x - y
+irb(main):030:2&gt;   end
+irb(main):034:1&gt; end
+=&gt; nil
+</code></pre>
+</div>
+
+<h2 id="writing-a-program">Writing a Program</h2>
+
+<p>Open any text editor, add the same code, and save it as twitter.rb.
+Remember the directory you have saved it in.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>tweet = "I'm writing my first program and it's pretty rad."
+puts tweet.length
+</code></pre>
+</div>
+
+<p>To run your program, type <strong>quit</strong> to exit from IRB, and then type:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ruby twitter.rb
+</code></pre>
+</div>
+
+<h2 id="getting-input-from-the-user">Getting Input From the User</h2>
+
+<h3 id="the-real-twitter">The real Twitter…</h3>
+
+<p>Asks you to type something.</p>
+
+<p>Tells you how many characters you’re working with.</p>
+
+<p>So far, we’ve just been putting our tweet directly into the program.</p>
+
+<h2 id="asking-for-input">Asking for Input</h2>
+
+<p>The <strong>puts</strong> <code class="highlighter-rouge">method</code> is used for output, and the <strong>gets</strong> <code class="highlighter-rouge">method</code> is used for input. Try this:</p>
+
+<p>The gets <code class="highlighter-rouge">method</code> warns Ruby that you’re about to speak.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; tweet = gets
+ all-string
+I'm learning Ruby with #ladieslearningcode
+
+=&gt; "I'm learning Ruby with #ladieslearningcode\n"
+</code></pre>
+</div>
+
+<p>Wait, we didn’t type \n in our tweet. What is that?</p>
+
+<h2 id="asking-for-input-1">Asking for Input</h2>
+
+<p>The \n is there because you hit the enter button after you typed your tweet. It represents a new line, and counts as exactly one character. To get rid of it, do this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; tweet = gets.chomp
+ all-string
+I'm learning Ruby with #ladieslearningcode
+
+=&gt; "I'm learning Ruby with #ladieslearningcode"
+</code></pre>
+</div>
+
+<h2 id="asking-for-input-2">Asking for Input</h2>
+
+<p>Now try this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; tweet = gets.chomp
+ all-string
+I'm a lady learning code with @learningcode #ladieslearningcode
+
+=&gt; "I'm a lady learning code with @learningcode #ladieslearningcode"
+
+&gt; puts tweet
+ all-string
+I'm a lady learning code with @learningcode #ladieslearningcode
+=&gt; nil
+</code></pre>
+</div>
+
+<h2 id="back-to-your-twitter-program">Back to your Twitter Program</h2>
+
+<p>Working with your group, modify your Twitter program to do the following:</p>
+
+<ol>
+  <li>
+    <p>Ask (politely!) for a tweet from the user.</p>
+  </li>
+  <li>
+    <p>Store the tweet in a variable, without \n</p>
+  </li>
+  <li>
+    <p>Output the tweet the user gave.</p>
+  </li>
+  <li>
+    <p>Output the number of characters in the tweet.</p>
+  </li>
+  <li>
+    <p>Output how many <strong>more</strong> characters the user can add until they hit 140 characters.</p>
+  </li>
+</ol>
+
+<p>(answers in assignments/twitter_3.rb)</p>
+
+<h2 id="giving-output-based-on-input">Giving Output Based on Input</h2>
+
+<p>Twitter…</p>
+
+<p>Lets you send your tweet if it is 140 characters or less</p>
+
+<p>Tells you that your tweet is too long to send otherwise.</p>
+
+<h2 id="giving-output-based-on-input-1">Giving Output Based on Input</h2>
+
+<p>So far we know how to determine the length of the user’s tweet.</p>
+
+<p>We don’t know how to tell them whether they can or cannot send their tweet, depending on it’s length.</p>
+
+<h2 id="conditional-logic">Conditional Logic</h2>
+
+<p>Programming is writing out sets of simple instructions for the computer to follow.</p>
+
+<p>Let’s break down out tweet logic into simple instructions.</p>
+
+<h2 id="conditional-logic-1">Conditional Logic</h2>
+
+<p>We want our program to …</p>
+
+<p>if the tweet is greater than 140 characters, tell the user that they cannot send their tweet</p>
+
+<p>if the tweet is less than or equal to 140 characters, tell the user that they can send their tweet</p>
+
+<h2 id="conditional-logic-2">Conditional Logic</h2>
+
+<p>Logical operators</p>
+
+<ul>
+  <li>&gt;</li>
+  <li>&lt;</li>
+  <li>&gt;=</li>
+  <li>&lt;=</li>
+  <li>==</li>
+</ul>
+
+<!-- -->
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; 200 &gt; 140
+
+=&gt; true
+
+&gt; 200 &lt; 140
+
+=&gt; false
+</code></pre>
+</div>
+
+<h2 id="conditional-logic-if-statements">Conditional Logic: IF Statements</h2>
+
+<p>Try the code below in IRB:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;if 200 &gt; 140 
+&gt;  puts true
+&gt;end
+
+=&gt; true
+</code></pre>
+</div>
+
+<h2 id="conditional-logic-ifelse-statements">Conditional Logic: IF/ELSE Statements</h2>
+
+<p>Try the code below in IRB:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;if 200 &gt; 140 
+&gt; puts true
+&gt;else
+  puts false
+&gt;end
+
+=&gt; true
+</code></pre>
+</div>
+
+<h2 id="conditional-logic-in-our-simple-twitter">Conditional Logic in Our Simple Twitter</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>tweet = gets.chomp
+
+if tweet.length &lt;= 140
+  puts "Tweet your heart out!"
+end
+</code></pre>
+</div>
+
+<h2 id="conditional-logic-in-our-simple-twitter-1">Conditional Logic in Our Simple Twitter</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>tweet = gets.chomp
+
+if tweet.length &lt;= 140
+  puts "Tweet your heart out!"
+else
+  puts "Your tweet is too long!"
+end
+</code></pre>
+</div>
+
+<h2 id="while-loops">While Loops</h2>
+
+<p>What if you want to be able to tell your program when to stop running? Create a new program with the following code.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>puts "Hi!"
+greeting = gets.chomp
+
+while greeting != "bye!"
+  puts greeting
+  greeting = gets.chomp
+end
+</code></pre>
+</div>
+
+<p>This is called a while loop. The program will run while the user inputs anything other than “bye!”</p>
+
+<h2 id="arrays">Arrays</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[1, 2, 3, 4, 5]
+
+[7, 13, 14, 16, 14, 48]
+
+["ladies", "learning", "code"]
+</code></pre>
+</div>
+
+<h2 id="iterating-through-an-array">Iterating through an Array</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> &gt; my_numbers = [1, 2, 3, 4, 5]
+ &gt; my_numbers.each do |i| 
+ &gt;  puts i**2 
+ &gt; end 
+</code></pre>
+</div>
+
+<h2 id="final-task">Final Task</h2>
+
+<ul>
+  <li>Make an array of 5 tweets.</li>
+  <li>For every tweet, check the number of characters.</li>
+  <li>If the tweet is too long, give the user an error message.</li>
+  <li>If the tweet is &lt; 140 characters, print the tweet.</li>
+</ul>
+
+<h2 id="credits">Credits</h2>
+
+<p>Inspired by Chris Pine’s <strong>Learn to Program</strong></p>
+
+<p><img src="framework/img/workshop/learn-to-program.jpg" alt="" /></p>
+
+<h2 id="resources">Resources</h2>
+
+<p><a href="https://www.ruby-lang.org/en/documentation/quickstart/">Learn Ruby in 20 Minutes</a></p>
+
+<p><a href="http://mislav.uniqpath.com/poignant-guide/">why’s poignent guide to Ruby</a></p>
+
+<p><a href="http://rubykoans.com/">Ruby Koans</a></p>
+
+<p><a href="http://rubyonrails.org/screencasts">Rails</a></p>
+
+<p><a href="https://www.ruby-lang.org/en/documentation/">Lots more!</a></p>
+
+<p>And finally…</p>
+
+<h1 id="thank-you">Thank you!</h1>
+
+<p><a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="framework/img/cc-by-nc.svg" alt="Creative Commons License" /></a> by <a href="http://ladieslearningcode.com">Ladies Learning Code</a></p>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

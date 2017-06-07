@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Intro to Pandoc and Markdown</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/misc/pandoc-intro/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Intro to Pandoc and Markdown</h1>
+
+        <hr>
+
+        <ul>
+  <li><strong>Authors</strong>: Dano Morrison</li>
+  <li><strong>Research field</strong>: Neuroscience</li>
+  <li><strong>Lesson topic</strong>: How to use Pandoc and Markdown for writing scientific manuscripts</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/misc/pandoc-intro">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/misc/pandoc-intro</a></li>
+</ul>
+
+<h1 id="intro-to-pandoc">Intro to Pandoc</h1>
+
+<p>Do you enjoy the spartan, academic aesthetic of LaTeX documents but not have the time to learn its unforgiving syntax? Does writing HTML documents by hand make you feel uncool? Do you enjoy automating difficult things? If so, Pandoc is what you’re looking for.</p>
+
+<p>Pandoc is a command line tool that you can use to automatically convert files from markup format to another. With Pandoc, you can write in something easy like Markdown, Microsoft Word, or LibreOffice, and convert it something hard like:</p>
+<ul>
+  <li>HTML</li>
+  <li>Ebook formats</li>
+  <li>LaTeX</li>
+  <li>PDF</li>
+  <li>and many others</li>
+</ul>
+
+<h1 id="intro-to-markdown">Intro to Markdown</h1>
+
+<p>Markdown is the best way to write things for Pandoc, and probably the best way to write things for publishing to the web. If you haven’t heard of it, it’s a lightweight, shortened version of HTML that uses simplified tags like <code class="highlighter-rouge">* ~ - #</code> to format documents. It’s mostly writing plain text, but with a little practice you can easily implement the most common types of text formatting, like headings, lists, links, images, etc. The veritable bible of Markdown is <a href="https://daringfireball.net/projects/markdown/">Daring Fireball.</a></p>
+
+<h1 id="the-value-proposition">The Value Proposition</h1>
+
+<p>With Markdown and Pandoc, you can write something that looks like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Introduction
+
+## The globular theory of matter
+
+### A history of globbing
+If we accept the philosophical (and now scientifically incontrovertible) position that the movement of all rotund entities are mediated by underlying interactions between globular units, then it follows that whenever a globby is stored in the world such that it can be reglobbed at a later time (ie. a glob-memory), there must be some concurrent change that occurs in the underlying structure of globby particles.
+
+Many great scientists have dedicated their lives to the study of globs and greatly advanced the globular theory of matter. In the next decade, who knows what globular secrets will be unearthed?
+</code></pre>
+</div>
+
+<p>That can be converted into HTML like this:</p>
+
+<hr />
+
+<h1 id="introduction">Introduction</h1>
+
+<h2 id="the-globular-theory-of-matter">The globular theory of matter</h2>
+
+<h3 id="a-history-of-globbing">A history of globbing</h3>
+<p>If we accept the philosophical (and now scientifically incontrovertible) position that the movement of all rotund entities are mediated by underlying interactions between globular units, then it follows that whenever a globby is stored in the world such that it can be reglobbed at a later time (ie. a glob-memory), there must be some concurrent change that occurs in the underlying structure of globby particles.</p>
+
+<p>Many great scientists have dedicated their lives to the study of globs and greatly advanced the globular theory of matter. In the next decade, who knows what globular secrets will be unearthed?</p>
+
+<hr />
+
+<p>and even converted into LaTeX so it looks like this:</p>
+
+<p><img src="../simplelatexsample.png" alt="alt text" /></p>
+
+<p>The real power of Pandoc, however, comes when, with style templates and a little extra formatting work, you’re able to produce fully typeset and personally styled documents with a markdown file and a command line.</p>
+
+<p><img src="../complexlatexsample.png" alt="alt text" /></p>
+
+<p>Boom! Page numbers and everything!</p>
+
+<h1 id="getting-started">Getting Started</h1>
+
+<ul>
+  <li>Install <a href="https://pandoc.org/installing.html">Pandoc</a></li>
+  <li>Install LaTeX: <a href="https://www.tug.org/texlive/">TeXLive (Linux)</a>, <a href="https://www.tug.org/mactex/">MacTeX (Mac)</a>, <a href="https://miktex.org/">MikTeX (Windows)</a></li>
+  <li>Install XeTex?</li>
+</ul>
+
+<p>Whether you’re doing something like <code class="highlighter-rouge">sudo apt-get install pandoc &amp;&amp; apt-get install texlive</code> or <code class="highlighter-rouge">brew install pandoc &amp;&amp; brew cask install mactex</code>, if you can run <code class="highlighter-rouge">pandoc -v</code> and <code class="highlighter-rouge">pdflatex -v</code> in a terminal, you’re good to go.</p>
+
+<h1 id="markdown">Markdown</h1>
+
+<p><em>italics</em>
+<strong>bold</strong></p>
+
+<ul>
+  <li>one</li>
+  <li>two</li>
+  <li>three</li>
+</ul>
+
+<ol>
+  <li>one</li>
+  <li>two</li>
+  <li>three</li>
+</ol>
+
+<p><a href="https://example.com/">example link</a></p>
+
+<p><img src="/path/to/img.jpg" alt="example image" /></p>
+
+<p>refer to <code class="highlighter-rouge">code</code> inline with backticks</p>
+
+<pre><code class="language-JavaScript">console.log('or define a whole bunch of code with three back ticks')
+</code></pre>
+
+<h1 id="pandoc">Pandoc</h1>
+
+<p>Once Pandoc is installed, the easiest way to convert a file is to open up your terminal (in the folder where your file is) and call:
+<code class="highlighter-rouge">pandoc &lt;filetobeconverted&gt; -o &lt;newfilename.xx&gt;</code>
+Where <code class="highlighter-rouge">.xx</code> is the file extension of the new file you want</p>
+
+<p>By default, this will produce a ‘fragment’ of the file type you want. If you’d like to create a standalone document you need Pandoc to generate some code for you rather than just have it convert the Markdown markup to another language. If you want to create an HTML page with Head and Body sections or a LaTeX document with all the necessary boilerplate, simply add <code class="highlighter-rouge">-s</code> after the file you want to convert in your terminal command.</p>
+
+<p>For example,
+<code class="highlighter-rouge">pandoc sample.md -s -o sample.tex</code>
+will take this</p>
+
+<pre><code class="language-Markdown"># Just learning
+
+Pretty *cool* stuff
+
+![image](./image.jpg)
+</code></pre>
+
+<p>and produce all of this</p>
+
+<pre><code class="language-Tex">\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+
+....
+
+\begin{document}
+
+\section{Just learning}\label{just-learning}
+
+Pretty \emph{cool} stuff
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{./image.jpg}
+\caption{image}
+\end{figure}
+
+\end{document}
+</code></pre>
+
+<p>That’s sure better than writing all that stuff yourself! 
+You can also go straight to pdf (if you have the right dependencies installed) with
+<code class="highlighter-rouge">pandoc sample.md -s -o sample.pdf</code></p>
+
+<p>You may have figured out that <code class="highlighter-rouge">-o</code> stands for ‘output’ and <code class="highlighter-rouge">-s</code> stands for ‘standalone.’ There’s also a lot of other pandoc command modifiers that you can take a look at any time by running <code class="highlighter-rouge">pandoc -h</code></p>
+
+<p>You can also combine multiple input files into one output files with the regular character <code class="highlighter-rouge">*</code> (it’s not a special pandoc feature, but pandoc supports having multiple files thrown at from the terminal). 
+<code class="highlighter-rouge">-H</code> Will let you include other files as the header of whatever you’re producing
+<code class="highlighter-rouge">-V</code> will let you pass variables (ie. fontsize, documentclass for LaTeX documents)</p>
+
+<p><a href="https://pandoc.org/MANUAL.pdf">This manual</a> will be helpful for understanding these advanced features.</p>
+
+<h1 id="advanced-custom-latex-templates-for-pandoc">Advanced: Custom LaTeX templates for Pandoc</h1>
+<p>Chances are, if you actually are trying to publish something in LaTeX, you’re going to want to put your own style on things. It’s not that hard to do with Pandoc, all it takes is:</p>
+<ol>
+  <li>saving a Pandoc LaTeX template somewhere</li>
+  <li>edit that template the way you want</li>
+  <li>tell pandoc to use that template in producing an output</li>
+</ol>
+
+<h2 id="1-pandoc-latex-templates">1. Pandoc LaTeX Templates</h2>
+<p>These aren’t just regular LaTeX templates but Pandoc-specific templates that instruct Pandoc how to convert files into LaTeX. Here’s an <a href="https://github.com/jgm/pandoc-templates/blob/master/default.latex">example of one</a></p>
+
+<h2 id="2-editing-the-templates">2. Editing the templates</h2>
+<p>If you want to expand on what the template provides, you can go into it and change or add things, maybe specific fonts or packages you would like to use</p>
+
+<h2 id="3-use-that-template-to-generate-an-output">3. Use that template to generate an output</h2>
+<p>The easiest step, simply add a <code class="highlighter-rouge">--template=yourtemplate.tex</code> modifier into your console command. Make sure that your template is either in your working directory or in <code class="highlighter-rouge">/.pandoc/templates</code> <em>NOTE: You have to make this directory yourself</em>.
+You can use variables in the template such as <code class="highlighter-rouge">fontfamily</code> to style your own file. Example:
+<code class="highlighter-rouge">pandoc sample.md -o sample.pdf --template=mytemplate.tex -V fontfamily=sans</code></p>
+
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

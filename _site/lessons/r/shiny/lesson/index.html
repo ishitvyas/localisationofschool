@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Making interactive plots using Shiny in R</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/r/shiny/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Making interactive plots using Shiny in R</h1>
+
+        <hr>
+
+        <ul>
+  <li><strong>Authors</strong>: Lanna Jin</li>
+  <li><strong>Research field</strong>: Ecology &amp; Evolutionary Biology</li>
+  <li><strong>Lesson topic</strong>: Interactive Visualizations with the Shiny library in R</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/r/shiny">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/r/shiny</a></li>
+</ul>
+
+<h1>Introduction</h1>
+<p>Introduction to Data Set</p>
+
+<h1>Module 1</h1>
+<p>First familiarize ourselves with the basic layout of the Shiny user interface. It is important to note, that while we set-up interactivity, user interactivity is not included within this first shiny App activity.</p>
+
+<h2>ui.R</h2>
+<ol>
+  <li>After initially loading the shiny library and relevant data, the overall UI is wrapped within the <code class="highlighter-rouge">shinyUI</code> function</li>
+  <li>Next, we define a page that is fluid (<code class="highlighter-rouge">fluidPage</code>)–that can change based on the user’s input. For this page, we name it with a title (<code class="highlighter-rouge">titlePanel</code>)</li>
+  <li>The set-up of the page is one based on a template (<code class="highlighter-rouge">sidebarLayout</code>): a sidebar (<code class="highlighter-rouge">sidebarPanel</code>; on the left, from which the user will make their selections); and a main Panel (<code class="highlighter-rouge">mainPanel</code>) which changes based on the user’s input in the left side-bar panel</li>
+  <li>The <code class="highlighter-rouge">mainPanel</code> will display the PCA of the metrics, which is identified as <code class="highlighter-rouge">pcaplot</code>. This object is created/assigned within the <code class="highlighter-rouge">server.R</code> script.</li>
+</ol>
+
+<h3>TASK:</h3>
+<ol>
+  <li>Change the <code class="highlighter-rouge">title</code> to something more relevant, e.g., <code class="highlighter-rouge">PCA of Metrics</code></li>
+</ol>
+
+<h2>server.R</h2>
+<ol>
+  <li>The shiny library and relevant data is first loaded</li>
+  <li>We define the server for the Shiny app as something with both objects that are input (from the <code class="highlighter-rouge">ui.R</code>) and output (from the <code class="highlighter-rouge">server.R</code>)</li>
+  <li>We create a reactive Shiny plot that is output from <code class="highlighter-rouge">server.R</code> to <code class="highlighter-rouge">ui.R</code> with the function <code class="highlighter-rouge">renderPlot</code>. <code class="highlighter-rouge">renderPlot</code> is an reactive function that can take input data from the <code class="highlighter-rouge">ui.R</code> script and feed it into the <code class="highlighter-rouge">server.R</code> script. It then actively updates the information within its function. We name the object that has the <code class="highlighter-rouge">renderPlot</code> function to plot the PCAs as <code class="highlighter-rouge">pcaplot</code>. <code class="highlighter-rouge">pcaplot</code> is then output and displayed through the <code class="highlighter-rouge">ui.R</code> within the <code class="highlighter-rouge">plotOutput</code> function.</li>
+</ol>
+
+<h3>TASKS:</h3>
+<ol>
+  <li>Change the plot’s x- and y-axis label names to <code class="highlighter-rouge">PC1</code> and <code class="highlighter-rouge">PC2</code>.</li>
+  <li>Instead of plotting points, plot the metrics as text points instead</li>
+</ol>
+
+<h4>HINTS:</h4>
+<ol>
+  <li>use <code class="highlighter-rouge">xlab</code> and <code class="highlighter-rouge">ylab</code> within the function <code class="highlighter-rouge">plot</code> to change the axes labels</li>
+  <li>
+    <p>For the function <code class="highlighter-rouge">plot</code>, enter the parameter <code class="highlighter-rouge">type="n"</code> to create a blank plot that maintains the axes labels and plotting parameters:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>plot(PC2 ~ PC1, data=foo, type="n", xlab="PC1", ylab="PC2")
+</code></pre>
+    </div>
+
+    <p>Next use the function <code class="highlighter-rouge">text</code> to plot the text values. Use <code class="highlighter-rouge">foo$metric</code> as the label values</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>text(PC2 ~ PC1, data=foo, labels=foo$metric)
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h1>Module 2</h1>
+<p>Add interactivity to the plot. In the <code class="highlighter-rouge">sidebarPanel</code> in the <code class="highlighter-rouge">ui.R</code>, we add a <code class="highlighter-rouge">sliderInput</code> widget, which allows the user to (a) select a value from the ui interface, which is then (b) fed to the server script. The server script then (c) readjusts the plot with the new input value and (d) feeds the output plot to the ui interface.</p>
+
+<h2>ui.R</h2>
+<h3>TASK:</h3>
+<ol>
+  <li>Change the size of label of the cexSlider with the wrapper, <code class="highlighter-rouge">h4</code></li>
+  <li>Adjust the maximum <code class="highlighter-rouge">cexSlider</code> <code class="highlighter-rouge">cex</code> size to 5</li>
+  <li>The PCA plot (<code class="highlighter-rouge">pcaplot</code>) currently is showing all the values, disregarding the different variables (Var: colless, numsp, Spatial). We however would like to show the PCA plot for each variable scenario.</li>
+</ol>
+
+<p>To do so:</p>
+
+<ol>
+  <li>
+    <p>Create a drop-down list of the variables with the function <code class="highlighter-rouge">selectInput</code> within the <code class="highlighter-rouge">sidebarPanel</code> function.</p>
+  </li>
+  <li>
+    <p>Assign the <code class="highlighter-rouge">selectInput</code> object as <code class="highlighter-rouge">var</code>, and the <code class="highlighter-rouge">label</code> as <code class="highlighter-rouge">h3('Variable')</code></p>
+  </li>
+  <li>
+    <p>for the choices, use:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>choices = c(
+            "Colless" = "colless",
+            "Species Pool Size" = "numsp",
+            "Spatially Contiguous" = "spatial"
+        )
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Link <code class="highlighter-rouge">var</code> as <code class="highlighter-rouge">input$var</code> in <code class="highlighter-rouge">server.r</code> (refer to <code class="highlighter-rouge">server.r</code>)</p>
+  </li>
+</ol>
+
+<h4>HINTS:</h4>
+
+<ol>
+  <li><code class="highlighter-rouge">sliderInput(..., label = h4("Adjust cex"))</code></li>
+  <li><code class="highlighter-rouge">sliderInput(..., max = 5)</code></li>
+  <li>
+    <div class="highlighter-rouge"><pre class="highlight"><code>selectInput(inputId='var', label = h3('Variable'),
+            choices = c(
+            "Colless" = "colless",
+            "Species Pool Size" = "numsp",
+            "Spatially Contiguous" = "spatial"
+           )
+)
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h2>server.R</h2>
+<h3>TASKS:</h3>
+<ol>
+  <li>
+    <p>The PCA plot (<code class="highlighter-rouge">pcaplot</code>) currently is showing all the values, disregarding the different variables (Var: colless, lambdaE, lambdaR, Landscape, Numsp, Repulsion, Spatial). We however would like to show the PCA plot for each variable scenario.
+To do so:</p>
+
+    <ol>
+      <li>Complete Task 3 in <code class="highlighter-rouge">ui.r</code> to create the <code class="highlighter-rouge">selectInput</code> drop-down menu, which we will call <code class="highlighter-rouge">var</code></li>
+      <li>subset the <code class="highlighter-rouge">foo</code> dataframe for only instances when <code class="highlighter-rouge">foo$Var==input$var</code></li>
+    </ol>
+  </li>
+</ol>
+
+<h4>HINTS:</h4>
+<ol>
+  <li>
+    <div class="highlighter-rouge"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
+    #Subset for input$var and assign this subset to new object, "fbar"
+    fbar&lt;-droplevels(foo[which(foo$Var==input$var),])
+#Change "foo" to "fbar" for the plot and text
+plot(PC2 ~ PC1, data=fbar, type="n", xlab="PC1", ylab="PC2")
+text(PC2 ~ PC1, data=fbar, labels=fbar$metric, cex=input$cexSlider)
+})
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h1>Module 3</h1>
+<p>We’ve now added interactivity to the plot. The user can (a) specify the Variable (<code class="highlighter-rouge">Var</code>) scenario they wish to plot the PCA of, and (b) adjust the text’s <code class="highlighter-rouge">cex</code> values. The <code class="highlighter-rouge">server.r</code> script now includes code to add colors that correspond to each selected variable’s parameter values (<code class="highlighter-rouge">param</code>), as well as a legend.</p>
+
+<h2>ui.R</h2>
+<h3>TASK:</h3>
+<ol>
+  <li>
+    <p>Depending on the variable that people choose (<code class="highlighter-rouge">input$var</code>), we now want to display the chosen variable’s parameter (<code class="highlighter-rouge">foo$param</code>) values as a check box group. Even though logically we would begin with the <code class="highlighter-rouge">checkboxGroupInput</code> function on the <code class="highlighter-rouge">ui.R</code> script to display check box options, first remember what the capabilities of the user side (<code class="highlighter-rouge">ui.R</code>) are. <code class="highlighter-rouge">ui.R</code> cannot evaluate/process information, but only displays output values calculated on the server side (<code class="highlighter-rouge">server.R</code>). In other words, the <code class="highlighter-rouge">ui.R</code> only takes in the values a user specifies and then sends this information to be evaluated/processed on the server side.
+So to create a <code class="highlighter-rouge">checkboxgroup</code> of <code class="highlighter-rouge">param</code> values that will change based on what the user selects for a variable (<code class="highlighter-rouge">input$var</code>), our first step is to evaluate what the user selects as a variable. This evaluation can only take place on the server side. We therefore need to create an object on the server side (<code class="highlighter-rouge">output$paramchkbxgrp</code>) that will evaluate the user’s Variable selection (<code class="highlighter-rouge">input$var</code>), which will then decide which check box options to display. This decision of what to display is then fed back to the <code class="highlighter-rouge">ui.R</code> with the object <code class="highlighter-rouge">uiOutput</code>.</p>
+
+    <ol>
+      <li>With the function <code class="highlighter-rouge">uiOutput</code>, display the computation result of the output function <code class="highlighter-rouge">paramchkbxgrp</code></li>
+    </ol>
+  </li>
+</ol>
+
+<h4>HINTS:</h4>
+
+<ol>
+  <li>
+    <p>Place the following snippet of code in <code class="highlighter-rouge">ui.R</code> within the <code class="highlighter-rouge">sidebarPanel</code>, after the <code class="highlighter-rouge">selectInput</code> for the variables:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>uiOutput(outputId="paramchkbxgrp")
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h2>server.R</h2>
+<h3>TASKS:</h3>
+<ol>
+  <li>
+    <p>Depending on the variable that people choose (<code class="highlighter-rouge">input$var</code>), we now want to display the chosen variable’s parameter (<code class="highlighter-rouge">param</code>) values as a check box group. Even though logically we would begin with the <code class="highlighter-rouge">checkboxGroupInput</code> function on the <code class="highlighter-rouge">ui.R</code> script to display check box options, first remember what the capabilities of the user side (<code class="highlighter-rouge">ui.R</code>) are. <code class="highlighter-rouge">ui.R</code> cannot evaluate/process information, but only displays output values calculated on the server side (<code class="highlighter-rouge">server.R</code>). In other words, the <code class="highlighter-rouge">ui.R</code> only takes in the values a user specifies and then sends this information to be evaluated/processed on the server side.</p>
+
+    <p>So to create a <code class="highlighter-rouge">checkboxgroup</code> of <code class="highlighter-rouge">param</code> values that will change based on what the user selects for a variable (<code class="highlighter-rouge">input$var</code>), our first step is to evaluate what the user selects as a variable. This evaluation can only take place on the server side. We therefore need to create an object on the server side (<code class="highlighter-rouge">output$paramchkbxgrp</code>) that will evaluate the user’s Variable selection (<code class="highlighter-rouge">input$var</code>), which will then decide which check box options to display.  This decision of what to display is then fed back to the <code class="highlighter-rouge">ui.R</code> with the object <code class="highlighter-rouge">uiOutput</code>.</p>
+
+    <ol>
+      <li>Depending on what Variable is selected by the user (<code class="highlighter-rouge">input$var</code>), generate a different set of check box options to display (with the function <code class="highlighter-rouge">checkboxGroupInput</code>). For instance, if <code class="highlighter-rouge">colless</code> is selected as the variable, display the parameters values that correspond to <code class="highlighter-rouge">colless</code>, e.g., <code class="highlighter-rouge">loIc</code>, <code class="highlighter-rouge">midIc</code> and <code class="highlighter-rouge">hiIc</code>. This <code class="highlighter-rouge">switch</code> function takes the given value (<code class="highlighter-rouge">input$var</code>) and then evaluates it. When <code class="highlighter-rouge">input$var=="colless"</code>, then it evaluates the <code class="highlighter-rouge">checkboxGroupInput</code> function with the choices of  <code class="highlighter-rouge">c("Low" = "loIc", "Mid" = "midIc", "High" = "hiIc")</code>.</li>
+    </ol>
+
+    <p>Use the following script as a framework for the <code class="highlighter-rouge">paramchkbxgrp</code> object:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>output$paramchkbxgrp &lt;- renderUI({
+             if (is.null(input$var))
+              return()
+        # Depending on input$var, we'll generate a different
+        # UI component and send it to the client.
+            switch(input$var,
+            "colless" = checkboxGroupInput(inputId = "PARAMS", label = "",
+                choices = c(
+                    "Low" = "loIc",
+                    "Mid" = "midIc",
+                    "High" = "hiIc"
+                    ),
+                 selected = c("loIc","midIc","hiIc")),
+            #Fill in the ellipses with the corresponding parameter values
+             "numsp" = checkboxGroupInput(...),
+             "spatial" = checkboxGroupInput(...),
+             )
+          })
+        })
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>When certain checkboxes are unselected, display the text as grey with some transparency. To do this, within the <code class="highlighter-rouge">renderPlot</code> function, adjust the <code class="highlighter-rouge">cols</code> object such that the unselected are black with high transparency (display as grey). To do this for the <code class="highlighter-rouge">cols</code> object, subset for when <code class="highlighter-rouge">input$PARAMS</code> is not in <code class="highlighter-rouge">levels(fbar$PARAMS)</code>:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>cols[which(!(levels(fbar$param) %in% input$PARAMS))]
+</code></pre>
+    </div>
+
+    <p>Then assign all of these instances as black <code class="highlighter-rouge">rgb(0,0,0, maxColorValue=255)</code> with very high transparency <code class="highlighter-rouge">rgb(0,0,0, alpha =25, maxColorValue=255)</code>:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>cols[which(!(levels(fbar$param) %in% input$PARAMS))]&lt;- rgb(0,0,0, alpha=25,maxColorValue=255)
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h4>HINTS:</h4>
+
+<ol>
+  <li>
+    <div class="highlighter-rouge"><pre class="highlight"><code>## Drop-down menu to select Factor
+output$paramchkbxgrp &lt;- renderUI({
+     if (is.null(input$var))
+       return()
+
+  # Depending on input$var, we'll generate a different
+  # UI component and send it to the client.
+   switch(input$var,
+     "colless" = checkboxGroupInput("PARAMS", "",
+       choices = c("Low" = "loIc",
+                   "Mid" = "midIc",
+                   "High" = "hiIc"
+                   ),
+       selected = c("loIc","midIc","hiIc")),
+     "numsp" = checkboxGroupInput("PARAMS", "",
+       choices = c("16 Species" = 16,
+                   "64 Species" = 64,
+                   "256 Species" = 256),
+       selected = c(16,64,256)),
+     "spatial" = checkboxGroupInput("PARAMS", "",
+       choices = c("True" = "TRUE",
+                   "False" = "FALSE"),
+       selected = c("TRUE","FALSE")),
+   )
+   })
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <div class="highlighter-rouge"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
+         #Match user's variable input selection by subsetting for when foo$Var==input$var
+         fbar&lt;-droplevels(foo[which(foo$Var==input$var),])
+
+        # Generate colors to correspond to the different Variables' parameters. E.g., for the variable "colless", different colors for "loIc","midIc", and "hiIc"
+         cols&lt;-c("#1f77b4","#ff7f0e","#2ca02c")[1:length(levels(fbar$param))]
+
+         #***********************ADD THIS TO EXISTING SCRIPT *************************
+         #If the param is not selected, set the color value to grey with transparency
+         cols[which(!(levels(fbar$param) %in% input$PARAMS))]&lt;- rgb(0,0,0, alpha=25,maxColorValue=255)
+         #****************************************************************************
+
+         #Render the scatterplot of PCA
+         plot(PC2 ~ PC1, data=fbar, type="n", xlab="PC1", ylab="PC2")
+
+         #For each of the different parameter values (different colors), plot the text names of the metrics
+         for(i in levels(fbar$param)){
+             foo2&lt;-subset(fbar,param==i)
+             text(PC2 ~ PC1, data=foo2, labels=foo2$metric, col=cols[which(levels(fbar$param)==i)],  cex=input$cexSlider)
+         }
+
+         #Add a legend for the different parameter values (with corresponding colors) of the selected Variable
+         legend("topright", fill=cols, legend=levels(fbar$param))
+
+   })
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h1>Module 4</h1>
+
+<p>We’ve now learned some of the basic tools for building a shiny app. Now complete the tasks to add additional bells and whistles to the shiny app. After you have finished with your app, you can deploy it to the world to see. There are a number of options for this, which I won’t go into detail because it depends on your personal preference for how you want the data shared (See https://shiny.rstudio.com/tutorial/lesson7/)</p>
+
+<h2>ui.R</h2>
+
+<h3>TASK:</h3>
+
+<ol>
+  <li>Create the ability to zoom in or out of the plots. Create two <code class="highlighter-rouge">sliderInput</code> objects to adjust the x- and y-axes of the plot depending on the Variable selected. To do so:
+    <ol>
+      <li>Within the <code class="highlighter-rouge">sidebarPanel</code> of the <code class="highlighter-rouge">ui.R</code> script, add two <code class="highlighter-rouge">uiOutput</code> objects, containing the <code class="highlighter-rouge">outputId</code> names of <code class="highlighter-rouge">sliderX</code> and <code class="highlighter-rouge">sliderY</code></li>
+      <li>In <code class="highlighter-rouge">script.R</code>, create the <code class="highlighter-rouge">output$sliderX</code> and <code class="highlighter-rouge">output$sliderY</code> objects with the function <code class="highlighter-rouge">renderUI</code>. (see <code class="highlighter-rouge">script.R</code>)</li>
+    </ol>
+  </li>
+  <li>Change the plot <code class="highlighter-rouge">width</code>. For <code class="highlighter-rouge">plotOutput(outputId="pcaplot")</code>, add width <code class="highlighter-rouge">(width = "750px")</code> and height <code class="highlighter-rouge">(height = "650px")</code> parameters</li>
+</ol>
+
+<h4>HINTS:</h4>
+
+<ol>
+  <li>
+    <div class="highlighter-rouge"><pre class="highlight"><code>sidebarPanel(
+     selectInput(inputId='var', ...),
+     uiOutput(outputId="paramchkbxgrp"),
+     sliderInput(inputId = "cexSlider", ...),
+     #********ADD THIS SCRIPT********
+     uiOutput(outputId="sliderX"),
+     uiOutput(outputId="sliderY")
+     #*******************************
+)
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <div class="highlighter-rouge"><pre class="highlight"><code>plotOutput(outputId="pcaplot",  width="750px",height="750px")
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h2>server.R</h2>
+<h3>TASKS:</h3>
+<ol>
+  <li>Create two <code class="highlighter-rouge">sliderInput</code> objects to adjust the x- and y-axes of the plot depending on the Variable selected. To do so:
+    <ol>
+      <li>Within the <code class="highlighter-rouge">sidebarPanel</code> of the <code class="highlighter-rouge">ui.R</code> script, add two <code class="highlighter-rouge">uiOutput</code> objects, containing the <code class="highlighter-rouge">outputId</code> names of <code class="highlighter-rouge">sliderX</code> and <code class="highlighter-rouge">sliderY</code> (see <code class="highlighter-rouge">ui.R</code>)</li>
+      <li>In <code class="highlighter-rouge">server.R</code>, create the <code class="highlighter-rouge">output$sliderX</code> and <code class="highlighter-rouge">output$sliderY</code> objects with the function <code class="highlighter-rouge">renderUI</code>. The <code class="highlighter-rouge">renderUI</code> function allows the function within to be reactive.
+        <ol>
+          <li>
+            <p>within the <code class="highlighter-rouge">renderUI</code> wrapper, use the <code class="highlighter-rouge">sliderInput</code> function:</p>
+
+            <div class="highlighter-rouge"><pre class="highlight"><code>sliderInput(inputId, label, min, max, value)
+</code></pre>
+            </div>
+
+            <dl>
+              <dt><code class="highlighter-rouge">inputId</code></dt>
+              <dd><code class="highlighter-rouge">SLIDERX</code> for the x-axis; <code class="highlighter-rouge">SLIDERY</code> for the y-axis</dd>
+              <dt><code class="highlighter-rouge">label</code></dt>
+              <dd><code class="highlighter-rouge">h5("x-axes")</code> for the x-axis; <code class="highlighter-rouge">h5("y-axes")</code> for the y-axis</dd>
+              <dt><code class="highlighter-rouge">min</code></dt>
+              <dd>subset the object <code class="highlighter-rouge">foo</code> (with the function <code class="highlighter-rouge">subset</code>) for the minimum (use function <code class="highlighter-rouge">min</code>) value of PC1 (for x-axis) or PC2 (for y-axis) when <code class="highlighter-rouge">Var==input$var</code></dd>
+              <dt><code class="highlighter-rouge">max</code></dt>
+              <dd>subset the object <code class="highlighter-rouge">foo</code> (with the function <code class="highlighter-rouge">subset</code>) for the maximum (use function <code class="highlighter-rouge">max</code>) value of PC1 (for x-axis) or PC2 (for y-axis) when <code class="highlighter-rouge">Var==input$var</code></dd>
+              <dt><code class="highlighter-rouge">value</code></dt>
+              <dd>the concatenated values of the two aforementioned <code class="highlighter-rouge">min</code> and <code class="highlighter-rouge">max</code> values: subset the object <code class="highlighter-rouge">foo</code> for the minimum/maximum value of PC1/PC2 when <code class="highlighter-rouge">Var==input$var</code></dd>
+            </dl>
+          </li>
+        </ol>
+      </li>
+      <li>For the scatterplot (<code class="highlighter-rouge">plot</code>) of PCA within the <code class="highlighter-rouge">output$pcaplot</code> function, change the plot parameters <code class="highlighter-rouge">xlim</code> and <code class="highlighter-rouge">ylim</code> to change with the <code class="highlighter-rouge">input$SLIDERX</code> and <code class="highlighter-rouge">input$SLIDERY</code> values.</li>
+    </ol>
+  </li>
+  <li>
+    <p>After evaluating the <code class="highlighter-rouge">plot</code> function, add red (<code class="highlighter-rouge">col = "red"</code>) dotted lines (<code class="highlighter-rouge">lty = 2</code>) at x=0 (<code class="highlighter-rouge">h=0</code>) &amp; y=0 (<code class="highlighter-rouge">v=0</code>) with the function <code class="highlighter-rouge">abline</code>.</p>
+  </li>
+  <li>Implement the percent variation explained into the plot axes.
+    <ol>
+      <li>First, within the <code class="highlighter-rouge">output$pcaplot</code>’s <code class="highlighter-rouge">renderPlot</code> function, create an object <code class="highlighter-rouge">pcaper</code> to subset <code class="highlighter-rouge">pca_percent</code> for when <code class="highlighter-rouge">pca_percent$Var==input$var</code></li>
+      <li>
+        <p>Within the <code class="highlighter-rouge">plot</code> function, adjust the <code class="highlighter-rouge">xlab</code> and <code class="highlighter-rouge">ylab</code> parameters. With the <code class="highlighter-rouge">paste</code> function, for <code class="highlighter-rouge">xlab</code>, add <code class="highlighter-rouge">pcaper[2]</code> as the x-axis percent variation explained: <code class="highlighter-rouge">xlab=paste("PCA Axis 1 (",pcaper[2],"%)")</code></p>
+
+        <p>Do the same for <code class="highlighter-rouge">ylab</code>, where instead use <code class="highlighter-rouge">pcaper[3]</code></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>Use the R <code class="highlighter-rouge">expressions</code> instead to display labels. Paste the following code into your script:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
+         ...
+         for(i in levels(fbar$param)){
+             foo2&lt;-subset(fbar,param==i)
+             labs&lt;-paste("c(",paste("expression(",foo2$Rexpression,")",sep="",collapse=","),")",sep="")
+             text(PC2 ~ PC1, data=foo2, labels=eval(parse(text=labs)), col=cols[which(levels(fbar$param)==i)],  cex=input$cexSlider)
+         }
+         #...
+     })
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h4>HINTS:</h4>
+<ol>
+  <li>
+    <div class="highlighter-rouge"><pre class="highlight"><code>shinyServer(function(input, output) {
+     output$paramchkbxgrp &lt;- renderUI({...})
+
+    ********ADD THIS SCRIPT********
+     #X-axis
+           output$sliderX &lt;-renderUI({
+             sliderInput(inputId="SLIDERX",
+                 label = h5("x-axes"),
+                 min = min(subset(foo,Var==input$var)[,"PC1"]),
+                 max = max(subset(foo,Var==input$var)[,"PC1"]),
+                 value = c(min(subset(foo,Var==input$var)[,"PC1"]),max(subset(foo,Var==input$var)[,"PC1"])))
+         })
+    # Y-axis
+           output$sliderY &lt;-renderUI({
+             sliderInput(inputId="SLIDERY",
+                 label = h5("y-axes"),
+                 min = min(subset(foo,Var==input$var)[,"PC2"]),
+                 max = max(subset(foo,Var==input$var)[,"PC2"]),
+                 value = c(min(subset(foo,Var==input$var)[,"PC2"]),max(subset(foo,Var==input$var)[,"PC2"])))
+         })
+    *******************************
+
+     output$pcaplot &lt;- renderPlot({...})
+ })
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <div class="highlighter-rouge"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
+    #...
+    plot(PC2 ~ PC1, data=fbar, type="n", xlab="PC1", ylab="PC2", xlim=input$SLIDERX, ylim=input$SLIDERY)
+    #...
+})
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <div class="highlighter-rouge"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
+     #...
+     plot(PC2 ~ PC1, data=fbar, type="n", xlab="PC1", ylab="PC2", xlim=input$SLIDERX, ylim=input$SLIDERY)
+     abline(h=0,v=0,col="red",lty=2)
+     #...
+})
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <div class="highlighter-rouge"><pre class="highlight"><code>output$pcaplot &lt;- renderPlot({
+     fbar&lt;-droplevels(...)
+
+     pcaper&lt;-pca_percent[which(pca_percent$Var==input$var),]
+
+     plot(PC2 ~ PC1, data=fbar, type="n", xlim=input$SLIDERX, ylim=input$SLIDERY,
+         xlab=paste("PCA Axis 1 (",pcaper[2],"%)"),
+         ylab=paste("PCA Axis 2 (",pcaper[3],"%)"))
+     #    ...
+})
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h1>Module 5</h1>
+
+<p>Running this module should create the final output acheived when completing all the tasks.</p>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

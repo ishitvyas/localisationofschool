@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Introduction to Bash</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/misc/bash-intro/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Introduction to Bash</h1>
+
+        <hr>
+
+        <ul>
+  <li><strong>Authors</strong>: John Ladan</li>
+  <li><strong>Research field</strong>: Physics</li>
+  <li><strong>Lesson topic</strong>: Introduction to shells and the command-line with bash.</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/misc/bash-intro/">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/misc/bash-intro/</a></li>
+</ul>
+
+<p>In this tutorial, we cover the basics of interacting with a computer using Bash (the Bourne Again Shell). You may have heard the terms “command line”, “terminal”, “console”, “shell”, “interactive prompt”, “git-bash”, etc. To be imprecise, they all refer to using the keyboard to control your computer by typing commands.</p>
+
+<p><strong>Preparation for this lesson</strong>: To follow along with this lesson, you will need to have <code class="highlighter-rouge">bash</code> installed. For Linux and OSX users, <code class="highlighter-rouge">bash</code> is included as part of the operating system. In OSX, it can be accessed with <code class="highlighter-rouge">terminal</code>, but I recommend <a href="https://www.iterm2.com/">iTerm2</a>, because it has many more features that make it consistent with the Linux experience.</p>
+
+<p>For Windows users, there are many options. Many people will use <code class="highlighter-rouge">git bash</code>, which is packaged with <a href="https://git-scm.com/">git</a> (a common version control system). Others might use <a href="https://www.cygwin.com/">Cygwin</a>. As of August 2016, the Windows Subsystem for Linux (WSL) provides access to most command line tools provided by Ubuntu. See <a href="https://msdn.microsoft.com/en-us/commandline/wsl/install_guide">here</a> for instructions to enable/install the WSL.</p>
+
+<h1 id="why-use-a-command-line">Why use a command line?</h1>
+
+<p>The command line is a very precise and powerful way to interact with a computer. Because it is a scripting language, you can automate and perform complex tasks without much overhead.</p>
+
+<p>Shells are particularly well suited to interacting with files and running programs – possibly your own! Not having a graphical interface turns out to be a strength, because it makes remote computing simple and reliable.</p>
+
+<p>At first, typing in commands will feel a bit cumbersome, but like learning any language the only way to get better is with practice. Lucky for us, bash is based on English with a very simplified grammar.</p>
+
+<h1 id="example-shells">Example shells</h1>
+
+<p>In this lesson, we’re using bash, but most shells support all of the features covered here. Sometimes with different syntax. Some of the more modern shells include:</p>
+<ul>
+  <li>Bash</li>
+  <li>Zsh</li>
+  <li>Fish (the Friendly Interactive Shell)</li>
+  <li>rc   (“run commands” - the Plan 9 shell)</li>
+  <li>Powershell (the better Windows shell)</li>
+</ul>
+
+<p>Of the above, Powershell is the most different. The others are all based on the <em>Bourne shell</em>, but with many additions to make it easier to work with.</p>
+
+<h1 id="bash-command-syntax">Bash command syntax</h1>
+
+<p>The basic unit for a command line interpreter (CLI) is a <em>command</em>. This is a line that starts with a <em>commmand name</em> followed (optionally) by <em>arguments</em>. Examples of commands are,</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ls
+ls -a
+date
+man date
+cd Documents
+rm unwanted_file
+vim hello.txt
+sed -e 's/cat/dog/g' pets-file
+echo 'hello world'
+find . -not -name '*.py' -type f -exec rm {} +
+which python
+cal
+</code></pre>
+</div>
+
+<p>Try them out and see what they do.</p>
+
+<p>Some arguments activate/deactivate options. Usually they are prefixed by a dash <code class="highlighter-rouge">-</code>. For example, <code class="highlighter-rouge">ls -a</code> lists <strong>a</strong>ll files, even hidden ones. Sometimes they are longer than one character, in which case they <em>usually</em> have two dashes e.g. <code class="highlighter-rouge">--help</code>.</p>
+
+<p>The command line options (aka flags or switches) can usually be found in the man pages. Often there will be a <code class="highlighter-rouge">-h</code> or <code class="highlighter-rouge">--help</code> flag to display common usage.</p>
+
+<h1 id="common-commandstasks">Common commands/tasks</h1>
+
+<p>There are many commands available – any executable or built-in command. The following are some that I use more often.</p>
+
+<ul>
+  <li>ls (-alhS…)</li>
+  <li>cd (-)</li>
+  <li>cp</li>
+  <li>mv</li>
+  <li>mkdir</li>
+  <li>rm (-r)</li>
+  <li>head/tail (-nf)</li>
+  <li>grep</li>
+  <li>man</li>
+</ul>
+
+<p>Many command names are the first two consonants of what they do: <strong>c</strong>o<strong>p</strong>y, <strong>l</strong>i<strong>s</strong>t, <strong>m</strong>o<strong>v</strong>e, <strong>r</strong>e<strong>m</strong>ove. Others are acronyms/abbreviations: <strong>c</strong>hange <strong>d</strong>irectory, <strong>man</strong>ual, <strong>s</strong>tream <strong>ed</strong>itor.</p>
+
+<h2 id="explanations">Explanations</h2>
+
+<p>To list files, use <code class="highlighter-rouge">ls</code>. Common flags include <code class="highlighter-rouge">-a</code> for all files, <code class="highlighter-rouge">-l</code> for the full details (size, date, permissions…), <code class="highlighter-rouge">-h</code> for “human-readable” file sizes,  <code class="highlighter-rouge">-S</code> to sort by file size.</p>
+
+<p>Change directories with <code class="highlighter-rouge">cd</code>. On many systems, <code class="highlighter-rouge">cd</code> with no arguments changes to your home directory (<code class="highlighter-rouge">cd ~</code>), and <code class="highlighter-rouge">cd -</code> changes to your previous directory.</p>
+
+<p>Copy and move files with <code class="highlighter-rouge">cp</code> and <code class="highlighter-rouge">mv</code>. The last argument is the new filename/directory. E.g. <code class="highlighter-rouge">cp a.py b.py c/</code> copies files <code class="highlighter-rouge">a.py</code> and <code class="highlighter-rouge">b.py</code> into the <code class="highlighter-rouge">c</code> directory. <strong>Warning</strong> <code class="highlighter-rouge">cp</code> and <code class="highlighter-rouge">mv</code> will overwrite files without warning you.</p>
+
+<p>Remove files with <code class="highlighter-rouge">rm</code>. The files cannot be recovered easily, and you won’t be asked for confirmation. Directories won’t be removed unless you use <code class="highlighter-rouge">-r</code> (for <strong>r</strong>ecursive.</p>
+
+<p>Probing contents of files with <code class="highlighter-rouge">head</code>, <code class="highlighter-rouge">tail</code>, <code class="highlighter-rouge">grep</code>. <code class="highlighter-rouge">head -n 10</code> shows the first 10 lines, and <code class="highlighter-rouge">tail</code> shows the last few lines in a file. To search for every line that contains a string, use <code class="highlighter-rouge">grep</code>. E.g. <code class="highlighter-rouge">grep pony animals.txt</code> finds the string “pony” in the file <code class="highlighter-rouge">animals.txt</code>.</p>
+
+<p>Strangely enough, “pony” isn’t in the Wikipedia list of animals by common name. Instead, try <code class="highlighter-rouge">grep cat animals</code>.</p>
+
+<p>Finally, <code class="highlighter-rouge">man</code> provides manual pages for most commands that you can use from bash. Syntax: <code class="highlighter-rouge">man &lt;command-name&gt;</code>.</p>
+
+<h1 id="files">Files</h1>
+
+<p>Many commands end up using files, so it’s good to have an idea of how to name them. Files are specified in arguments with a <em>pathname</em>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[directory-name/]filename
+</code></pre>
+</div>
+
+<p>Except for a few cases, the pathname is relative to the <em>current working directory</em>. So if you are in your home directory, <code class="highlighter-rouge">Desktop/my_script.py</code> refers to the <code class="highlighter-rouge">my_script.py</code> file in your own Desktop folder, not anyone else’s. If you’re in your <code class="highlighter-rouge">Desktop</code> folder, then <code class="highlighter-rouge">Desktop/my_script.py</code> refers to a file inside the Desktop folder inside your Desktop folder (which probably isn’t there), but <code class="highlighter-rouge">my_script.py</code> refers to the previous file.</p>
+
+<p>Try it out: from your home directory, run the following commands (<code class="highlighter-rouge">touch</code> creates a file):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mkdir tmp
+touch tmp/file_a
+ls
+</code></pre>
+</div>
+
+<p>In the list of files, you should see the <code class="highlighter-rouge">tmp</code> directory, but no <code class="highlighter-rouge">file_a</code>. Now execute</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ls tmp
+</code></pre>
+</div>
+
+<p>you should see the files in the <code class="highlighter-rouge">tmp</code> directory (<code class="highlighter-rouge">file_a</code>). Now try</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cat tmp/file_a
+cd tmp
+cat tmp/file_a
+</code></pre>
+</div>
+
+<p>What went wrong?</p>
+
+<h2 id="absolute-paths">Absolute paths</h2>
+
+<p>Sometimes, you’ll need to access files from another location in the file hierarchy. With relative paths, you can use <code class="highlighter-rouge">..</code> to access the parent directory, so <code class="highlighter-rouge">../../src/include/</code> goes up two directories, then down through <code class="highlighter-rouge">src</code> and <code class="highlighter-rouge">include</code>. This can get cumbersome if you’re not sure exactly how many times you need to go up.</p>
+
+<p>Instead, there are absolute paths. On Unix systems, there is one root node for the file-system: <code class="highlighter-rouge">/</code> (compare this with <code class="highlighter-rouge">C:\</code> in Windows). All files are in subdirectories of root. Any pathname starting with <code class="highlighter-rouge">/</code> is an absolute path starting from the root.</p>
+
+<p>Try out <code class="highlighter-rouge">ls /</code></p>
+
+<p>Another special location is your home directory. The short-form is <code class="highlighter-rouge">~/</code>. On a Mac, this would be <code class="highlighter-rouge">/Users/username/</code>. You can also short-form any user’s home-directory with <code class="highlighter-rouge">~username/</code>.</p>
+
+<p>Try <code class="highlighter-rouge">cat ~/.bashrc</code>.</p>
+
+<p>Most of the time working with scripts, you should use relative paths, because one cannot assume the state of another’s file system.</p>
+
+<h1 id="globbing">Globbing</h1>
+
+<p>If you want to pass more than one filename as an argument, you can use <em>globbing</em>. The special patterns for globbing are:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">*</code> Match any string of arbitrary length</li>
+  <li><code class="highlighter-rouge">?</code> Match any single character</li>
+  <li><code class="highlighter-rouge">[]</code> Match any of the characters within square brackets.</li>
+</ul>
+
+<p>Try moving all python files into the <code class="highlighter-rouge">src</code> directory. How about copying every file with <code class="highlighter-rouge">a</code>?</p>
+
+<h1 id="getting-more-powerful">Getting more powerful</h1>
+
+<p>Some true strengths of the command line come from combining commands. This is the “Unix philosophy” of having many small programs that perform their jobs well. These units can be combined to perform more complicated tasks.</p>
+
+<h1 id="pipes-stdinout">Pipes (stdin/out)</h1>
+
+<p>Commands can be strung together with pipes <code class="highlighter-rouge">|</code>. Those of you using R may have seen the concept in the <code class="highlighter-rouge">dplyr</code> package. Commands typically have an input (stdin) and an output (stdout). The pipe attaches the output of one command into the input of another.</p>
+
+<p>This is easier to see with commands like <code class="highlighter-rouge">cat</code> and <code class="highlighter-rouge">head</code>. Try these out using our demo directory:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>head animals
+cat animals
+cat animals | head
+ls | head -n2
+head
+grep 'fish' animals | wc -l
+</code></pre>
+</div>
+
+<p>Can you figure out how each of these commands behave from the above?</p>
+
+<p>You can also redirect output into a file with <code class="highlighter-rouge">&gt;</code> or <code class="highlighter-rouge">&gt;&gt;</code>. The former over-writes the file, while <code class="highlighter-rouge">&gt;&gt;</code> appends to the file if it exists. For example,</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep 'fish' animals &gt; list-of-fish
+</code></pre>
+</div>
+
+<p>Will create a new file with a list of fish. Files can also be used for <code class="highlighter-rouge">stdin</code> using the <code class="highlighter-rouge">&lt;</code> character. The above command would be</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep fish &lt; animals &gt; list-of-fish
+</code></pre>
+</div>
+
+<p>Or, with pipes,</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep fish &lt; animals | wc -l &gt; number-of-fish
+</code></pre>
+</div>
+
+<p>Note that <code class="highlighter-rouge">&lt;</code> appears after the first command, because each line must start witha  command. What would happen if you tried <code class="highlighter-rouge">animals &gt; grep fish</code>?</p>
+
+<p>Another stream worth mentioning is <code class="highlighter-rouge">stderr</code>, which is how most errors or warnings are reported. This can be accessed with <code class="highlighter-rouge">2&gt;</code>. For example, so save compiler errors for later, try</p>
+
+<p>gcc some-code.c -o my-program 2&gt; log-file</p>
+
+<h2 id="usage-examples">Usage examples</h2>
+
+<p>If the output of a command is very long, use <code class="highlighter-rouge">less</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>long-output-command | less
+</code></pre>
+</div>
+
+<p>You can then scroll up and down and quit less by typing <code class="highlighter-rouge">q</code>.</p>
+
+<p>Joining (concatenating) files with <code class="highlighter-rouge">cat</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cat file1 file2 &gt; both-files
+</code></pre>
+</div>
+
+<p>Appending a line to a file</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>echo "put this at the end" &gt;&gt; some-file
+</code></pre>
+</div>
+
+<p>Search and replace in a file</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sed -e 's/cat/dog/g' &lt; animals &gt; no-cats
+</code></pre>
+</div>
+
+<h2 id="multiple-commands-in-a-line">Multiple commands in a line</h2>
+
+<p>You can also run multiple commands without piping their inputs/outputs together. There are a few ways characters for this:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">;</code> separates commands like they are on separate lines</li>
+  <li><code class="highlighter-rouge">&amp;&amp;</code> does the next command if the previous one succeeds</li>
+  <li><code class="highlighter-rouge">||</code> does the next command if the previous one fails</li>
+  <li><code class="highlighter-rouge">&amp;</code> runs the previous command in the “background”</li>
+</ul>
+
+<h1 id="variables">Variables</h1>
+
+<p>Bash happens to be a full scripting language (aka bash script). As part of that are variables. They can be assigned with <code class="highlighter-rouge">=</code>. Try the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>myOne=1
+myName=John
+mySubject = Physics
+</code></pre>
+</div>
+
+<p>What happened in the last example? In bash, there cannot be a space between the variable name and <code class="highlighter-rouge">=</code>. Now let’s try accessing our variables.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>echo myName
+</code></pre>
+</div>
+
+<p>Why doesn’t that work? Bash has no way of knowing whether <code class="highlighter-rouge">myName</code> is a variablename or string-literal, so it always assumes a string. To access variables, we use <code class="highlighter-rouge">$varname</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>echo $myName
+echo $myOne
+echo $mySubject
+</code></pre>
+</div>
+
+<p>Note that if a variable isn’t defined, then it simply returns an empty string. Everything in bash is a string. Even numbers are strings which are cast to ints for arithmetic.</p>
+
+<p>There are special variables called <em>environment variables</em> which are used by bash and other programs to affect behaviour. One of the most important ones is <code class="highlighter-rouge">$PATH</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>echo $PATH
+</code></pre>
+</div>
+
+<p>The path is a list of all directories to search for commands. To add a directory to your path,</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>export PATH="${HOME}/.local/bin:${PATH}"
+</code></pre>
+</div>
+
+<p>That adds the <code class="highlighter-rouge">~/.local/bin</code> directory to my path, so any programs installed there are now first-class commands in this bash session.</p>
+
+<p>All defined environment variables can be found with the <code class="highlighter-rouge">env</code> command. For example,</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>`env | sed 's/=.*$//'`
+</code></pre>
+</div>
+
+<p>will print all defined variable names.</p>
+
+<h1 id="loops">Loops</h1>
+
+<p>Repetitive tasks call for loops! Bash has loops:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>for i in 1 2 3 4 5; do
+    echo The value of i is $i
+done
+</code></pre>
+</div>
+
+<p>The basic syntax is</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>for variable_name in a_list; do
+    [commands]
+done
+</code></pre>
+</div>
+
+<p>The list is just like an argument list to a command: each item is a string, separated by spaces. Try using different values in the for loop, or putting quotes around different items.</p>
+
+<p>One common task I have is performing a command on each file in a directory. For example, consider adding a license preamble to every sourcefile in your project. If the license is in <code class="highlighter-rouge">LICENSE.txt</code>, then</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>for fn in *.py; do
+    cat LICENSE.txt $fn &gt; tmpfile
+    mv tmpfile $fn
+done
+rm tmpfile
+</code></pre>
+</div>
+
+<p>Unfortunately, there isn’t a simple, universal way to prepend a file without a temporary file.</p>
+
+<h1 id="running-scripts">Running scripts</h1>
+
+<p>Scripts are files that contain lists of commands, very much like scripts in Python, Ruby, R, Perl, etc. They can be run in much the same way.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>bash myscript.sh
+</code></pre>
+</div>
+
+<p>Another trick is to use the “shebang” syntax at the beginning of a file</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">"The first argument is </span><span class="nv">$1</span><span class="s2">"</span>
+
+<span class="nb">echo</span> <span class="s2">"All of the arguments are"</span>
+<span class="k">for </span>i <span class="k">in</span> <span class="nv">$*</span>; <span class="k">do
+    </span><span class="nb">echo</span> <span class="nv">$i</span>
+<span class="k">done</span>
+</code></pre>
+</div>
+
+<p>If the file is made executable (<code class="highlighter-rouge">chmod u+x myscript.sh</code>), then it can be executed with <code class="highlighter-rouge">./myscript.sh</code>. You can take it one step further and insert it in your path.</p>
+
+<p>The shebang syntax can be used for any interpreted language, like for Python:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
+</code></pre>
+</div>
+
+<h1 id="wrapping-up">Wrapping up</h1>
+
+<p>At first, using the command line might seem cumbersome, and like a lot to remember. But this is just like learning any language: at first you will be limited by your vocabulary, but with time and practice you’ll be able to do much more.</p>
+
+<p>A tools you may want to look into when working with more files/strings are:</p>
+<ul>
+  <li>Regular expressions. Used in tools like <code class="highlighter-rouge">grep</code> and <code class="highlighter-rouge">sed</code> are great for searching in strings/files.</li>
+  <li><code class="highlighter-rouge">find</code> can do some really powerful things when working with files.</li>
+  <li><code class="highlighter-rouge">xargs</code> creates/executes commands built from <code class="highlighter-rouge">stdin</code></li>
+</ul>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Intro to Stats</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/r/statistics/lesson.Rmd">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Intro to Stats</h1>
+
+        <hr>
+
+        ## Introduction to Basic Stats in R ##
+
+- **Authors**: Lindsay Coome
+- **Research field**: Behavioural neuroendocrinology
+- **Lesson topic**: Basic Stats using R
+- **Lesson content URL**: <https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/r/statistics>
+
+### Code from session
+
+```{r}
+#Independent-Samples T-test
+#Create variables
+Women = c(99, 85, 78, 93, 95, 87)
+Men = c(72, 75, 70, 68, 70, 80)
+#T-test to see if men and women's scores significantly differ
+t.test(Women,Men,alternative="two.sided") 
+
+#One-sample t-test to see if women scored significantly lower than 95% on the test
+t.test(Women, alternative = "less", mu = 95)
+
+#One-way analysis of variance
+#Read sample pain score data into R
+pain = c(4, 5, 4, 3, 2, 4, 3, 4, 4, 6, 8, 4, 5, 4, 6, 5, 8, 6, 6, 7, 6, 6, 7, 5, 6, 5, 5)
+gender = c("F", "F", "F", "M", "M", "M", "M", "F", "F", "M", "M", "F", "F", "F", "M", "F", "M", "M", "M", "F", "F", "F", "F", "M", "F", "M", "M")
+#Code the data according to which drug is associated with the score
+drug = c(rep("A",9), rep("B",9), rep("C",9))
+#Create data frame with pain scores, coded by which drug the patient took
+migraine = data.frame(pain,drug)
+#Look at our data frame
+migraine
+#Run a one-way ANOVA
+results = aov(pain ~ drug, data=migraine)
+summary(results)
+
+#Post hoc analysis using Tukey's HSD
+TukeyHSD(results, conf.level = 0.95)
+
+#Add column full of gender info to migraine dataset
+migraine$gender <- c("F", "F", "F", "M", "M", "M", "M", "F", "F", "M", "M", "F", "F", "F", "M", "F", "M", "M", "M", "F", "F", "F", "F", "M", "F", "M", "M")
+migraine
+
+#Run two-way ANOVA using gender and drug as factors
+results = aov(pain ~ drug*gender, data=migraine)
+summary(results)
+
+#Post hoc analysis on two-way ANOVA
+TukeyHSD(results, conf.level = 0.95)
+
+#Plot the interaction for our two-way ANOVA
+interaction.plot(drug, gender, pain)
+
+#Create bachelor dataset for correlation demo
+weeks = c(8,7,6,5,4,4,3,3,3,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1)
+age = c(24,23,25,24,23,22,27,28,23,30,27,30,24,27,29,30,27,29,25,34,27,22,25,28,28,23)
+bachelor = data.frame(weeks, age)
+bachelor
+
+#Run test of correlation on bachelor data - default method is Pearson correlation
+cor.test(bachelor$weeks, bachelor$age)
+plot(bachelor$weeks, bachelor$age, xlab="Weeks Before Dumping", ylab="Age of Contestant") 
+
+#Supplemental: Another kind of post hoc test (pairwise t-tests with a bonferroni correction) on the migraine dataset
+pairwise.t.test(pain, drug, p.adjust="bonferroni")
+
+#Supplemental: Another way to do a t-test on the migraine dataset
+with(migraine, t.test(pain[drug == "A"], pain[drug == "B"]))
+```
+
+
+
+# Python-ized version (courtesy of [@QuLogic](https://github.com/QuLogic))
+
+<script src="https://gist.github.com/QuLogic/4477f0e884ebd29ffe80.js"></script>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>

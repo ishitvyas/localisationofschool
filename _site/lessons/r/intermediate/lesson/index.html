@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Intermediate topics in R: Strings and factors</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/r/intermediate/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/logo_icon_dark.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Intermediate topics in R: Strings and factors</h1>
+
+        <hr>
+
+        <h1 id="strings-factors-and-regular-expressions">Strings, factors, and regular expressions</h1>
+
+<ul>
+  <li><strong>Authors</strong>: Luke Johnston (@lwjohnst86)</li>
+  <li><strong>Research field</strong>: Nutritional Sciences</li>
+  <li><strong>Lesson topic</strong>: Working with character/string data</li>
+  <li><strong>Lesson video link</strong>: <a href="https://youtu.be/jdMOmg9SMEc">https://youtu.be/jdMOmg9SMEc</a></li>
+</ul>
+
+<p>Install these packages:</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">install.packages</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s2">"stringr"</span><span class="p">,</span><span class="w"> </span><span class="s2">"forcats"</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Base R has some pretty decent string manipulation and searching functionality.
+The primary way of working with strings is through 
+<a href="http://www.regular-expressions.info/">regular expressions</a>. Regular
+expressions, or regex in R, are a group of characters that have special meaning
+and function. For instance, the <code class="highlighter-rouge">.</code> means wildcard and it will search for any
+character (letter, number, symbol, etc). Or <code class="highlighter-rouge">$</code> means end of the string or line.
+If you want to see more details on regex in R, run <code class="highlighter-rouge">?regex</code> to get help on it.</p>
+
+<p>In general, the most commonly used functions (at least that I use and that I’ve
+seen) are <code class="highlighter-rouge">grep</code>, <code class="highlighter-rouge">grepl</code>, <code class="highlighter-rouge">sub</code>, and <code class="highlighter-rouge">gsub</code> commands. Each of these take regex
+characters (<code class="highlighter-rouge">$ ^ * . + ? [] () |</code> are a few; see <code class="highlighter-rouge">?regex</code> for more). Let’s
+begin with the base R functions!</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">fruits</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"apple"</span><span class="p">,</span><span class="w"> </span><span class="s2">"banana"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pear"</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># replace `a` at beginning of string with nothing. `gsub` = global substitution
+</span><span class="n">gsub</span><span class="p">(</span><span class="s2">"^a"</span><span class="p">,</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="n">fruits</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] "pple"   "banana" "pear"
+# replace letters `an` or `ar` with `bb`
+</span><span class="n">gsub</span><span class="p">(</span><span class="s2">"(an|ar)"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bb"</span><span class="p">,</span><span class="w"> </span><span class="n">fruits</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] "apple"  "bbbbba" "pebb"
+# same as above but only first search and replace. `sub` = substitution
+</span><span class="n">sub</span><span class="p">(</span><span class="s2">"(an|ar)"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bb"</span><span class="p">,</span><span class="w"> </span><span class="n">fruits</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] "apple"  "bbbana" "pebb"
+# search for fruits starting with a. Returns the number position of the search
+# result.
+</span><span class="n">grep</span><span class="p">(</span><span class="s2">"^a"</span><span class="p">,</span><span class="w"> </span><span class="n">fruits</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] 1
+# same as above, but returns the actual value rather than the number
+</span><span class="n">grep</span><span class="p">(</span><span class="s2">"^a"</span><span class="p">,</span><span class="w"> </span><span class="n">fruits</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] "apple"
+# same as above, but returns a vector of logical values
+</span><span class="n">grepl</span><span class="p">(</span><span class="s2">"^a"</span><span class="p">,</span><span class="w"> </span><span class="n">fruits</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1]  TRUE FALSE FALSE
+</span></code></pre>
+</div>
+
+<p>While base R is pretty powerful, it isn’t always easy to work with and there are
+some major bits of functionality missing. That’s where the <code class="highlighter-rouge">stringr</code> package
+(which is a subset of common functions from the <code class="highlighter-rouge">stringi</code> package) comes into
+play. <code class="highlighter-rouge">stringr</code> greatly expands on string manipulation in R. Let’s go through
+some.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># month.name is a default variable in R. I'm putting it in a new variable to
+# make it shorter to type out.
+</span><span class="n">mth</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nb">month.name</span><span class="w">
+</span><span class="n">mth</span><span class="w">
+</span><span class="c1">#&gt;  [1] "January"   "February"  "March"     "April"     "May"      
+#&gt;  [6] "June"      "July"      "August"    "September" "October"  
+#&gt; [11] "November"  "December"
+</span><span class="w">
+</span><span class="c1"># Almost every stringr function begins with `str_`.
+# Convert cases (lower case, UPPER CASE)
+</span><span class="n">str_to_lower</span><span class="p">(</span><span class="n">mth</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] "january"   "february"  "march"     "april"     "may"      
+#&gt;  [6] "june"      "july"      "august"    "september" "october"  
+#&gt; [11] "november"  "december"
+</span><span class="n">str_to_upper</span><span class="p">(</span><span class="n">mth</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] "JANUARY"   "FEBRUARY"  "MARCH"     "APRIL"     "MAY"      
+#&gt;  [6] "JUNE"      "JULY"      "AUGUST"    "SEPTEMBER" "OCTOBER"  
+#&gt; [11] "NOVEMBER"  "DECEMBER"
+</span><span class="w">
+</span><span class="c1"># Find out the number of characters in each string of the vector
+</span><span class="n">str_length</span><span class="p">(</span><span class="n">mth</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] 7 8 5 5 3 4 4 6 9 7 8 8
+</span><span class="n">mth</span><span class="w">
+</span><span class="c1">#&gt;  [1] "January"   "February"  "March"     "April"     "May"      
+#&gt;  [6] "June"      "July"      "August"    "September" "October"  
+#&gt; [11] "November"  "December"
+</span><span class="w">
+</span><span class="c1"># Combine (concatenate) the strings together. Similar to `paste`
+</span><span class="n">str_c</span><span class="p">(</span><span class="n">mth</span><span class="p">,</span><span class="w"> </span><span class="n">collapse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">", "</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] "January, February, March, April, May, June, July, August, September, October, November, December"
+</span><span class="w">
+</span><span class="c1"># Take a subset of the months based on a regex.
+# for months starting with `J`
+</span><span class="n">str_subset</span><span class="p">(</span><span class="n">mth</span><span class="p">,</span><span class="w"> </span><span class="s2">"^J"</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] "January" "June"    "July"
+# for months ending in y
+</span><span class="n">str_subset</span><span class="p">(</span><span class="n">mth</span><span class="p">,</span><span class="w"> </span><span class="s2">"y$"</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] "January"  "February" "May"      "July"
+# for months that contain either s, n, or d (only lower case)
+</span><span class="n">str_subset</span><span class="p">(</span><span class="n">mth</span><span class="p">,</span><span class="w"> </span><span class="s2">"[snd]"</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] "January" "June"    "August"
+# same as above, but all letters since months have been converted to lower case
+</span><span class="n">str_subset</span><span class="p">(</span><span class="n">str_to_lower</span><span class="p">(</span><span class="n">mth</span><span class="p">),</span><span class="w"> </span><span class="s2">"[snd]"</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] "january"   "june"      "august"    "september" "november"  "december"
+</span><span class="w">
+</span><span class="c1"># Because stringr is part of the tidyverse packages, you can also use the pipe
+# `%&gt;%` command with the commands, to make it easier to read.
+</span><span class="n">mth</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_to_lower</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">str_subset</span><span class="p">(</span><span class="s2">"[snd]"</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] "january"   "june"      "august"    "september" "november"  "december"
+</span><span class="w">
+</span><span class="c1"># Using the fruit variable in the stringr package... different from the `fruits`
+# we created above!
+# str_detect converts to logical, for use in filtering, subsetting, etc.
+# searches for all fruit beginning with `be`
+</span><span class="n">str_detect</span><span class="p">(</span><span class="n">fruit</span><span class="p">,</span><span class="w"> </span><span class="s2">"^be"</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+#&gt; [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+#&gt; [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+#&gt; [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+#&gt; [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+#&gt; [56] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+#&gt; [67] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+#&gt; [78] FALSE FALSE FALSE
+</span><span class="w">
+</span><span class="c1"># Find out the proportion (mean of values that are either 0 or 1) of fruit with
+# at least one vowel at the end of the string.
+</span><span class="n">str_detect</span><span class="p">(</span><span class="n">fruit</span><span class="p">,</span><span class="w"> </span><span class="s2">"[aeiou]$"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="n">mean</span><span class="p">()</span><span class="w">
+</span><span class="c1">#&gt; [1] 0.35
+</span><span class="w">
+</span><span class="c1"># search for any fruit that does not end in an `a`
+</span><span class="n">str_detect</span><span class="p">(</span><span class="n">fruit</span><span class="p">,</span><span class="w"> </span><span class="s2">"^.*[^a]$"</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+#&gt; [12]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+#&gt; [23]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
+#&gt; [34]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+#&gt; [45]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+#&gt; [56] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+#&gt; [67]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
+#&gt; [78]  TRUE  TRUE  TRUE
+# this is the same as above, but subsets instead
+</span><span class="n">str_subset</span><span class="p">(</span><span class="n">fruit</span><span class="p">,</span><span class="w"> </span><span class="s2">"[^a]$"</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] "apple"             "apricot"           "avocado"          
+#&gt;  [4] "bell pepper"       "bilberry"          "blackberry"       
+#&gt;  [7] "blackcurrant"      "blood orange"      "blueberry"        
+#&gt; [10] "boysenberry"       "breadfruit"        "canary melon"     
+#&gt; [13] "cantaloupe"        "cherry"            "chili pepper"     
+#&gt; [16] "clementine"        "cloudberry"        "coconut"          
+#&gt; [19] "cranberry"         "cucumber"          "currant"          
+#&gt; [22] "damson"            "date"              "dragonfruit"      
+#&gt; [25] "durian"            "eggplant"          "elderberry"       
+#&gt; [28] "fig"               "goji berry"        "gooseberry"       
+#&gt; [31] "grape"             "grapefruit"        "honeydew"         
+#&gt; [34] "huckleberry"       "jackfruit"         "jambul"           
+#&gt; [37] "jujube"            "kiwi fruit"        "kumquat"          
+#&gt; [40] "lemon"             "lime"              "loquat"           
+#&gt; [43] "lychee"            "mandarine"         "mango"            
+#&gt; [46] "mulberry"          "nectarine"         "nut"              
+#&gt; [49] "olive"             "orange"            "pamelo"           
+#&gt; [52] "passionfruit"      "peach"             "pear"             
+#&gt; [55] "persimmon"         "physalis"          "pineapple"        
+#&gt; [58] "plum"              "pomegranate"       "pomelo"           
+#&gt; [61] "purple mangosteen" "quince"            "raisin"           
+#&gt; [64] "rambutan"          "raspberry"         "redcurrant"       
+#&gt; [67] "rock melon"        "salal berry"       "star fruit"       
+#&gt; [70] "strawberry"        "tamarillo"         "tangerine"        
+#&gt; [73] "ugli fruit"        "watermelon"
+</span><span class="w">
+</span><span class="c1"># similar to sub
+# search any month that starts with J and ends with e and replace the middle
+# letters with `HIII`.
+</span><span class="n">str_replace</span><span class="p">(</span><span class="n">mth</span><span class="p">,</span><span class="w"> </span><span class="s2">"^(J).*(e)$"</span><span class="p">,</span><span class="w"> </span><span class="s2">"\\1HIII\\2"</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] "January"   "February"  "March"     "April"     "May"      
+#&gt;  [6] "JHIIIe"    "July"      "August"    "September" "October"  
+#&gt; [11] "November"  "December"
+</span><span class="w">
+</span><span class="c1"># vector of sentences
+</span><span class="n">head</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] "The birch canoe slid on the smooth planks." 
+#&gt; [2] "Glue the sheet to the dark blue background."
+#&gt; [3] "It's easy to tell the depth of a well."     
+#&gt; [4] "These days a chicken leg is a rare dish."   
+#&gt; [5] "Rice is often served in round bowls."       
+#&gt; [6] "The juice of lemons makes fine punch."
+</span><span class="w">
+</span><span class="c1"># you can split strings up by a specific character. `str_split` creates a list,
+# so I use `[[1]]` or `[1]` to show only the first one.
+</span><span class="n">str_split</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span><span class="w"> </span><span class="s2">" "</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span><span class="w"> </span><span class="c1"># this outputs a vector
+#&gt; [1] "The"     "birch"   "canoe"   "slid"    "on"      "the"     "smooth" 
+#&gt; [8] "planks."
+</span><span class="n">str_split</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span><span class="w"> </span><span class="s2">" "</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="c1"># this outputs a list
+#&gt; [[1]]
+#&gt; [1] "The"     "birch"   "canoe"   "slid"    "on"      "the"     "smooth" 
+#&gt; [8] "planks."
+# or split by the letter `e`
+</span><span class="n">str_split</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span><span class="w"> </span><span class="s2">"e"</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span><span class="w">
+</span><span class="c1">#&gt; [1] "Th"              " birch cano"     " slid on th"     " smooth planks."
+# if you want to split by the word, use the `boundary` function.
+</span><span class="n">str_split</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span><span class="w"> </span><span class="n">boundary</span><span class="p">(</span><span class="s2">"word"</span><span class="p">))[[</span><span class="m">1</span><span class="p">]]</span><span class="w">
+</span><span class="c1">#&gt; [1] "The"    "birch"  "canoe"  "slid"   "on"     "the"    "smooth" "planks"
+# or by a sentence
+</span><span class="n">str_split</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span><span class="w"> </span><span class="n">boundary</span><span class="p">(</span><span class="s2">"sentence"</span><span class="p">))[[</span><span class="m">1</span><span class="p">]]</span><span class="w">
+</span><span class="c1">#&gt; [1] "The birch canoe slid on the smooth planks."
+</span><span class="w">
+</span><span class="c1"># include in a pipe
+</span><span class="n">str_split</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span><span class="w"> </span><span class="n">boundary</span><span class="p">(</span><span class="s2">"sentence"</span><span class="p">))[[</span><span class="m">1</span><span class="p">]]</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+    </span><span class="c1"># convert to Title Case
+</span><span class="w">    </span><span class="n">str_to_title</span><span class="p">()</span><span class="w">
+</span><span class="c1">#&gt; [1] "The Birch Canoe Slid On The Smooth Planks."
+</span></code></pre>
+</div>
+
+<p>String manipulation is great, but sometimes you need to convert to factor
+variables for use in statistical models or when plotting (for instance when
+using <code class="highlighter-rouge">ggplot2</code>). The <code class="highlighter-rouge">forcats</code> package makes it easier to work with factors.
+Base R really only has one function for working with factors… the <code class="highlighter-rouge">factor</code>
+command.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">forcats</span><span class="p">)</span><span class="w">
+
+</span><span class="n">str</span><span class="p">(</span><span class="n">mth</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  chr [1:12] "January" "February" "March" "April" "May" ...
+# This is base function. Compare this...
+</span><span class="n">as.factor</span><span class="p">(</span><span class="n">mth</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] January   February  March     April     May       June      July     
+#&gt;  [8] August    September October   November  December 
+#&gt; 12 Levels: April August December February January July June March ... September
+# with this...
+</span><span class="n">as_factor</span><span class="p">(</span><span class="n">mth</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] January   February  March     April     May       June      July     
+#&gt;  [8] August    September October   November  December 
+#&gt; 12 Levels: January February March April May June July August ... December
+# base R as.factor orders alphabetically, while forcats as_factor orders in
+# appearance.
+</span><span class="w">
+</span><span class="n">mth2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">mth</span><span class="p">[</span><span class="m">10</span><span class="o">:</span><span class="m">12</span><span class="p">],</span><span class="w"> </span><span class="n">mth</span><span class="p">[</span><span class="m">6</span><span class="o">:</span><span class="m">12</span><span class="p">],</span><span class="w"> </span><span class="n">mth</span><span class="p">)</span><span class="w">
+</span><span class="n">mth2</span><span class="w">
+</span><span class="c1">#&gt;  [1] "October"   "November"  "December"  "June"      "July"     
+#&gt;  [6] "August"    "September" "October"   "November"  "December" 
+#&gt; [11] "January"   "February"  "March"     "April"     "May"      
+#&gt; [16] "June"      "July"      "August"    "September" "October"  
+#&gt; [21] "November"  "December"
+</span><span class="w">
+</span><span class="c1"># you can also order by frequency:
+</span><span class="n">fct_infreq</span><span class="p">(</span><span class="n">mth2</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] October   November  December  June      July      August    September
+#&gt;  [8] October   November  December  January   February  March     April    
+#&gt; [15] May       June      July      August    September October   November 
+#&gt; [22] December 
+#&gt; 12 Levels: December November October August July June September ... May
+# this more explicitly orders by appearance.
+</span><span class="n">fct_inorder</span><span class="p">(</span><span class="n">mth2</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] October   November  December  June      July      August    September
+#&gt;  [8] October   November  December  January   February  March     April    
+#&gt; [15] May       June      July      August    September October   November 
+#&gt; [22] December 
+#&gt; 12 Levels: October November December June July August ... May
+</span><span class="w">
+</span><span class="c1"># this counts the number of levels within the factors. It is a simple summary
+</span><span class="n">fct_count</span><span class="p">(</span><span class="n">mth2</span><span class="p">,</span><span class="w"> </span><span class="n">sort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; # A tibble: 12 × 2
+#&gt;            f     n
+#&gt;       &lt;fctr&gt; &lt;int&gt;
+#&gt; 1   December     3
+#&gt; 2   November     3
+#&gt; 3    October     3
+#&gt; 4     August     2
+#&gt; 5       July     2
+#&gt; 6       June     2
+#&gt; 7  September     2
+#&gt; 8      April     1
+#&gt; 9   February     1
+#&gt; 10   January     1
+#&gt; 11     March     1
+#&gt; 12       May     1
+</span><span class="w">
+</span><span class="c1"># if you want to convert levels that contains only a few (in this case, less the
+# 10% of the total proportion), they will be converted to `Other`. This is a
+# nice, quick function to group together uncommon values.
+</span><span class="n">fct_lump</span><span class="p">(</span><span class="n">mth2</span><span class="p">,</span><span class="w"> </span><span class="n">prop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.1</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] October  November December Other    Other    Other    Other   
+#&gt;  [8] October  November December Other    Other    Other    Other   
+#&gt; [15] Other    Other    Other    Other    Other    October  November
+#&gt; [22] December
+#&gt; Levels: December November October Other
+# or any level with only an n=1 in the category
+</span><span class="n">fct_lump</span><span class="p">(</span><span class="n">mth2</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] October  November December Other    Other    Other    Other   
+#&gt;  [8] October  November December Other    Other    Other    Other   
+#&gt; [15] Other    Other    Other    Other    Other    October  November
+#&gt; [22] December
+#&gt; Levels: December November October Other
+# or if you want them renamed to `None`
+</span><span class="n">fct_lump</span><span class="p">(</span><span class="n">mth2</span><span class="p">,</span><span class="w"> </span><span class="n">prop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.1</span><span class="p">,</span><span class="w"> </span><span class="n">other_level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'None'</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] October  November December None     None     None     None    
+#&gt;  [8] October  November December None     None     None     None    
+#&gt; [15] None     None     None     None     None     October  November
+#&gt; [22] December
+#&gt; Levels: December November October None
+</span><span class="w">
+</span><span class="c1"># this is also a really nice function to rename levels within a factor.
+</span><span class="n">fct_recode</span><span class="p">(</span><span class="n">mth2</span><span class="p">,</span><span class="w">
+           </span><span class="n">Jan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"January"</span><span class="p">,</span><span class="w">
+           </span><span class="n">Feb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"February"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"Dec ember"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"December"</span><span class="w">
+           </span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt;  [1] October   November  Dec ember June      July      August    September
+#&gt;  [8] October   November  Dec ember Jan       Feb       March     April    
+#&gt; [15] May       June      July      August    September October   November 
+#&gt; [22] Dec ember
+#&gt; 12 Levels: April August Dec ember Feb Jan July June March May ... September
+</span></code></pre>
+</div>
+
+<h1 id="resources">Resources</h1>
+
+<p>Very good book on R and data (<a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz</a>). Also the
+<a href="https://tidyverse.org">tidyverse</a> resource is good.</p>
+
+<p>Factors (<code class="highlighter-rouge">forcats</code>):</p>
+
+<ul>
+  <li><a href="https://forcats.tidyverse.org/">https://forcats.tidyverse.org/</a></li>
+  <li><a href="https://r4ds.had.co.nz/factors.html">https://r4ds.had.co.nz/factors.html</a></li>
+</ul>
+
+<p>Strings (<code class="highlighter-rouge">stringr</code>):</p>
+
+<ul>
+  <li><a href="https://stringr.tidyverse.org/">https://stringr.tidyverse.org/</a></li>
+  <li><a href="https://r4ds.had.co.nz/strings.html">https://r4ds.had.co.nz/strings.html</a></li>
+  <li>For more complex string work, check out the
+<a href="https://cran.r-project.org/web/packages/stringi/index.html">stringi package</a></li>
+</ul>
+
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>
