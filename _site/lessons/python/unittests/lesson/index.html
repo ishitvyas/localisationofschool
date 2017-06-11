@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html class="sticky-footer">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Unit Testing in Python</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana..">
+    <link rel="canonical" href="/lessons/python/unittests/lesson/">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: https://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/logos/local-web.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body id="page-top" class="index no-header sticky-footer">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+              <a href="/"><img class="site-avatar" src="/img/logos/local-web.png" /></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Local Web</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#what-we-do">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#events">Contribute</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#come-say-hi">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/lessons/">How to Start</a>
+                    </li>
+	            <li>
+                        <a class="page-scroll" href="https://twitter.com/joinlocalweb"><img src="/img/twitter.png" class="img-responsive img-centered" alt="" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="content container">
+      <div class="page">
+        <h1 class="page-title">Unit Testing in Python</h1>
+
+        <hr>
+
+        <h1 id="a-brief-introduction-to-the-python-unittest-module">A Brief Introduction to the Python unittest Module</h1>
+
+<ul>
+  <li><strong>Authors</strong>: Andre R. Erler</li>
+  <li><strong>Research field</strong>: Atmospheric Physics</li>
+  <li><strong>Lesson topic</strong>: Unit Testing (software development)</li>
+  <li><strong>Lesson content URL</strong>: <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/unittests">https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/unittests</a></li>
+</ul>
+
+<p>The <a href="https://docs.python.org/3/library/unittest.html">unittest</a> module primarily provides a class TestCase to facilitate the writing of tests for “units” of code inside a larger project.
+Larger software projects benefit from unit tests, because smaller units of the software can be tested individually and checked for errors before they are added to the main project. After a project has grown over time, a suite of unit tests can also be very helpful in debugging, because the source of an error can quickly be located.</p>
+
+<p>Typically test cases are implemented as child classes of the <code class="highlighter-rouge">unittest.TestCase</code> class. The methods <code class="highlighter-rouge">TestCase.setUp()</code> can be overloaded to provide common setup procedures for all test methods; the method <code class="highlighter-rouge">TestCase.tearDown()</code> can be used for cleanup; both methods are executed before (after) each test. All methods of the form <code class="highlighter-rouge">TestCase.test*()</code> are considered test cases and will be executed by <code class="highlighter-rouge">unittest</code>, if <code class="highlighter-rouge">unittest.main()</code> is called. Alternatively, tests can be run using the <code class="highlighter-rouge">python -m unittest</code> command with the module name.</p>
+
+<p>To run several tests suites at once, the command line utility <code class="highlighter-rouge">nosetests</code> (available in the separate <code class="highlighter-rouge">nose</code> package) can be used: it scans all Python scrips in the current directory and executes all available test cases.</p>
+
+<p>The code used during the lesson is available in the <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/unittests/inclass">inclass</a> folder, the somewhat longer original material is available in the <a href="https://github.com/UofTCoders/studyGroup/tree/gh-pages/lessons/python/unittests/original">original</a> folder.</p>
+
+<p>An example of a more advanced use case, where individual test can be selected and inheritance between TestCase’s is used, can be found <a href="https://github.com/aerler/GeoPy/tree/master/src/geodata_test.py">here</a>.</p>
+
+      </div>
+    </div>
+      <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="https://www.mozillascience.org">
+            <img src="/img/ScienceLabSticker.ai.png" class="img-responsive img-centered" alt="">
+          </a>
+          <a href="/blob/gh-pages/CODE_OF_CONDUCT.md">Local-Web Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/js/jquery.easing.min.js"></script>
+    <script src="/js/classie.js"></script>
+    <script src="/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/agency.js"></script>
+
+  </body>
+</html>
