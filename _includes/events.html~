@@ -56,7 +56,7 @@
             {% if site.calendar_on %}
             <div class="col-lg-6">
               <h3 class="section-heading eventInstructions">Become Volunteer to maintain website !</h3>
-              <h3 class="section-subheading text-muted eventSubinstructions">We also invite you to follow <a href="{{ site.calendar_embed_url }}" target="_blank">us on twitter</a>, where we will tweet about current status. </h3>
+              <h3 class="section-subheading text-muted eventSubinstructions">We also invite you to follow <a href="https://twitter.com/joinlocalweb" target="_blank">us on twitter</a>, where we will tweet about current status. </h3>
              <!-- <h3 class="section-subheading text-muted eventSubinstructions">If you use Google calendar, you can add our calendar by pressing the "Google Calendar" button at the bottom-right of <a href="{{ site.calendar_embed_url }}" target="_blank">this page</a>.</h3>
               <h3 class="section-subheading text-muted eventSubinstructions">If you use another calendar app, you can copy and paste <a href="{{ site.calendar_ical_url }}">this address</a> into any calendar product that supports the iCal format.</h3>-->
             </div>

@@ -16,10 +16,12 @@ tags:
 <!-- change visible to true if you want it on the site -->
 <!-- remove any tags listed above that are not relevant -->
 
- - **Authors**: My Name
- - **Research field**: My field of study
- - **Lesson topic**: What computing topics does this lesson cover?
- - **Lesson content URL**: <link>
+ - **Learning Objectives:**: One Line Objective
+ - **Covered Topics**: Topics Name
+ - **Video Time**: MM:SS
+ - **Transcript URL from Github**: <link>
+
+#Description
 
 Write up your lesson here! If you're unsure of markdown, feel free to cut and paste your notes verbatim, and we'll help you format them.
 
@@ -27,28 +29,12 @@ Be sure to include any data or examples you need in this same directory.
 
 If you'd like to share your lesson with the wider world, consider sending a pull request or opening an issue at Mozilla Science's collection of lessons: https://github.com/mozillascience/studyGroupLessons
 
-# Use the markdown syntax:
+# Video
 
-If you want to include code blocks, please with indent with **four
-spaces** (not a tab) like so:
-
-    Code here
-
-Or you can use three tilde's:
-
-~~~
-Code here
-~~~
+# Activity Or Assignment
+List
+Description of Activity - Ouput of Activity
 
 
-# Header 1
+# Comment Section
 
-## Header 2
-
-### Header 3
-
-**bolding** and *italizing*
-
-Inline `code`
-
-[links](url)
