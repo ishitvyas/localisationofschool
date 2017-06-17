@@ -13,7 +13,7 @@
             </div>
             <div class="col-lg-12">
               <ul class='events'>
-              <!--{% assign isEvent = 0 %}
+             {% assign isEvent = 0 %}
               {% for post in site.posts reversed %}
                 {% capture nowyear %}{{'now' | date: '%Y'}}{% endcapture %}
                 {% capture postyear %}{{post.date | date: '%Y'}}{% endcapture %}
@@ -28,18 +28,19 @@
                     <div class='eventSub'>{{ post.text }}</div>
                   </li>
                 {% endif %}
-              {% endfor %}-->
-              {% if isEvent == 0 %}
-                <a class='eventTitle' href="{{ site.github.issues_url }}">Nothing yet! Propose an event here.</a>
+              {% endfor %}
+              {% if isEvent == 1 %}
+                <a class='eventTitle' href="{{ site.github.issues_url }}">Nothing yet! Propose an event here.
+                </a>
               {% else %}
               <div class="row">
                     <div class="col-lg-12 text-center">
-                        <a href="{{ site.github.owner_url }}/CONTRIBUTING.md" class="btn btn-xl eventSuggest">How to localize video</a>
-                        <a href="{{ site.github.owner_url }}/issues" class="btn btn-xl eventSuggest">Check Current Issues</a>
+                        <a href="{{ site.github.url}}/CONTRIBUTING.md" class="btn btn-xl eventSuggest">How to localize video</a>
+                        <a href="{{site.github.url}}/issues" class="btn btn-xl eventSuggest">Check Current Issues</a>
                     </div>
               </div>
               {% endif %}
-              </ul>
+            <!---</ul>
             </div>
             {% if site.calendar_on %}
             <div class="col-lg-6">
@@ -47,19 +48,19 @@
             <div class="col-lg-12">
             {% endif %}
               <h3 class="section-heading eventInstructions">Want to be notified of our work?</h3>
-              <h3 class="section-subheading text-muted eventSubinstructions">Head over to <a href="{{ site.github.owner_url }}/issues">GitHub</a> and watch our repository, like this:</h3>
+              <h3 class="section-subheading text-muted eventSubinstructions">Head over to <a href="{{ site.github.owner_url.localisationofschool }}/issues">GitHub</a> and watch our repository, like this:</h3>
               <figure>
                 <img src="https://help.github.com/assets/images/help/notifications/watcher_picker.gif"></img>
-                <figcaption>Look in the top right-hand corner of <a href="{{ site.github.owner_url }}/issues">our repo</a>, and click 'Watching.' <br>You can undo this at any time in the same place.</figcaption>
+                <figcaption>Look in the top right-hand corner of <a href="{{ site.github.owner_url.localisationofschool }}/issues">our repo</a>, and click 'Watching.' <br>You can undo this at any time in the same place.</figcaption>
               </figure>
             </div>
             {% if site.calendar_on %}
             <div class="col-lg-6">
               <h3 class="section-heading eventInstructions">Become Volunteer to maintain website !</h3>
               <h3 class="section-subheading text-muted eventSubinstructions">We also invite you to follow <a href="https://twitter.com/joinlocalweb" target="_blank">us on twitter</a>, where we will tweet about current status. </h3>
-             <!-- <h3 class="section-subheading text-muted eventSubinstructions">If you use Google calendar, you can add our calendar by pressing the "Google Calendar" button at the bottom-right of <a href="{{ site.calendar_embed_url }}" target="_blank">this page</a>.</h3>
-              <h3 class="section-subheading text-muted eventSubinstructions">If you use another calendar app, you can copy and paste <a href="{{ site.calendar_ical_url }}">this address</a> into any calendar product that supports the iCal format.</h3>-->
+             <h3 class="section-subheading text-muted eventSubinstructions">If you use Google calendar, you can add our calendar by pressing the "Google Calendar" button at the bottom-right of <a href="{{ site.calendar_embed_url }}" target="_blank">this page</a>.</h3>
+              <h3 class="section-subheading text-muted eventSubinstructions">If you use another calendar app, you can copy and paste <a href="{{ site.calendar_ical_url }}">this address</a> into any calendar product that supports the iCal format.</h3>
             </div>
             {% endif %}
-        </div>
+        </div>-->
     </section>
