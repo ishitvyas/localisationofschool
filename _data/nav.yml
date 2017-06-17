@@ -1,0 +1,92 @@
+- title: "Python"
+  href: "/learning-resources/"
+  subcategories:
+    - subtitle: "Cartography and Mapping in Python"
+      subhref: "/lessons/Module-I/cartography/lesson/"
+    - subtitle: "Creating Packages in Python"
+      subhref: "/lessons/Module-I/packages/lesson/"
+    - subtitle: "Debugging in Python"
+      subhref: "/lessons/Module-I/debugging/lesson/"
+
+    - subtitle: "Intermediate Topics in Python"
+      subhref: "/lessons/Module-I/intermediate/lesson/"
+    - subtitle: "Intro to Pandas DataFrames"
+      subhref: "/lessons/Module-I/pandas/lesson/"
+    - subtitle: "Intro to Python"
+      subhref: "/lessons/Module-I/intro/lesson/"
+
+    - subtitle: "Introduction to Classes in Python"
+      subhref: "/lessons/Module-I/classes/lesson/"
+    - subtitle: "Introduction to Digital Devices"
+      subhref: "/lessons/Module-I/biopython/lesson/"
+    - subtitle: "Large Datasets in Python"
+      subhref: "/lessons/Module-I/large-data/lesson/"  
+
+
+- title: "R"
+  href: "/learning-resources/"
+  subcategories:
+    - subtitle: "High Performance Loops in R"
+      subhref: "/lessons/r/loops/lesson/"
+    - subtitle: "Intermediate topics in R: Strings and factors"
+      subhref: "/lessons/r/intermediate/lesson/"
+    - subtitle: "Intro to Stats "
+      subhref: "/lessons/r/statistics/lesson/"
+
+   
+    - subtitle: "Introduction to R"
+      subhref: "/lessons/Module-I/classes/lesson/"
+    - subtitle: "Introduction to ggplot2"
+      subhref: "/lessons/Module-I/classes/lesson/"
+
+   
+    - subtitle: "Making interactive plots using Shiny in R"
+      subhref: "/lessons/Module-I/classes/lesson/"
+    - subtitle: "Making packages in R using devtools"
+      subhref: "/lessons/Module-I/classes/lesson/"
+
+    
+    - subtitle: "RStudio Debugging"
+      subhref: "/lessons/r/debugging/lesson/"
+
+- title: "GIT"
+  href: "/learning-resources/"
+  subcategories:
+    - subtitle: "(Brief) Introduction to Git + GitHub"
+      subhref: "/lessons/git/intro/lesson/"
+    - subtitle: "An Intermediate Look at Git + GitHub"
+      subhref: "/lessons/git/advanced/lesson/"
+    - subtitle: "Collaborating on GitHub"
+      subhref: "/lessons/git/collaboration/lesson/"
+
+   
+    - subtitle: "Using branches in Git"
+      subhref: "/lessons/git/branches/lesson/"
+
+
+- title: "MISC"
+  href: "/learning-resources/"
+  subcategories:
+    - subtitle: "Careers Outside Academia"
+      subhref: "/lessons/misc/careers-outside-academia/lesson/"
+    - subtitle: "Code Review Overview"
+      subhref: "/lessons/misc/code-review/lesson/"
+    - subtitle: "Intro to LaTeX"
+      subhref: "/lessons/misc/latex-intro/lesson/"
+
+   
+    - subtitle: "Intro to Pandoc and Markdown"
+      subhref: "/lessons/misc/pandoc-intro/lesson/"
+    - subtitle: "Introduction to Bash"
+      subhref: "/lessons/misc/bash-intro/lesson/"
+    - subtitle: "Introduction to Databases and SQL"
+      subhref: "/lessons/misc/sql-intro/lesson/"
+    - subtitle: "Introduction to Ruby"
+      subhref: "/lessons/misc/ruby-intro/lesson/"
+
+    - subtitle: "Opening up your data"
+      subhref: "/lessons/misc/open-data-intro/lesson/"
+    - subtitle: "RESTful Web Services in Science"
+      subhref: "/lessons/misc/REST/lesson/"
+    - subtitle: "Web design with Jekyll/GitHub Pages"
+      subhref: "/lessons/misc/jekyll-ghpages/lesson/"
