@@ -903,7 +903,13 @@ figcaption{
 body {
     webkit-tap-highlight-color: #fed136;
 }
-
+.dropdownClass{
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 1700;
+    font-size: 40px;
+    color: #000;
+}
 .team-member img.img-responsive {
  max-width: 110px;
 }
