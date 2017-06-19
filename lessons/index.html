@@ -17,14 +17,14 @@ title: 'Lesson Material'
     <a href="{{ site.url }}{{ dale.url }}" class="dropdown-toggle dropdownClass" data-toggle="dropdown" data-hover="dropdown">{{ dale.title }}<i class="fa fa-angle-down"></i></a>
     <ul class="dropdown-menu">
     {% for subcategory in dale.subcategories %}
-    <li><a href="{{ site.url }}{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a></li>
+    <li><a href="{{ site.url }}/localisationofschool{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a></li>
     {% endfor %}
     </ul>
     </li>
     {% else %}
     <!— display the top level navigation for items that don’t have a submenu -->
     <li>
-    <a href="{{ site.url }}{{ dale.href }}">{{ dale.title }}</a>
+    <a href="{{ site.url }}/localisationofschool{{ dale.href }}">{{ dale.title }}</a>
     {% endif %}
     </li>
     {% endfor %}
@@ -41,7 +41,7 @@ title: 'Lesson Material'
     {% if node.title != null %}
       {% if node.visible == true %}
         {% if node.tags contains level %}
-          <li><a href="{{ site.github.url | replace:'http:','https:' }}{{ node.url }}">{{ node.title }}</a></li>
+          <li><a href="{{ site.url | replace:'http:','https:' }}/localisationofschool{{ node.url }}">{{ node.title }}</a></li>
         {% endif %}
       {% endif %}
     {% endif %}
