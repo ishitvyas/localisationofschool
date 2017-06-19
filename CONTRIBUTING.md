@@ -1,3 +1,13 @@
+---
+layout: page
+title: 'Contributing in LocalWeb'
+visible: true
+tags:
+  - python
+  - intro
+---
+
+
 ## Contributing to Localisation of School
 
 Thank you for your interest in contributing localisation of school project .:smiley_cat:
