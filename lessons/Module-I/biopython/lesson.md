@@ -11,7 +11,7 @@ tags:
  - **Topics Covered:** Application of Computer & Internet.
  - **Video Time:** 3:00
  - **Activity Time:** 10:00
- - **Transcript in English:** https://github.com/drashti4/localisationofschool/blob/gh-pages/subtitle/module-1/Intialtalk_I
+ - **Transcript in English:** [here](https://github.com/drashti4/localisationofschool/blob/gh-pages/subtitle/module-1/Intialtalk_I)
  - **Download This Video**
 
 ## Description ##
