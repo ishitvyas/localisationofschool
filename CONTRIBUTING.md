@@ -8,9 +8,7 @@ tags:
 ---
 
 
-## Contributing to Localisation of School
-
-Thank you for your interest in contributing localisation of school project .:smiley_cat:
+Thank you for your interest in contributing Local Web project .:smiley_cat:
 
 This project is about to create bridge between newbies on Internet and remote volunteers/who don’t have time to go and teach them periodically. If you want to get more information about this project, check out [README](README.md)
 
