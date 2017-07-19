@@ -45,7 +45,7 @@ allowfullscreen></iframe>
 
     **Output:** In answer They'll say they might seen in some grocerry shop, with accountant or with doctor. Explain them what are reasons they use computer.
 
-3. List down all above answer in there notebooks At the end of module we will again ask same question. For knowing How their answer changes.
+3. List down all above answer in there notebooks At the end of module we will again ask same question. For knowing How their answer changes..
 
 ## comment section ##
 

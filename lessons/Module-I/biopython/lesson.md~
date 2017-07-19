@@ -47,7 +47,5 @@ allowfullscreen></iframe>
 
 3. List down all above answer in there notebooks At the end of module we will again ask same question. For knowing How their answer changes.
 
-## Comment Section ##
-{% if page.comments == true %}
-{% include disqus.html %}
-{% endif %}
+## comment section ##
+
