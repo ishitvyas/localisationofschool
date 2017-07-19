@@ -1,0 +1,34 @@
+---
+layout: page
+title: 'Lesson Material'
+---
+
+<!-- Lesson section -->
+<p> Visit our <a href='https://www.youtube.com/channel/UCfGUFz6EG5gBfRt8-du0jaA'><strong>Youtube channel</strong></a> to view recordings of previous sessions.</p>
+<div class="container">
+<div class="row">
+
+<h2>By Language</h2>
+<div class="col-sm-8">
+<ul class="nav navbar-nav">
+ {% for dale in site.data.nav %}
+ {% if dale.subcategories != null %}
+    <li class="dropdown ">
+    <a href="{{ site.url }}{{ dale.url }}" class="dropdown-toggle dropdownClass" data-toggle="dropdown" data-hover="dropdown">{{ dale.title }}<i class="fa fa-angle-down"></i></a>
+    <ul class="dropdown-menu">
+    {% for subcategory in dale.subcategories %}
+    <li><a href="{{ site.url }}/localisationofschool{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a></li>
+    {% endfor %}
+    </ul>
+    </li>
+    {% else %}
+    <!— display the top level navigation for items that don’t have a submenu -->
+    <li>
+    <a href="{{ site.url }}/localisationofschool{{ dale.href }}">{{ dale.title }}</a>
+    {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+</div>
+</div>
