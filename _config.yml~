@@ -1,0 +1,61 @@
+#Setup ~~~
+#Follow these 2 steps to set up your site.
+
+#Step 1: give your study group a name and a short description:
+title: Local Web
+description: "This project is about creating a bridge between newbies on Internet and remote volunteers who don’t have time to go and teach them regularly. We are localizing web literacy content to create an accessible place for school kids to be educated in their local language. The organization will produce short lectures in the form of YouTube videos in localized Indian language for teachers and parents to understand as an introduction, with a vision to encourage and teach other people to contribute and localize their web literacy content. The website will also include supplementary practice exercises and tools for educators. All resources will be open source and available to users of the website. The website and its content will be provided mainly in Indian dialects, but contributors are also encouraged to localize content in their local languages like French, Spanish, Botswana.."
+
+#Step 2: press the green 'Commit Changes' button at the bottom of this page.
+
+# That's it, your website is all set up!
+# You can see it at https://YourUserName.github.io/studyGroup/
+# No need to change anything below this line.
+# To make your first event, check out the instructions at https://github.com/mozillascience/studyGroup#how-to-launch-a-new-event
+# Having trouble? Open a new issue at https://github.com/mozillascience/studyGroup/issues and we'll help you out ASAP!
+
+# Optional Configuration
+# None of these things need to be changed - but feel free!
+
+headlineSmall: "Welcome To our project!"
+headlineMain: "Let's Localize web"
+avatar: "img/logos/local-web.png"
+
+
+# Setup Google Calendar
+# Usage:
+# 1. create a new google account; set the calendar to 'public'
+# 2. change 'USER' in the example urls below to the username of the google account you made for your calendar
+# 3. set calendar_on: True.
+
+calendar_on: True
+calendar_embed_url: "https://www.google.com/calendar/embed?src=uoftcoders@gmail.com"
+calendar_ical_url: "https://www.google.com/calendar/ical/uoftcoders@gmail.com/public/basic.ics"
+
+# ===============================
+# Categories for sorting lessons.
+# ===============================
+
+languages:
+  - python
+  - r
+  - git
+  - misc
+
+levels:
+  - beginner
+  - intermediate
+  - advanced
+
+#========================================
+# No touching anything below this line :)
+#========================================
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary: fed136
+  secondary: fec503
+  secondary-dark: 333
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+future: true

@@ -910,6 +910,21 @@ body {
     font-size: 40px;
     color: #000;
 }
+
+#foo {
+
+  max-height: 500px;
+  overflow-y: hidden;
+}
+
+.bar {
+ 
+  width: 500px;
+  height: 500px;
+  float: left;
+  margin: 1em;
+}
+
 .team-member img.img-responsive {
  max-width: 110px;
 }
