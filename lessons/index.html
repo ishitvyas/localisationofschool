@@ -8,46 +8,220 @@ title: 'Lesson Material'
 <div class="container">
 <div class="row">
 
-<h2>By Language</h2>
-<div class="col-sm-8">
-<ul class="nav navbar-nav">
- {% for dale in site.data.nav %}
- {% if dale.subcategories != null %}
-    <li class="dropdown ">
-    <a href="{{ site.url }}{{ dale.url }}" class="dropdown-toggle dropdownClass" data-toggle="dropdown" data-hover="dropdown">{{ dale.title }}<i class="fa fa-angle-down"></i></a>
-    <ul class="dropdown-menu">
-    {% for subcategory in dale.subcategories %}
-    <li><a href="{{ site.url }}/localisationofschool{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a></li>
-    {% endfor %}
-    </ul>
-    </li>
-    {% else %}
-    <!— display the top level navigation for items that don’t have a submenu -->
-    <li>
-    <a href="{{ site.url }}/localisationofschool{{ dale.href }}">{{ dale.title }}</a>
-    {% endif %}
-    </li>
-    {% endfor %}
-</ul>
-</div>
-<div class="col-sm-4">
-<h2>Subtitle in English</h2>
-{% for level in site.levels %}
-<h3>{{ level | capitalize }}</h3>
 
-<ul>
-  {% assign pages_list = site.pages | sort: 'title' %}
-  {% for node in pages_list %}
-    {% if node.title != null %}
-      {% if node.visible == true %}
-        {% if node.tags contains level %}
-          <li><a href="{{ site.url | replace:'http:','https:' }}/localisationofschool{{ node.url }}">{{ node.title }}</a></li>
-        {% endif %}
-      {% endif %}
-    {% endif %}
-  {% endfor %}  <!-- node -->
-</ul>
-{% endfor %}  <!-- level -->
-</div>
+<div class="asideleft">
+                <h2>By Language</h2>
+                <!--<div class="col-md-8 panel-group" id="accordion">-->
+                <!--<div class="col-md-3 slideDiv">-->
+                <!--<aside class="aside" style="position:absolute">-->
+                <div class="col-md-10">
+                    <div class="panel-group col-md-offset-2" id="accordian">
+                        <div class="panel panel-success">
+                            <button data-toggle="collapse" data-target="#collapse1" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#" data-parent="#accordion" aria-expanded="true">English</a>
+                                </h4>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse">
+                                <div class="panel-group col-md-offset-2" id="secondAccordion">
+                                    <div class="panel panel-success">
+                                        <button data-toggle="collapse" data-target="#collapse11" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#" data-parent="#secondAccordion" aria-expanded="true">Module - 1 Introduction to Digital Devices </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse11" class="panel-collapse collapse">
+                                            <!--<div class="panel-group col-md-offset-2" id="thirdAccordion">-->
+                                            <!--<div class="panel panel-success">-->
+                                            <!--<button data-toggle="collapse" data-target="#collapse111" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>-->
+                                            <!--<div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" href="#" data-parent="#thirdAccordion" aria-expanded="true">Gujrati</a>
+                                                </h4>
+                                            </div>-->
+                                            <!--<div id="collapse111" class="panel-collapse collapse">-->
+                                            <ol class="panel-body list-group">
+                                                <li class="list-group-item"><a href="module-I/introduction/lesson/index.html">Introduction (CLICK HERE FOR DEMO)</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/packages/lesson/index.html">Input devcies</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/debugging/lesson/index.html">Output devices</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/intermediate/lesson/index.html">Intro to software & memory </a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/pandas/lesson/index.html">How to setup computer</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/intro/lesson/index.html">How to operate mobile phone [optional]</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/classes/lesson/index.html">How to operate tablet [optional]</a></li>
+                                                
+                                            </ol>
+                                            <!--</div>-->
+                                            <!--</div>-->
+                                            <!--</div>-->
+                                        </div>
+                                    
+                                        <div class="panel panel-success">
+                                        <button data-toggle="collapse" data-target="#collapse5" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse1" href="#" data-parent="#secondAccordion" aria-expanded="true">Module - 2 Introduction to Digital Devices </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse" class="panel-collapse collapse">
+                                           
+                                            <ol class="panel-body list-group">
+                                                <li class="list-group-item"><a href="Module-I/biopython/lesson/index.html">Introduction (CLICK HERE FOR DEMO)</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/packages/lesson/index.html">Input devcies</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/debugging/lesson/index.html">Output devices</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/intermediate/lesson/index.html">Intro to software & memory </a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/pandas/lesson/index.html">How to setup computer</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/intro/lesson/index.html">How to operate mobile phone [optional]</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/classes/lesson/index.html">How to operate tablet [optional]</a></li>
+                                                
+                                            </ol>
+                                           
+                                        </div>
+                                        </div>
+
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <!--</div>
+                        <div class="panel-group">-->
+                        <div class="panel panel-success">
+                            <button data-toggle="collapse" data-target="#collapse2" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#collapse2" data-parent="#accordion">Hindi</a>
+                                </h4>
+                            </div>
+                            <div id="collapse2" class="panel-collapse collapse">
+                                <div class="panel-group col-md-offset-2" id="thirdAccordion">
+                                    <div class="panel panel-success">
+                                        <button data-toggle="collapse" data-target="#collapse21" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#" data-parent="#thirdAccordion" aria-expanded="true">English</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse21" class="panel-collapse collapse">
+                                            <ul class="panel-body list-group">
+                                                <li class="list-group-item"><a href="r/loops/lesson/index.html">High Performance Loops in R</a></li>
+
+                                                <li class="list-group-item"><a href="r/intermediate/lesson/index.html">Intermediate topics in R: Strings and factors</a></li>
+
+                                                <li class="list-group-item"><a href="r/statistics/lesson/index.html">Intro to Stats </a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/classes/lesson/index.html">Introduction to R</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/classes/lesson/index.html">Introduction to ggplot2</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/classes/lesson/index.html">Making interactive plots using Shiny in R</a></li>
+
+                                                <li class="list-group-item"><a href="Module-I/classes/lesson/index.html">Making packages in R using devtools</a></li>
+
+                                                <li class="list-group-item"><a href="r/debugging/lesson/index.html">RStudio Debugging</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div><br />
+                        <!--</div>
+                        <div class="panel-group">-->
+                        <div class="panel panel-success">
+                            <button data-toggle="collapse" data-target="#collapse3" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#collapse3" data-parent="#accordion">Gujarati</a>
+                                </h4>
+                            </div>
+                            <div id="collapse3" class="panel-collapse collapse">
+                                <div class="panel-group col-md-offset-2" id="fourthAccordion">
+                                    <div class="panel panel-success">
+                                        <button data-toggle="collapse" data-target="#collapse31" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#" data-parent="#fourthAccordion" aria-expanded="true">English</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse31" class="panel-collapse collapse">
+                                            <ul class="panel-body">
+                                                <li class="list-group-item"><a href="git/intro/lesson/index.html">(Brief) Introduction to Git + GitHub</a></li>
+
+                                                <li class="list-group-item"><a href="git/advanced/lesson/index.html">An Intermediate Look at Git + GitHub</a></li>
+
+                                                <li class="list-group-item"><a href="git/collaboration/lesson/index.html">Collaborating on GitHub</a></li>
+
+                                                <li class="list-group-item"><a href="git/branches/lesson/index.html">Using branches in Git</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <!--</div>
+                        <div class="panel-group">-->
+                        <div class="panel panel-success">
+                            <button data-toggle="collapse" data-target="#collapse4" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#collapse4" data-parent="#accordion">MISC</a>
+                                </h4>
+                            </div>
+                            <div id="collapse4" class="panel-collapse collapse">
+                                <div class="panel-group col-md-offset-2" id="fifthAccordion">
+                                    <div class="panel panel-success">
+                                        <button data-toggle="collapse" data-target="#collapse41" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#" data-parent="#fifthAccordion" aria-expanded="true">English</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse41" class="panel-collapse collapse">
+                                            <ul class="panel-body">
+                                                <li class="list-group-item"><a href="misc/careers-outside-academia/lesson/index.html">Careers Outside Academia</a></li>
+
+                                                <li class="list-group-item"><a href="misc/code-review/lesson/index.html">Code Review Overview</a></li>
+
+                                                <li class="list-group-item"><a href="misc/latex-intro/lesson/index.html">Intro to LaTeX</a></li>
+
+                                                <li class="list-group-item"><a href="misc/pandoc-intro/lesson/index.html">Intro to Pandoc and Markdown</a></li>
+
+                                                <li class="list-group-item"><a href="misc/bash-intro/lesson/index.html">Introduction to Bash</a></li>
+
+                                                <li class="list-group-item"><a href="misc/sql-intro/lesson/index.html">Introduction to Databases and SQL</a></li>
+
+                                                <li class="list-group-item"><a href="misc/ruby-intro/lesson/index.html">Introduction to Ruby</a></li>
+
+                                                <li class="list-group-item"><a href="misc/open-data-intro/lesson/index.html">Opening up your data</a></li>
+
+                                                <li class="list-group-item"><a href="misc/REST/lesson/index.html">RESTful Web Services in Science</a></li>
+
+                                                <li class="list-group-item"><a href="misc/jekyll-ghpages/lesson/index.html">Web design with Jekyll/GitHub Pages</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 </div>
 </div>
