@@ -16,7 +16,7 @@ comment: true
 મેં મારો ફોન દેખાડયો. તેઆે ને ઝીણા અકસર વાંચવામા તકલીફ પડતી હતી. ઉપરથી ગુજરાતી ભાષામાં શિણ લીધુ હોવાથી અને ગામડા માં રહેવથી તેઓ English વિશે પરિચીત ન હતા. અેક અે કીધુ English ના આવડે અેટલે આપણે બધે પાછા પડીએ. વાત તો સાચી હતી તેમની પણ કારણ કે internet પરની મોટા ભાગના લેખ English માં હોવથી વાંચી શકતા ન હતા.
 <br>
 <br><br>
-<img src="{{site.github.repository_url}}/localisationofschool/wow-resources/gujarati/web-lit-event/images/indian-ladies-using-mobile.jpg"	height="300" width ="340" hspace="20"/>
+<img src="path:/images/indian-ladies-using-mobile.jpg"	height="300" width ="340" hspace="20"/>
 <img src="{{site.github.repository_url}}/localisationofschool/wow-resources/gujarati/web-lit-event/images/selfie.jpg" height="300" width ="330" hspace="20"/>
 <img src="{{site.github.repository_url}}/localisationofschool/wow-resources/gujarati/web-lit-event/images/society-group.jpg"	height="300" width ="330" hspace="20"/>
 
