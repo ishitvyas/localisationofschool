@@ -15,7 +15,7 @@ comment: true
 મેં મારો ફોન બતાવ્યો. તેઆેને ઝીણા અક્ષરો વાંચવામા તકલીફ પડતી હતી. ઉપરથી ગુજરાતી ભાષામાં શિક્ષણ લીધું હોવાથી અને ગામડામાં રહેવાથી તેઓ અંગ્રેજી વિશે પરિચીત ન હતા. અેક અે કીધુ અંગ્રેજી ના આવડે અેટલે આપણે બધે પાછા પડીએ. વાત તો સાચી હતી તેમની પણ, કારણ કે ઈન્ટરનેટ પરનાં મોટા ભાગના લેખ અંગ્રેજી માં હોવથી વાંચી શકતા ન હતા.
 <br>
 <br><br>
-<img src="{{site.github.repository_url}}/tree/gh-pages/wow-resources/gujarati/web-lit-event/images/indian-ladies-using-mobile.jpg"	height="300" width ="340" hspace="20"/>
+<img src="https://goo.gl/photos/Ew9eUpnZxTmVNdXz7" height="300" width ="340" hspace="20"/>
 <img src="{{site.github.repository_url}}/tree/gh-pages/wow-resources/gujarati/web-lit-event/images/selfie.jpg" height="300" width ="330" hspace="20"/>
 <img src="{{site.github.repository_url}}/tree/gh-pages/wow-resources/gujarati/web-lit-event/images/society-group.jpg"	height="300" width ="330" hspace="20"/>
 

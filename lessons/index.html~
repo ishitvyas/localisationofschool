@@ -73,9 +73,9 @@ title: 'Lesson Material'
                                         <div id="collapse" class="panel-collapse collapse">
                                            
                                             <ol class="panel-body list-group">
-                                                <li class="list-group-item"><a href="Module-I/biopython/lesson/index.html">Introduction (CLICK HERE FOR DEMO)</a></li>
+                                                <li class="list-group-item"><a href="module-I/biopython/lesson/index.html">Introduction (CLICK HERE FOR DEMO)</a></li>
 
-                                                <li class="list-group-item"><a href="Module-I/packages/lesson/index.html">Input devcies</a></li>
+                                                <li class="list-group-item"><a href="module-I/computer-def/lesson/index.html">Input devcies</a></li>
 
                                                 <li class="list-group-item"><a href="Module-I/debugging/lesson/index.html">Output devices</a></li>
 

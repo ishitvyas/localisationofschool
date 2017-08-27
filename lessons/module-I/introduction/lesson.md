@@ -3,9 +3,7 @@ layout: page
 title: 'Introduction to Digital Devices'
 visible: true
 comment: true
-tags:
-  - python
-  - intro
+
 ---
 <script id="dsq-count-scr" src="//drashti4-github-io-localisationofschool.disqus.com/count.js" async></script>
 
