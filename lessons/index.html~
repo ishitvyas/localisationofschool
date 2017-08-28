@@ -4,7 +4,7 @@ title: 'Lesson Material'
 ---
 
 <!-- Lesson section -->
-<p> Visit our <a href='https://www.youtube.com/channel/UCfGUFz6EG5gBfRt8-du0jaA'><strong>Youtube channel</strong></a> to view recordings of previous sessions.</p>
+<p> Visit our <a href='https://www.youtube.com/channel/UC6p3HvCrNva3_MXeBCLhlYQ'><strong>Youtube channel</strong></a> to view recordings of previous sessions.</p>
 <div class="container">
 <div class="row">
 
@@ -104,7 +104,7 @@ title: 'Lesson Material'
                             <button data-toggle="collapse" data-target="#collapse2" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" href="#collapse2" data-parent="#accordion">Hindi</a>
+                                    <a data-toggle="collapse" href="#collapse2" data-parent="#accordion">हिंदी</a>
                                 </h4>
                             </div>
                             <div id="collapse2" class="panel-collapse collapse">
@@ -113,7 +113,7 @@ title: 'Lesson Material'
                                         <button data-toggle="collapse" data-target="#collapse21" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#" data-parent="#thirdAccordion" aria-expanded="true">डिजिटल उपकरणों के लिए परिचय</a>
+                                                <a data-toggle="collapse" href="#" data-parent="#thirdAccordion" aria-expanded="true"> मॉड्यूल 1 - डिजिटल उपकरणों के लिए परिचय</a>
                                             </h4>
                                         </div>
                                         <div id="collapse21" class="panel-collapse collapse">
