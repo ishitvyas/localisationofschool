@@ -43,9 +43,9 @@ title: 'Lesson Material'
                                             </div>-->
                                             <!--<div id="collapse111" class="panel-collapse collapse">-->
                                             <ol class="panel-body list-group">
-                                                <li class="list-group-item"><a href="module-I/introduction/lesson/index.html">Introduction (CLICK HERE FOR DEMO)</a></li>
+                                                <li class="list-group-item"><a href="english/module-I/introduction/lesson/index.html">Introduction (CLICK HERE FOR DEMO)</a></li>
 
-                                                <li class="list-group-item"><a href="Module-I/packages/lesson/index.html">Input devcies</a></li>
+                                                <li class="list-group-item"><a href="english/module-I/computer-def/lesson/index.html">Input devcies (CLICK HERE FOR DEMO)</a></li>
 
                                                 <li class="list-group-item"><a href="Module-I/debugging/lesson/index.html">Output devices</a></li>
 
@@ -73,9 +73,9 @@ title: 'Lesson Material'
                                         <div id="collapse" class="panel-collapse collapse">
                                            
                                             <ol class="panel-body list-group">
-                                                <li class="list-group-item"><a href="module-I/biopython/lesson/index.html">Introduction (CLICK HERE FOR DEMO)</a></li>
+                                                <li class="list-group-item"><a href="module-I/english/biopython/lesson/index.html">Introduction (CLICK HERE FOR DEMO)</a></li>
 
-                                                <li class="list-group-item"><a href="module-I/computer-def/lesson/index.html">Input devcies</a></li>
+                                                <li class="list-group-item"><a href="module-I/english/computer-def/lesson/index.html">Input devcies</a></li>
 
                                                 <li class="list-group-item"><a href="Module-I/debugging/lesson/index.html">Output devices</a></li>
 
@@ -113,12 +113,12 @@ title: 'Lesson Material'
                                         <button data-toggle="collapse" data-target="#collapse21" class="pull-right glyphicon glyphicon-chevron-down" title="Toogle to Open/Close"></button>
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" href="#" data-parent="#thirdAccordion" aria-expanded="true">English</a>
+                                                <a data-toggle="collapse" href="#" data-parent="#thirdAccordion" aria-expanded="true">डिजिटल उपकरणों के लिए परिचय</a>
                                             </h4>
                                         </div>
                                         <div id="collapse21" class="panel-collapse collapse">
                                             <ul class="panel-body list-group">
-                                                <li class="list-group-item"><a href="r/loops/lesson/index.html">High Performance Loops in R</a></li>
+                                                <li class="list-group-item"><a href="module-I/hindi/introduction/lesson/index.html">परिचय</a></li>
 
                                                 <li class="list-group-item"><a href="r/intermediate/lesson/index.html">Intermediate topics in R: Strings and factors</a></li>
 
