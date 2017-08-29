@@ -5,7 +5,6 @@ visible: true
 comment: true
 
 ---
-<script id="dsq-count-scr" src="//drashti4-github-io-localisationofschool.disqus.com/count.js" async></script>
 
  - **Learning Objectives:** Basic about computer and digital devices.
  - **Topics Covered:** Application of Computer & Internet.
@@ -30,7 +29,7 @@ Both ramukaka and Rohan found that they dont need to visit railway station in ci
 
 ## Video ##
   
-<iframe width="1200" height="315" src="https://www.youtube.com/embed/wW5k1ZezDhQ"  width="1200" height="450" frameborder="0" 
+<iframe src="https://www.youtube.com/embed/wW5k1ZezDhQ"  width="1200" height="450" frameborder="0" 
 allowfullscreen></iframe>
 
 **Learning Activity**
@@ -45,5 +44,5 @@ allowfullscreen></iframe>
 
 3. List down all above answer in there notebooks At the end of module we will again ask same question. For knowing How their answer changes..
 
-## comment section ##
+
 

@@ -23,7 +23,7 @@ tags:
 
 <iframe width="1200" height="450" src="https://www.youtube.com/embed/C806xRTBUbU" frameborder="0" allowfullscreen></iframe>
 
-Activity
+**Activity**
 
 - Ask them what will be input and output for any process (e.g for preparing tea - sugar,tea and water will be input and desire o/p is tea we want to drink)
 - List any 2 activity and ask them to identify input and output

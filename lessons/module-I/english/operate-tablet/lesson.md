@@ -1,0 +1,24 @@
+---
+layout: page
+title: 'How to operate tablet'
+visible: true
+comment: true
+
+---
+
+ - **Learning Objectives:** Learn basic about tablet and it's function.
+ - **Topics Covered:** Application of Tablet
+ - **Video Time:** 3:55
+ - **Transcript in English:** [here](https://github.com/drashti4/localisationofschool/blob/gh-pages/subtitle/module-1/operating_tablet%5BOPTIONAL%5D)
+ - **Download This Video**
+
+## Description ##
+
+- Operating Tablet by use of graphical interface
+- handwriting recognized software
+- detachable keyboard
+
+## Video ##
+  
+<iframe width="1200" height="450" src="https://www.youtube.com/embed/ywfcJC9VcwM" frameborder="0" allowfullscreen></iframe>
+

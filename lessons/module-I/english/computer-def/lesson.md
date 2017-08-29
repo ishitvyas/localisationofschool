@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Input output devices
+title: 'Input devices'
 visible: true
 tags:
   - python
